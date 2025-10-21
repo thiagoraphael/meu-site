@@ -1,0 +1,728 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+
+/* ==================== VARIÁVEIS ==================== */
+:root {
+    --branco: #F8F8F8;
+    --preto: #030912;
+    --rosa: #FF007F;
+    --verde: #D8FB81;
+    --roxo: #7301FF;
+    --azul: #1B0AD4;
+}
+
+/* ==================== RESET E BASE ==================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--preto);
+    font-family: "Space Mono", monospace;
+    overflow-x: hidden;
+    max-width: 100vw;
+}
+
+/* ==================== RETÂNGULOS DE FUNDO ==================== */
+.retangulos-fundo {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    min-height: 1000px;
+    z-index: -1;
+    overflow: visible;
+}
+
+.retangulo {
+    position: absolute;
+    width: 490px;
+    height: 620px;
+}
+
+.ret-1 {
+    background-color: var(--rosa);
+    top: -100px;
+    left: -2%;
+    transform: rotate(-8deg);
+}
+
+.ret-2 {
+    background-color: var(--roxo);
+    top: 150px;
+    left: 18%;
+    width: 590px;
+    height: 420px;
+    transform: rotate(5deg);
+}
+
+.ret-3 {
+    background-color: var(--verde);
+    top: 350px;
+    left: 52%;
+    width: 390px;
+    height: 420px;
+    transform: rotate(-6deg);
+}
+
+.ret-4 {
+    background-color: var(--azul);
+    top: 700px;
+    right: 2%;
+    transform: rotate(7deg);
+}
+
+/* ==================== TEXTO ANIMADO ==================== */
+.textoEmLinha {
+    color: var(--verde);
+    white-space: nowrap;
+    overflow: visible;
+    margin-top: 10px;
+    font-size: 14px;
+}
+
+.textoEmLinha-1 {
+    animation: moverEsquerda 80s infinite alternate;
+}
+
+.textoEmLinha-2 {
+    display: flex;
+    justify-content: flex-end;
+    animation: moverDireita 80s infinite alternate;
+}
+
+@keyframes moverEsquerda {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(calc(-100% - 50vw));
+    }
+}
+
+@keyframes moverDireita {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(50vw);
+    }
+}
+
+/* ==================== MENU DE NAVEGAÇÃO ==================== */
+.menu {
+    display: flex;
+    justify-content: flex-end;
+    margin-right: 50px;
+    margin-top: 50px;
+}
+
+.menu ul {
+    display: flex;
+    flex-direction: row;
+    list-style: none;
+    gap: 1rem;
+    padding: 0;
+    margin: 0;
+    align-items: center;
+}
+
+.menu ul a {
+    text-decoration: none;
+    height: 35px;
+}
+
+.texto-menu {
+    background-color: var(--roxo);
+    color: var(--branco);
+    padding: 0.75rem 1.5rem;
+    border-radius: 9999px;
+    transition: all 0.3s ease;
+}
+
+.texto-menu:hover {
+    background-color: var(--verde);
+    color: var(--preto);
+}
+
+#img-menu a {
+    background-color: var(--roxo);
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+}
+
+#img-menu a:hover {
+    background-color: var(--verde);
+}
+
+#img-menu img {
+    width: 28px;
+    height: 28px;
+    filter: invert(85%) sepia(46%) saturate(411%) hue-rotate(24deg) brightness(104%) contrast(97%);
+}
+
+/* ==================== SEÇÃO TOPO/HERO ==================== */
+.topo {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    justify-content: space-around;
+    margin: 50px;
+    color: var(--branco);
+}
+
+.nome-miniSobre {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 100px;
+    gap: 50px;
+}
+
+.nome {
+    font-size: 150pt;
+    font-weight: 700;
+    font-style: italic;
+    line-height: 0.9;
+}
+
+.miniSobre {
+    font-size: 12pt;
+    line-height: 1.4;
+    text-align: right;
+    max-width: 400px;
+}
+
+.funcao {
+    font-size: 20pt;
+    font-weight: 700;
+    font-style: italic;
+    line-height: 1;
+}
+
+/* ==================== SEÇÃO PROJETOS ==================== */
+.SecaoProjetos {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    margin: 50px;
+}
+
+.titulo-secao {
+    font-size: 30pt;
+    font-weight: 900;
+    font-style: italic;
+    color: var(--verde);
+    background-color: var(--azul);
+    text-align: center;
+    padding: 10px 40px;
+    align-self: center;
+    margin-bottom: 50px;
+}
+
+/* Botão primário */
+.btn-primario {
+    background: linear-gradient(45deg, var(--verde), var(--rosa));
+    background-size: 200% 200%;
+    color: var(--preto);
+    border: 0;
+    height: 30px;
+    width: 200px;
+    align-self: flex-end;
+    transition: background-position 0.5s ease, width 0.3s ease;
+    cursor: pointer;
+    font-family: "Space Mono", monospace;
+}
+
+.btn-primario:hover {
+    background-position: 100% 100%;
+    width: 250px;
+}
+
+/* Cards de projetos */
+.cardsProjetos {
+    margin-bottom: 30px;
+}
+
+.cardMaior {
+    background-color: var(--roxo);
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 500px;
+    margin-bottom: 30px;
+}
+
+.tags {
+    display: flex;
+    flex-direction: row;
+    color: var(--preto);
+    gap: 15px;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+}
+
+.tag {
+    font-size: 10pt;
+    border: 2px solid var(--preto);
+    border-radius: 20px;
+    padding: 5px 20px;
+    text-align: center;
+}
+
+.cardMaior .img-projeto {
+    max-height: 300px;
+    width: auto;
+    align-self: flex-end;
+    margin: 20px 0;
+    object-fit: contain;
+}
+
+.infoCard {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-end;
+    gap: 30px;
+    margin-top: 20px;
+}
+
+.tituloCard {
+    color: var(--verde);
+    font-size: 32pt;
+    font-style: italic;
+    line-height: 1;
+}
+
+.infoCard p {
+    font-size: 12pt;
+    line-height: 1.4;
+    text-align: right;
+    color: var(--branco);
+    max-width: 500px;
+}
+
+/* Cards menores */
+.cardMenor {
+    display: flex;
+    align-items: stretch;
+    justify-content: space-between;
+    gap: 30px;
+    margin-bottom: 30px;
+}
+
+.cardMenorEsq,
+.cardMenorDir {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 30px;
+    min-height: 400px;
+}
+
+.cardMenorEsq .img-projeto,
+.cardMenorDir .img-projeto {
+    width: 60%;
+    height: auto;
+    margin: 20px 0;
+    object-fit: contain;
+    align-self: center;
+}
+
+.cardMenorEsq .tituloCard,
+.cardMenorDir .tituloCard {
+    font-size: 24pt;
+    line-height: 1.2;
+    color: var(--preto);
+    font-style: italic;
+}
+
+.cardMenorEsq {
+    background-color: var(--verde);
+}
+
+.cardMenorDir {
+    background-color: var(--rosa);
+}
+
+/* ==================== SEÇÃO BLOG ==================== */
+.SecaoBlog {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    margin: 50px;
+}
+
+.cardsBlog {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    gap: 30px;
+    margin-bottom: 30px;
+}
+
+.card {
+    background-color: var(--rosa);
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.tituloPost {
+    color: var(--verde);
+    font-style: italic;
+    font-size: 24pt;
+    line-height: 1.2;
+}
+
+.descricaoPost {
+    color: var(--branco);
+    font-size: 12pt;
+    line-height: 1.4;
+    flex-grow: 1;
+}
+
+.tagsBlog {
+    display: flex;
+    flex-direction: row;
+    gap: 15px;
+    margin: 10px 0;
+    flex-wrap: wrap;
+}
+
+.tagBlog {
+    font-size: 10pt;
+    background-color: var(--verde);
+    color: var(--preto);
+    border-radius: 20px;
+    padding: 5px 20px;
+    text-align: center;
+}
+
+.botaoCard {
+    background-color: var(--azul);
+    color: var(--branco);
+    border: 0;
+    height: 40px;
+    padding: 0 30px;
+    width: fit-content;
+    cursor: pointer;
+    font-weight: 700;
+    font-family: "Space Mono", monospace;
+    transition: all 0.3s ease;
+}
+
+.botaoCard:hover {
+    background-color: var(--roxo);
+    transform: translateX(5px);
+}
+
+/* ==================== SEÇÃO SOBRE ==================== */
+.SecaoSobre {
+    margin: 100px 50px;
+}
+
+.olaImagem {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.olaImagem img {
+    max-width: 100%;
+    height: auto;
+}
+
+.minhasInfos {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    align-items: flex-end;
+    gap: 50px;
+}
+
+.sobreTexto h2 {
+    color: var(--azul);
+    font-size: 32pt;
+    font-style: italic;
+    margin-bottom: 20px;
+}
+
+.miniSobre2 {
+    color: var(--branco);
+    text-align: left;
+    font-size: 12pt;
+    line-height: 1.4;
+    max-width: 600px;
+}
+
+/* ==================== RODAPÉ ==================== */
+footer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: var(--azul);
+    padding: 50px;
+    gap: 30px;
+}
+
+footer img {
+    max-height: 400px;
+    width: auto;
+}
+
+.footerInfo {
+    text-align: center;
+}
+
+.textoRodape {
+    color: var(--branco);
+    font-size: 10pt;
+}
+
+/* ==================== RESPONSIVIDADE ==================== */
+
+/* Tablet */
+@media (max-width: 1024px) {
+    .retangulo {
+        width: 300px;
+        height: 400px;
+    }
+
+    .ret-2 {
+        width: 350px;
+        height: 280px;
+    }
+
+    .ret-3 {
+        width: 250px;
+        height: 280px;
+    }
+
+    .nome {
+        font-size: 100pt;
+    }
+
+    .miniSobre {
+        font-size: 10pt;
+        max-width: 300px;
+    }
+
+    .tituloCard {
+        font-size: 24pt;
+    }
+
+    .infoCard {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .infoCard p {
+        text-align: left;
+    }
+
+    .cardsBlog {
+        grid-template-columns: 1fr;
+    }
+
+    .minhasInfos {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+    .retangulos-fundo {
+        display: none;
+    }
+
+    .textoEmLinha {
+        font-size: 10px;
+    }
+
+    .menu {
+        margin-right: 20px;
+        margin-top: 20px;
+    }
+
+    .menu ul {
+        flex-wrap: wrap;
+        gap: 0.5rem;
+        justify-content: flex-end;
+    }
+
+    .texto-menu {
+        padding: 0.5rem 1rem;
+        font-size: 10pt;
+    }
+
+    #img-menu a {
+        width: 40px;
+        height: 40px;
+    }
+
+    #img-menu img {
+        width: 20px;
+        height: 20px;
+    }
+
+    .topo {
+        margin: 20px;
+        max-width: 100%;
+    }
+
+    .nome-miniSobre {
+        flex-direction: column;
+        margin-bottom: 50px;
+        gap: 30px;
+        max-width: 100%;
+    }
+
+    .nome {
+        font-size: 60pt;
+        line-height: 0.9;
+    }
+
+    .miniSobre {
+        font-size: 10pt;
+        text-align: left;
+        max-width: 100%;
+    }
+
+    .funcao {
+        font-size: 16pt;
+    }
+
+    .SecaoProjetos,
+    .SecaoBlog,
+    .SecaoSobre {
+        margin: 30px 20px;
+        max-width: calc(100vw - 40px);
+    }
+
+    .titulo-secao {
+        font-size: 24pt;
+        padding: 8px 30px;
+        margin-bottom: 30px;
+    }
+
+    .cardMaior {
+        padding: 20px;
+        min-height: auto;
+    }
+
+    .cardMaior .img-projeto {
+        max-height: 200px;
+        align-self: center;
+    }
+
+    .tituloCard {
+        font-size: 20pt;
+    }
+
+    .infoCard {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 15px;
+    }
+
+    .infoCard p {
+        text-align: left;
+        font-size: 10pt;
+    }
+
+    .cardMenor {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .cardMenorEsq .img-projeto,
+    .cardMenorDir .img-projeto {
+        width: 80%;
+    }
+
+    .cardsBlog {
+        grid-template-columns: 1fr;
+        min-width: 0;
+    }
+
+    .card {
+        padding: 20px;
+    }
+
+    .tituloPost {
+        font-size: 18pt;
+    }
+
+    .descricaoPost {
+        font-size: 10pt;
+    }
+
+    .btn-primario {
+        width: 100%;
+        align-self: stretch;
+    }
+
+    .btn-primario:hover {
+        width: 100%;
+    }
+
+    .minhasInfos {
+        flex-direction: column;
+        gap: 30px;
+        margin: 50px 20px;
+    }
+
+    .sobreTexto h2 {
+        font-size: 24pt;
+    }
+
+    .miniSobre2 {
+        font-size: 10pt;
+    }
+
+    footer {
+        padding: 30px 20px;
+    }
+
+    footer img {
+        max-height: 250px;
+    }
+
+    .textoRodape {
+        font-size: 8pt;
+    }
+}
+
+/* Mobile pequeno */
+@media (max-width: 480px) {
+    .nome {
+        font-size: 48pt;
+    }
+
+    .menu ul {
+        gap: 0.3rem;
+    }
+
+    .texto-menu {
+        font-size: 8pt;
+        padding: 0.4rem 0.8rem;
+    }
+
+    .tituloCard {
+        font-size: 18pt;
+    }
+
+    .cardsBlog {
+        min-width: 0;
+    }
+}
