@@ -1,6 +1,3 @@
-@import url('https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap');
-
-/* ==================== VARIÁVEIS ==================== */
 :root {
     --branco: #F8F8F8;
     --preto: #030912;
@@ -10,7 +7,6 @@
     --azul: #1B0AD4;
 }
 
-/* ==================== RESET E BASE ==================== */
 * {
     margin: 0;
     padding: 0;
@@ -24,7 +20,6 @@ body {
     max-width: 100vw;
 }
 
-/* ==================== RETÂNGULOS DE FUNDO ==================== */
 .retangulos-fundo {
     position: absolute;
     top: 0;
@@ -73,23 +68,21 @@ body {
     transform: rotate(7deg);
 }
 
-/* ==================== TEXTO ANIMADO ==================== */
 .textoEmLinha {
     color: var(--verde);
     white-space: nowrap;
     overflow: visible;
     margin-top: 10px;
     font-size: 14px;
+    width: 100vw;
 }
 
 .textoEmLinha-1 {
-    animation: moverEsquerda 80s infinite alternate;
+    animation: moverEsquerda 40s linear infinite;
 }
 
 .textoEmLinha-2 {
-    display: flex;
-    justify-content: flex-end;
-    animation: moverDireita 80s infinite alternate;
+    animation: moverDireita 40s linear infinite;
 }
 
 @keyframes moverEsquerda {
@@ -97,20 +90,19 @@ body {
         transform: translateX(0);
     }
     100% {
-        transform: translateX(calc(-100% - 50vw));
+        transform: translateX(-50%);
     }
 }
 
 @keyframes moverDireita {
     0% {
-        transform: translateX(0);
+        transform: translateX(-50%);
     }
     100% {
-        transform: translateX(50vw);
+        transform: translateX(0);
     }
 }
 
-/* ==================== MENU DE NAVEGAÇÃO ==================== */
 .menu {
     display: flex;
     justify-content: flex-end;
@@ -158,7 +150,7 @@ body {
 }
 
 #img-menu a:hover {
-    background-color: var(--verde);
+    background-color: var(--preto);
 }
 
 #img-menu img {
@@ -167,7 +159,6 @@ body {
     filter: invert(85%) sepia(46%) saturate(411%) hue-rotate(24deg) brightness(104%) contrast(97%);
 }
 
-/* ==================== SEÇÃO TOPO/HERO ==================== */
 .topo {
     display: flex;
     flex-direction: column;
@@ -207,7 +198,6 @@ body {
     line-height: 1;
 }
 
-/* ==================== SEÇÃO PROJETOS ==================== */
 .SecaoProjetos {
     display: flex;
     flex-direction: column;
@@ -227,7 +217,6 @@ body {
     margin-bottom: 50px;
 }
 
-/* Botão primário */
 .btn-primario {
     background: linear-gradient(45deg, var(--verde), var(--rosa));
     background-size: 200% 200%;
@@ -246,7 +235,6 @@ body {
     width: 250px;
 }
 
-/* Cards de projetos */
 .cardsProjetos {
     margin-bottom: 30px;
 }
@@ -268,14 +256,16 @@ body {
     gap: 15px;
     margin-bottom: 20px;
     flex-wrap: wrap;
+    
 }
 
 .tag {
     font-size: 10pt;
     border: 2px solid var(--preto);
     border-radius: 20px;
-    padding: 5px 20px;
+    padding: 2px 20px;
     text-align: center;
+    opacity: 30%;
 }
 
 .cardMaior .img-projeto {
@@ -310,7 +300,6 @@ body {
     max-width: 500px;
 }
 
-/* Cards menores */
 .cardMenor {
     display: flex;
     align-items: stretch;
@@ -354,7 +343,6 @@ body {
     background-color: var(--rosa);
 }
 
-/* ==================== SEÇÃO BLOG ==================== */
 .SecaoBlog {
     display: flex;
     flex-direction: column;
@@ -426,7 +414,6 @@ body {
     transform: translateX(5px);
 }
 
-/* ==================== SEÇÃO SOBRE ==================== */
 .SecaoSobre {
     margin: 100px 50px;
 }
@@ -464,7 +451,48 @@ body {
     max-width: 600px;
 }
 
-/* ==================== RODAPÉ ==================== */
+.sobreCta{
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 50px;
+}
+.miniSobre3 {
+    color: var(--branco);
+    text-align: right;
+    font-size: 8pt;
+    line-height: 1.4;
+    max-width: 400px;
+    margin-bottom: 10px;
+}
+
+.links{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+
+.links ul {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+.links ul img {
+    margin-top: 30px;
+    height: 28px;
+    object-fit: contain;
+    transition: transform 0.2s ease;
+}
+
+.links ul img:hover {
+    transform: scale(1.15);
+}
+
 footer {
     display: flex;
     flex-direction: column;
@@ -488,9 +516,6 @@ footer img {
     font-size: 10pt;
 }
 
-/* ==================== RESPONSIVIDADE ==================== */
-
-/* Tablet */
 @media (max-width: 1024px) {
     .retangulo {
         width: 300px;
@@ -539,7 +564,6 @@ footer img {
     }
 }
 
-/* Mobile */
 @media (max-width: 768px) {
     .retangulos-fundo {
         display: none;
@@ -621,7 +645,7 @@ footer img {
     }
 
     .cardMaior .img-projeto {
-        max-height: 200px;
+        max-height: 150px;
         align-self: center;
     }
 
@@ -659,6 +683,12 @@ footer img {
         padding: 20px;
     }
 
+    .tag {
+        font-size: 10pt;
+        padding: 2px 10px;
+        border: 1px solid var(--preto);
+    }
+
     .tituloPost {
         font-size: 18pt;
     }
@@ -690,6 +720,16 @@ footer img {
         font-size: 10pt;
     }
 
+    .miniSobre3 {
+        font-size: 10pt;
+        text-align: left;
+    }
+
+    .links{
+        justify-content: center;
+        align-items: center;
+    }
+
     footer {
         padding: 30px 20px;
     }
@@ -700,10 +740,10 @@ footer img {
 
     .textoRodape {
         font-size: 8pt;
+        margin-bottom: 50px;
     }
 }
 
-/* Mobile pequeno */
 @media (max-width: 480px) {
     .nome {
         font-size: 48pt;
