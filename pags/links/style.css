@@ -1,0 +1,193 @@
+/* PALETA DO PORTFÓLIO */
+:root {
+    --branco: #F8F8F8;
+    --preto: #030912;
+    --rosa: #FF007F;
+    --verde: #D8FB81;
+    --roxo: #7301FF;
+    --azul: #1B0AD4;
+}
+
+/* RESET */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: var(--preto);
+    color: var(--branco);
+    font-family: "Space Mono", monospace;
+    overflow-x: hidden;
+}
+
+/* ====== FORMAS DO FUNDO ====== */
+.shape {
+    position: absolute;
+    z-index: -1;
+    filter: blur(60px);
+    opacity: 0.8;
+}
+
+.shape-blue {
+    width: 45vw;
+    height: 45vw;
+    background: var(--azul);
+    top: 5vh;
+    left: -20vw;
+    transform: rotate(40deg);
+}
+
+.shape-pink {
+    width: 50vw;
+    height: 50vw;
+    background: var(--rosa);
+    bottom: -10vh;
+    right: -25vw;
+    transform: rotate(55deg);
+}
+
+/* CONTAINER */
+.container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+/* ====== MENU ====== */
+.menu {
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 60px;
+}
+
+.menu ul {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    list-style: none;
+}
+
+.menu a {
+    text-decoration: none;
+}
+
+#img-menu a {
+    background-color: var(--roxo);
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: 0.3s ease;
+}
+
+#img-menu a:hover {
+    background-color: var(--preto);
+}
+
+#img-menu img {
+    width: 26px;
+    height: 26px;
+    filter: invert(85%) sepia(46%) saturate(411%) hue-rotate(24deg)
+            brightness(104%) contrast(97%);
+}
+
+.texto-menu {
+    background-color: var(--roxo);
+    padding: 0.75rem 1.5rem;
+    border-radius: 999px;
+    color: var(--branco);
+    transition: 0.3s ease;
+}
+
+.texto-menu:hover {
+    background-color: var(--verde);
+    color: var(--preto);
+}
+
+/* ====== TÍTULO ====== */
+main h1 {
+    text-align: center;
+    font-size: 3rem;
+    margin-bottom: 3rem;
+}
+
+.highlight {
+    background: var(--verde);
+    color: var(--preto);
+    padding: 6px 12px;
+}
+
+/* ====== GRID DE LINKS ====== */
+.links-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 2.5rem;
+    margin-bottom: 80px;
+}
+
+/* ====== CARD ====== */
+.link-card {
+    background: rgba(255,255,255,0.07);
+    border: 2px solid rgba(255,255,255,0.2);
+    border-radius: 18px;
+    padding: 2rem;
+    text-align: center;
+    text-decoration: none;
+    color: var(--branco);
+    backdrop-filter: blur(12px);
+    transition: border-color 0.3s ease, background-color 0.3s ease;
+    transform-style: preserve-3d; /* necessário para o efeito 3D */
+}
+
+.link-card:hover {
+    background-color: rgba(255,255,255,0.12);
+    border-color: var(--verde);
+}
+
+/* Ícones dentro dos cards */
+.placeholder {
+    width: 100%;
+    height: 140px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.placeholder svg {
+    width: 65px;
+    height: 65px;
+    color: var(--verde);
+}
+
+/* Título dos cards */
+.link-card h2 {
+    margin-top: 1rem;
+    font-size: 1.4rem;
+    color: var(--verde);
+}
+
+/* ====== RESPONSIVO ====== */
+@media (max-width: 768px) {
+    main h1 {
+        font-size: 2.2rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .menu ul {
+        gap: 0.5rem;
+    }
+
+    .texto-menu {
+        padding: 0.5rem 1rem;
+        font-size: 0.8rem;
+    }
+
+    .links-grid {
+        gap: 1.5rem;
+    }
+}

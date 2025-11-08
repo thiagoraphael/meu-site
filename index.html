@@ -5,6 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Thiago Raphael - Desenvolvedor Front-End</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+
 </head>
 <body>
     <div class="retangulos-fundo">
@@ -35,7 +39,7 @@
                 <a href="#sobre" class="texto-menu">Sobre</a>
             </li>
             <li>
-                <a href="#" class="texto-menu">Links</a>
+                <a href="./pags/links/index.html" target="_blank" class="texto-menu">Links</a>
             </li>
         </ul>
     </nav>
@@ -56,12 +60,10 @@
     </p>
 
     <main>
-        <!-- Seção de Projetos -->
         <section class="SecaoProjetos" id="projetos">
             <h2 class="titulo-secao">Projetos</h2>
             
             <div class="cardsProjetos">
-                <!-- Card maior -->
                 <article class="cardMaior">
                     <div class="tags">
                         <span class="tag">UI/UX</span>
@@ -77,38 +79,35 @@
                     </div>
                 </article>
 
-                <!-- Cards menores -->
                 <div class="cardMenor">
-                    <article class="cardMenorEsq">
+                    <article class="cardMenorEsq" >
                         <div class="tags">
-                            <span class="tag">UI/UX</span>
-                            <span class="tag">Mobile</span>
-                            <span class="tag">React</span>
+                            <span class="tag">GDScript</span>
+                            <span class="tag">Game Dev</span>
+                            <span class="tag">Godot</span>
                         </div>
-                        <img class="img-projeto" src="./pags/posts-projetos/capaMenor.png" alt="Projeto Quero um PET">
+                        <img class="img-projeto" src="./pags/posts-projetos/capaMenor - Mary's Apocalypse.webp" alt="Projeto Quero um PET">
                         <div class="infoCard">
-                            <h3 class="tituloCard">Quero um PET</h3>
+                            <h3 class="tituloCard">Mary's Apocalypse</h3>
                         </div>
                     </article>
 
                     <article class="cardMenorDir">
                         <div class="tags">
-                            <span class="tag">UI/UX</span>
-                            <span class="tag">Mobile</span>
-                            <span class="tag">React</span>
+                            <span class="tag">JavaScript</span>
+                            <span class="tag">Game</span>
                         </div>
-                        <img class="img-projeto" src="./pags/posts-projetos/capaMenor.png" alt="Projeto Quero um PET">
+                        <img class="img-projeto" src="./pags/posts-projetos/capaMenor - Tamagochi.webp" alt="Projeto Quero um PET">
                         <div class="infoCard">
-                            <h3 class="tituloCard">Quero um PET</h3>
+                            <h3 class="tituloCard">Tamagotchi Virtual</h3>
                         </div>
                     </article>
                 </div>
             </div>
 
-            <button class="btn-primario">Veja mais projetos!</button>
+            <button class="btn-primario" onclick="window.open('https://github.com/thiagoraphael?tab=repositories', '_blank')">Veja mais projetos!</button>
         </section>
 
-        <!-- Seção de Blog -->
         <section class="SecaoBlog" id="blog">
             <h2 class="titulo-secao">Blog</h2>
             
@@ -123,27 +122,27 @@
                         <span class="tagBlog">TCC</span>
                         <span class="tagBlog">Tech</span>
                     </div>
-                    <button class="botaoCard">Leia mais</button>
+                    <button class="botaoCard" onclick="window.location.href='./pags/contrucao/construcao.html'">Leia mais</button>
                 </article>
 
                 <article class="card">
-                    <h3 class="tituloPost">Você sabe o que é IA?</h3>
+                    <h3 class="tituloPost">Da Estrutura à Vida: A Magia da Iteração em Cada Tela do Portfólio!</h3>
                     <p class="descricaoPost">
-                        Você realmente sabe o que é Inteligência Artificial (IA)? Ouve-se falar de Inteligência Artificial por toda parte, mas o que ela realmente significa? No meu TCC, antes de mergulhar no código, a primeira etapa foi revisitar a base. De forma simples, a IA é um ramo da ciência que busca, através da tecnologia, simular a inteligência humana.
-                    </p>
+                        Com a alma (moodboard) e o esqueleto (wireframes) definidos, a próxima fase foi uma das mais criativas e decisivas: vestir o projeto por completo! Em vez de me concentrar em uma única tela, apliquei um processo de exploração visual em todas as páginas do meu novo portfólio.                    </p>
                     <div class="tagsBlog">
-                        <span class="tagBlog">IA</span>
-                        <span class="tagBlog">TCC</span>
-                        <span class="tagBlog">Tech</span>
+                        <span class="tagBlog">UI/UX</span>
+                        <span class="tagBlog">Figma</span>
+                        <span class="tagBlog">Design</span>
                     </div>
-                    <button class="botaoCard">Leia mais</button>
+                    <button class="botaoCard" onclick="window.location.href='./pags/contrucao/construcao.html'">Leia mais</button>
                 </article>
             </div>
 
-            <button class="btn-primario">Veja mais posts!</button>
+            <a href="https://blog.thiagoraphael.com.br" target="_blank" class="btn-primario">
+                <button class="btn-primario" onclick="window.location.href='./pags/contrucao/construcao.html'">Veja mais posts!</button>
+            </a>
         </section>
 
-        <!-- Seção Sobre -->
         <section class="SecaoSobre" id="sobre">
             <div class="olaImagem">
                 <img src="/img/logos/SVG/ola.svg" alt="Olá">
@@ -158,7 +157,26 @@
                     </p>
                 </div>
                 <div class="sobreCta">
-                    <button class="btn-primario">Entre em contato</button>
+                    <div>
+                        <p class="miniSobre3">Com experiência profissional como Designer Gráfico na UNIPAC e projetos acadêmicos em desenvolvimento de aplicativos e Inteligência Artificial, busco uma posição de estágio em Front-End. Minha habilidade em criar identidades visuais e campanhas de marketing se une à minha capacidade técnica para desenvolver soluções digitais completas, do design à implementação, focando em usabilidade e performance.</p>
+                        <div class="links">
+                            <ul>
+                                <li>
+                                    <a href="https://github.com/thiagoraphael" target="_blank"><img src="./img/icones/github.svg" alt="icone-github"></a>
+                                </li>
+                                <li>
+                                    <a href="https://www.behance.net/thiago_raphael" target="_blank"><img src="./img/icones/behance.svg" alt="icone-behance"></a>
+                                </li>
+                                <li>
+                                    <a href="https://www.linkedin.com/in/thiagoraphaeljustiniano/" target="_blank"><img src="./img/icones/linkeding.svg" alt="icone-linkeding"></a>
+                                </li>
+                                <li>
+                                    <a href="https://x.com/thiago_rph" target="_blank"><img src="./img/icones/x.svg" alt="icone-x"></a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <button class="btn-primario" onclick="window.location.href='./pags/links/links.html'">Outras redes</button>
                 </div>
             </div>
         </section>
