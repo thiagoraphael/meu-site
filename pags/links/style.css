@@ -173,13 +173,18 @@ main h1 {
 /* ====== RESPONSIVO ====== */
 @media (max-width: 768px) {
     main h1 {
-        font-size: 2.2rem;
+        font-size: 2rem;
+    }
+    
+    .shape-blue,
+    .shape-pink {
+        display: none;
     }
 }
 
 @media (max-width: 480px) {
     .menu ul {
-        gap: 0.5rem;
+        gap: 0.1rem;
     }
 
     .texto-menu {
@@ -189,5 +194,10 @@ main h1 {
 
     .links-grid {
         gap: 1.5rem;
+    }
+    
+    .shape-blue,
+    .shape-pink {
+        display: none;
     }
 }

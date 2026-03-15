@@ -235,6 +235,10 @@ body {
     width: 250px;
 }
 
+.SecaoProjetos a{
+    text-decoration: none;   
+}
+
 .cardsProjetos {
     margin-bottom: 30px;
 }
@@ -261,11 +265,11 @@ body {
 
 .tag {
     font-size: 10pt;
-    border: 2px solid var(--preto);
+    border: 2px solid rgba(3, 9, 18, 0.4);;
     border-radius: 20px;
     padding: 2px 20px;
     text-align: center;
-    opacity: 30%;
+    font-weight: 700;
 }
 
 .cardMaior .img-projeto {
@@ -571,6 +575,10 @@ footer img {
 
     .textoEmLinha {
         font-size: 10px;
+    }
+    
+    .textoEmLinha {
+        display: none;
     }
 
     .menu {
