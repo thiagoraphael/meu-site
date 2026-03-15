@@ -3,11 +3,25 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Portfólio de Thiago Raphael — Projetos, links e informações sobre desenvolvimento front-end, design e tecnologia.">
     <title>Thiago Raphael - Desenvolvedor Front-End</title>
     <link rel="stylesheet" href="style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+    
+    <link
+      rel="icon"
+      type="image/svg+xml"
+      href="/favicon.svg"
+      media="(prefers-color-scheme: light)"
+    />
+    <link
+      rel="icon"
+      type="image/svg+xml"
+      href="/favicon-dark.svg"
+      media="(prefers-color-scheme: dark)"
+    />
 
 </head>
 <body>
@@ -26,7 +40,7 @@
         <ul>
             <li id="img-menu">
                 <a href="#" aria-label="Página inicial">
-                    <img src="/img/logos/SVG/simbolo.svg" alt="Logo">
+                    <img src="/img/logos/SVG/simbolo.svg" alt="Logo" loading="lazy" width="400" height="300">
                 </a>
             </li>
             <li>
@@ -39,7 +53,7 @@
                 <a href="#sobre" class="texto-menu">Sobre</a>
             </li>
             <li>
-                <a href="./pags/links/index.html" target="_blank" class="texto-menu">Links</a>
+                <a href="./pags/links/links.html" target="_blank" target="_blank" class="texto-menu">Links</a>
             </li>
         </ul>
     </nav>
@@ -64,44 +78,49 @@
             <h2 class="titulo-secao">Projetos</h2>
             
             <div class="cardsProjetos">
-                <article class="cardMaior">
-                    <div class="tags">
-                        <span class="tag">UI/UX</span>
-                        <span class="tag">Mobile</span>
-                        <span class="tag">React</span>
-                    </div>
-                    <img class="img-projeto" src="./pags/posts-projetos/capa.png" alt="Projeto Quero um PET">
-                    <div class="infoCard">
-                        <h3 class="tituloCard">Quero um PET</h3>
-                        <p>
-                            Aplicativo mobile desenvolvido com React Native + Expo, com foco em adoção de animais de estimação, controle de finanças, gestão de animais e experiência personalizada para ONGs
-                        </p>
-                    </div>
-                </article>
+                <a href="https://www.behance.net/gallery/239461357/Quero-Um-Pet-UIUX-Identidade-Visual" target="_blank">
+                    <article class="cardMaior">
+                        <div class="tags">
+                            <span class="tag">UI/UX</span>
+                            <span class="tag">Mobile</span>
+                            <span class="tag">React</span>
+                        </div>
+                        <img class="img-projeto" fetchpriority="high" src="/pags/posts-projetos/capa_queroumpet.webp" alt="Projeto Quero um PET" width="400" height="300">
+                        <div class="infoCard">
+                            <h3 class="tituloCard">Quero um PET</h3>
+                            <p>
+                                Aplicativo mobile desenvolvido com React Native + Expo, com foco em adoção de animais de estimação, controle de finanças, gestão de animais e experiência personalizada para ONGs
+                            </p>
+                        </div>
+                    </article>
+                </a>
 
                 <div class="cardMenor">
-                    <article class="cardMenorEsq" >
-                        <div class="tags">
-                            <span class="tag">GDScript</span>
-                            <span class="tag">Game Dev</span>
-                            <span class="tag">Godot</span>
-                        </div>
-                        <img class="img-projeto" src="./pags/posts-projetos/capaMenor - Mary's Apocalypse.webp" alt="Projeto Quero um PET">
-                        <div class="infoCard">
-                            <h3 class="tituloCard">Mary's Apocalypse</h3>
-                        </div>
-                    </article>
-
-                    <article class="cardMenorDir">
-                        <div class="tags">
-                            <span class="tag">JavaScript</span>
-                            <span class="tag">Game</span>
-                        </div>
-                        <img class="img-projeto" src="./pags/posts-projetos/capaMenor - Tamagochi.webp" alt="Projeto Quero um PET">
-                        <div class="infoCard">
-                            <h3 class="tituloCard">Tamagotchi Virtual</h3>
-                        </div>
-                    </article>
+                    <a href="https://github.com/thiagoraphael/SurvivorMarysApocalipse" target="_blank" width="1440" height="947">
+                        <article class="cardMenorEsq" >
+                            <div class="tags">
+                                <span class="tag">GDScript</span>
+                                <span class="tag">Game Dev</span>
+                                <span class="tag">Godot</span>
+                            </div>
+                            <img class="img-projeto" fetchpriority="high" src="./pags/posts-projetos/capaMenor - Mary's Apocalypse.webp" alt="Projeto Mary's Apocalypse" width="491" height="376">
+                            <div class="infoCard">
+                                <h3 class="tituloCard">Mary's Apocalypse</h3>
+                            </div>
+                        </article>
+                    </a>
+                    <a href="https://github.com/thiagoraphael/bichinho-virtual" target="_blank">
+                        <article class="cardMenorDir">
+                            <div class="tags">
+                                <span class="tag">JavaScript</span>
+                                <span class="tag">Game</span>
+                            </div>
+                            <img class="img-projeto" fetchpriority="high" src="./pags/posts-projetos/capaMenor - Tamagochi.webp" alt="Projeto Tamagotchi Virtual" width="491" height="376">
+                            <div class="infoCard">
+                                <h3 class="tituloCard">Tamagotchi Virtual</h3>
+                            </div>
+                        </article>
+                    </a>
                 </div>
             </div>
 
@@ -122,7 +141,7 @@
                         <span class="tagBlog">TCC</span>
                         <span class="tagBlog">Tech</span>
                     </div>
-                    <button class="botaoCard" onclick="window.location.href='./pags/contrucao/construcao.html'">Leia mais</button>
+                    <button class="botaoCard" onclick="window.location.href='https://blog.thiagoraphael.com.br/post/voce-sabe-o-que-e-ia'">Leia mais</button>
                 </article>
 
                 <article class="card">
@@ -134,7 +153,7 @@
                         <span class="tagBlog">Figma</span>
                         <span class="tagBlog">Design</span>
                     </div>
-                    <button class="botaoCard" onclick="window.location.href='./pags/contrucao/construcao.html'">Leia mais</button>
+                    <button class="botaoCard" onclick="window.location.href='https://blog.thiagoraphael.com.br/post/da-estrutura-a-vida'">Leia mais</button>
                 </article>
             </div>
 
@@ -145,7 +164,7 @@
 
         <section class="SecaoSobre" id="sobre">
             <div class="olaImagem">
-                <img src="/img/logos/SVG/ola.svg" alt="Olá">
+                <img src="/img/logos/SVG/ola.svg" alt="Olá" loading="lazy" width="1500" height="1200">
             </div>
 
             <div class="minhasInfos">
