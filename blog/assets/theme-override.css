@@ -1,0 +1,46 @@
+/* ==========================================================================
+   Theme override — alinha o blog (build Vite/React) ao novo estilo editorial
+   da home. Carregado DEPOIS do index-BtOkTWvE.css, então essas regras
+   vencem no cascade sem precisar mexer no build.
+   ========================================================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@600;800;900&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap');
+
+:root {
+    /* mapeia as variáveis antigas pra paleta nova do site */
+    --preto: #14171C;   /* era #030912 -> agora "ink" */
+    --branco: #ECEDE6;  /* era #F8F8F8 -> agora "paper" */
+    --verde: #FF4B2E;   /* era #D8FB81 -> agora "signal" (laranja) */
+    --rosa: #3B5BFE;    /* era #FF007F -> agora accent azul */
+    --roxo: #14171C;    /* era #7301FF -> agora ink (botões sólidos) */
+    --azul: #14171C;    /* era #1B0AD4 -> agora ink (fundo footer/título) */
+}
+
+body {
+    font-family: "IBM Plex Mono", monospace;
+}
+
+.titulo-pagina,
+.tituloPost {
+    font-family: "Big Shoulders Display", sans-serif;
+    font-style: normal;
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: -0.5px;
+}
+
+.descricaoPost,
+.semResultados {
+    font-family: "Inter", sans-serif;
+}
+
+.texto-menu,
+.tagBlog,
+.tagFiltro,
+.botaoPost {
+    border-radius: 0;
+}
+
+.logo img {
+    filter: none;
+}
