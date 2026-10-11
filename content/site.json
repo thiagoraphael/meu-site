@@ -1,0 +1,54 @@
+{
+  "url": "https://thiagoraphael.com.br",
+  "nome": "Thiago Raphael",
+  "assinatura": "Thiago Raphael · Dev + design",
+  "descricao": "Desenho e desenvolvo sites e interfaces, do Figma ao deploy.",
+  "email": "contato@thiagoraphael.com.br",
+  "orcamento": {
+    "label": "Pedir orçamento",
+    "href": "mailto:contato@thiagoraphael.com.br?subject=Pedido%20de%20or%C3%A7amento",
+    "todo": "Os botões \"Pedir orçamento\" abrem um e-mail. Troque o href pela página de Briefing quando ela for construída."
+  },
+  "curriculo": {
+    "label": "Currículo",
+    "href": "/curriculo.pdf",
+    "todo": "Salve o PDF do currículo em public/curriculo.pdf (o botão da página Sobre aponta pra ele)."
+  },
+  "podcast": {
+    "nome": "Ctrl+Café",
+    "descricao": "Podcast no Spotify e YouTube",
+    "href": null,
+    "todo": "Link do Ctrl+Café (Spotify ou YouTube). Sem link, o atalho some da página Links, do Obrigado e do Blog vazio."
+  },
+  "vlog": {
+    "nome": "Diário de um site",
+    "descricao": "Vlog no YouTube",
+    "href": null,
+    "todo": "Link do vlog Diário de um site no YouTube. Sem link, o atalho some da página Links."
+  },
+  "nav": [
+    { "id": "projetos", "label": "Projetos", "href": "/projetos/" },
+    { "id": "sobre", "label": "Sobre", "href": "/sobre/" },
+    { "id": "blog", "label": "Blog", "href": "/blog/" },
+    { "id": "contato", "label": "Contato", "href": "/#contato" }
+  ],
+  "social": [
+    { "id": "github", "label": "GitHub", "href": "https://github.com/thiagoraphael" },
+    { "id": "behance", "label": "Behance", "href": "https://www.behance.net/thiago_raphael" },
+    { "id": "linkedin", "label": "LinkedIn", "href": "https://www.linkedin.com/in/thiagoraphaeljustiniano/" },
+    { "id": "instagram", "label": "Instagram", "href": "https://www.instagram.com/thiagoraphael.dev/" }
+  ],
+  "marquee": ["Dev + design", "Do Figma ao deploy", "Sites e interfaces"],
+  "footer": {
+    "paginas": "Páginas",
+    "redes": "Redes",
+    "contato": "Contato",
+    "local": "Barbacena, MG",
+    "legal": "© 2026 Thiago Raphael · Feito com café em Barbacena, MG"
+  },
+  "autor": {
+    "nome": "Thiago Raphael",
+    "bio": "Dev + design em Barbacena, MG. Escrevo sobre o que aprendo construindo.",
+    "foto": "thiago-portrait"
+  }
+}
