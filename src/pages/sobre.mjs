@@ -1,6 +1,6 @@
 // Sobre (Sobre.dc.html): "OLAAA!" gigante com a foto inclinada, bio, como trabalho, habilidades e contato rosa.
 import { html, rich } from '../lib/html.mjs';
-import { Shell } from '../lib/page.mjs';
+import { Shell, breadcrumb } from '../lib/page.mjs';
 import { Retangulos } from '../components/RotatedRect.mjs';
 import { Button } from '../components/Button.mjs';
 import { SectionTitle } from '../components/SectionTitle.mjs';
@@ -53,6 +53,15 @@ export default function sobre(ctx) {
 
   return [{
     path: '/sobre/',
-    html: Shell(ctx, { current: 'sobre', meta: { title: c.titulo, description: c.descricao, path: '/sobre/', og: '/og/default.png' }, main }),
+    html: Shell(ctx, { current: 'sobre', meta: { title: c.titulo, description: c.descricao, path: '/sobre/', og: '/og/default.png', type: 'profile',
+      jsonLd: [
+        {
+          '@type': 'ProfilePage',
+          url: `${ctx.site.url}/sobre/`,
+          inLanguage: 'pt-BR',
+          mainEntity: { '@type': 'Person', '@id': `${ctx.site.url}/#thiago`, name: ctx.site.nome, url: `${ctx.site.url}/`, image: `${ctx.site.url}/assets/img/${ctx.site.autor.foto}-800.webp`, sameAs: ctx.site.social.map((s) => s.href) },
+        },
+        breadcrumb(ctx.site, [['Sobre', '/sobre/']]),
+      ] }, main }),
   }];
 }

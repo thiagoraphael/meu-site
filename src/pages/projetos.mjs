@@ -1,6 +1,6 @@
 // Projetos (Projetos.dc.html): topo com retângulos, filtros, grade de cards, estado vazio e CTA.
 import { html, rich } from '../lib/html.mjs';
-import { Shell } from '../lib/page.mjs';
+import { Shell, breadcrumb } from '../lib/page.mjs';
 import { Retangulos } from '../components/RotatedRect.mjs';
 import { Button } from '../components/Button.mjs';
 import { ProjectCard } from '../components/ProjectCard.mjs';
@@ -48,6 +48,16 @@ export default function projetos(ctx) {
 
   return [{
     path: '/projetos/',
-    html: Shell(ctx, { current: 'projetos', meta: { title: c.titulo, description: c.descricao, path: '/projetos/', og: '/og/projetos.png' }, main }),
+    html: Shell(ctx, { current: 'projetos', meta: { title: c.titulo, description: c.descricao, path: '/projetos/', og: '/og/projetos.png',
+      jsonLd: [
+        {
+          '@type': 'CollectionPage',
+          name: 'Projetos',
+          url: `${ctx.site.url}/projetos/`,
+          inLanguage: 'pt-BR',
+          mainEntity: { '@type': 'ItemList', itemListElement: ctx.projetos.map((p, i) => ({ '@type': 'ListItem', position: i + 1, url: `${ctx.site.url}/projetos/${p.slug}/`, name: p.nome })) },
+        },
+        breadcrumb(ctx.site, [['Projetos', '/projetos/']]),
+      ] }, main }),
   }];
 }

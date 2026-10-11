@@ -46,6 +46,11 @@
     "local": "Barbacena, MG",
     "legal": "© 2026 Thiago Raphael · Feito com café em Barbacena, MG"
   },
+  "analytics": {
+    "_doc": "Vercel Web Analytics e Speed Insights. Só entram no build da Vercel (VERCEL=1). Ative os dois no painel do projeto.",
+    "webAnalytics": "/_vercel/insights/script.js",
+    "speedInsights": "/_vercel/speed-insights/script.js"
+  },
   "autor": {
     "nome": "Thiago Raphael",
     "bio": "Dev + design em Barbacena, MG. Escrevo sobre o que aprendo construindo.",

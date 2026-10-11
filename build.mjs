@@ -6,7 +6,7 @@ import { existsSync } from 'node:fs';
 import { createHash } from 'node:crypto';
 import { join, dirname } from 'node:path';
 import { pathToFileURL } from 'node:url';
-import { toString } from './src/lib/html.mjs';
+import { toString, plain as plainText } from './src/lib/html.mjs';
 import { parseFrontMatter, markdownToHtml, readingMinutes } from './src/lib/markdown.mjs';
 import { retangulosCss } from './src/components/RotatedRect.mjs';
 import { hasImage } from './src/components/Picture.mjs';
@@ -105,7 +105,10 @@ await writeFile(join(OUT, assets.css), css);
 await writeFile(join(OUT, assets.js), js);
 
 // ---------- Páginas ----------
-const ctx = { site, paginas, projetos, posts, scenes, assets, todo, markdownToHtml };
+// Analytics da Vercel só no deploy (ou com FORCE_ANALYTICS=1), pra não sujar os números com testes locais.
+const analytics = process.env.VERCEL === '1' || process.env.FORCE_ANALYTICS ? site.analytics : null;
+const buildDate = new Date().toISOString().slice(0, 10);
+const ctx = { site, paginas, projetos, posts, scenes, assets, todo, markdownToHtml, analytics, buildDate };
 const pageFiles = (await list('src/pages')).filter((f) => f.endsWith('.mjs') && !f.startsWith('_')).sort();
 const rotas = [];
 for (const f of pageFiles) {
@@ -124,12 +127,40 @@ for (const f of pageFiles) {
 }
 
 // ---------- SEO ----------
-const indexaveis = rotas.filter((r) => !r.noindex && r.path.endsWith('/'));
+const indexaveis = rotas.filter((r) => !r.noindex && r.path.endsWith('/')).sort((a, b) => a.path.split('/').length - b.path.split('/').length || a.path.localeCompare(b.path));
+const abs = (p) => new URL(p, site.url).href;
+const xml = (v) => String(v).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+// Sem data própria, a página leva a data do post mais recente ou a do build.
+const ultimoPost = posts[0]?.dataIso;
 const sitemap = `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${indexaveis
-  .map((r) => `  <url><loc>${new URL(r.path, site.url).href}</loc>${r.lastmod ? `<lastmod>${r.lastmod}</lastmod>` : ''}</url>`)
+  .map((r) => `  <url><loc>${abs(r.path)}</loc><lastmod>${r.lastmod || (r.path === '/blog/' ? ultimoPost : null) || buildDate}</lastmod></url>`)
   .join('\n')}\n</urlset>\n`;
 await writeFile(join(OUT, 'sitemap.xml'), sitemap);
-await writeFile(join(OUT, 'robots.txt'), `User-agent: *\nAllow: /\n\nSitemap: ${new URL('/sitemap.xml', site.url).href}\n`);
+await writeFile(join(OUT, 'robots.txt'), `User-agent: *\nAllow: /\n\nSitemap: ${abs('/sitemap.xml')}\n`);
+
+// RSS do blog (link no <head> de todas as páginas).
+const rss = `<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+<channel>
+  <title>${xml(`Blog · ${site.nome}`)}</title>
+  <link>${abs('/blog/')}</link>
+  <atom:link href="${abs('/blog/feed.xml')}" rel="self" type="application/rss+xml"/>
+  <description>${xml(plainText(paginas.blog.descricao))}</description>
+  <language>pt-BR</language>
+  <lastBuildDate>${new Date().toUTCString()}</lastBuildDate>
+${posts.map((p) => `  <item>
+    <title>${xml(p.titulo)}</title>
+    <link>${abs(`/blog/${p.slug}/`)}</link>
+    <guid isPermaLink="true">${abs(`/blog/${p.slug}/`)}</guid>
+    <pubDate>${p.data.toUTCString()}</pubDate>
+    <description>${xml(p.resumo)}</description>
+${p.tags.map((t) => `    <category>${xml(t)}</category>`).join('\n')}
+  </item>`).join('\n')}
+</channel>
+</rss>
+`;
+await mkdir(join(OUT, 'blog'), { recursive: true });
+await writeFile(join(OUT, 'blog/feed.xml'), rss);
 
 // ---------- TODOs de conteúdo ----------
 const todoMd = `# TODOs de conteúdo\n\nGerado pelo \`node build.mjs\`. Some daqui quando o conteúdo real entrar nos arquivos de content/.\n\n${todos

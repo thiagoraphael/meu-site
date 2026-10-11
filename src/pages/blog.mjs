@@ -1,6 +1,6 @@
 // Blog (Blog.dc.html): topo, post em destaque (bloco rosa), filtros, lista e estado vazio.
 import { html, rich } from '../lib/html.mjs';
-import { Shell } from '../lib/page.mjs';
+import { Shell, breadcrumb } from '../lib/page.mjs';
 import { Retangulos } from '../components/RotatedRect.mjs';
 import { Button } from '../components/Button.mjs';
 import { BlogPostCard } from '../components/BlogPostCard.mjs';
@@ -46,6 +46,17 @@ ${destaque ? html`<section class="container" aria-label="Post em destaque">${Blo
 
   return [{
     path: '/blog/',
-    html: Shell(ctx, { current: 'blog', meta: { title: c.titulo, description: c.descricao, path: '/blog/', og: '/og/blog.png' }, main }),
+    html: Shell(ctx, { current: 'blog', meta: { title: c.titulo, description: c.descricao, path: '/blog/', og: '/og/blog.png',
+      jsonLd: [
+        {
+          '@type': 'Blog',
+          name: `Blog · ${ctx.site.nome}`,
+          url: `${ctx.site.url}/blog/`,
+          inLanguage: 'pt-BR',
+          author: { '@type': 'Person', '@id': `${ctx.site.url}/#thiago`, name: ctx.site.nome },
+          blogPost: ctx.posts.map((p) => ({ '@type': 'BlogPosting', headline: p.titulo, url: `${ctx.site.url}/blog/${p.slug}/`, datePublished: p.dataIso })),
+        },
+        breadcrumb(ctx.site, [['Blog', '/blog/']]),
+      ] }, main }),
   }];
 }

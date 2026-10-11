@@ -1,6 +1,6 @@
 // Post (Post.dc.html): cabeçalho, capa 16:9, texto em coluna de leitura, tags, compartilhar, autor e "Leia também".
 import { html, raw, toString } from '../lib/html.mjs';
-import { Shell } from '../lib/page.mjs';
+import { Shell, breadcrumb } from '../lib/page.mjs';
 import { TagList } from '../components/Tag.mjs';
 import { Picture, hasImage } from '../components/Picture.mjs';
 import { BlogPostCard } from '../components/BlogPostCard.mjs';
@@ -69,22 +69,29 @@ ${relacionados.length ? html`<section class="container stack post-related" aria-
       html: Shell(ctx, {
         current: 'blog',
         meta: {
-          title: `${p.titulo} · Blog · Thiago Raphael`,
+          title: `${p.titulo} · Thiago Raphael`,
           description: p.resumo,
           path: `/blog/${p.slug}/`,
           og: `/og/blog/${p.slug}.png`,
           type: 'article',
-          jsonLd: {
-            '@context': 'https://schema.org',
-            '@type': 'BlogPosting',
-            headline: p.titulo,
-            description: p.resumo,
-            datePublished: p.dataIso,
-            inLanguage: 'pt-BR',
-            author: { '@type': 'Person', name: site.autor.nome, url: site.url },
-            mainEntityOfPage: url,
-            image: new URL(`/og/blog/${p.slug}.png`, site.url).href,
-          },
+          article: { published: p.dataIso, section: p.categoria, tags: p.tags },
+          jsonLd: [
+            {
+              '@type': 'BlogPosting',
+              headline: p.titulo,
+              description: p.resumo,
+              datePublished: p.dataIso,
+              dateModified: p.dataIso,
+              inLanguage: 'pt-BR',
+              articleSection: p.categoria,
+              keywords: p.tags.join(', '),
+              author: { '@type': 'Person', '@id': `${site.url}/#thiago`, name: site.autor.nome, url: `${site.url}/sobre/` },
+              publisher: { '@id': `${site.url}/#thiago` },
+              mainEntityOfPage: url,
+              image: new URL(`/og/blog/${p.slug}.png`, site.url).href,
+            },
+            breadcrumb(site, [['Blog', '/blog/'], [p.titulo, `/blog/${p.slug}/`]]),
+          ],
         },
         main,
       }),

@@ -19,3 +19,13 @@ ${main}
 </main>
 ${Footer(ctx.site)}`);
 }
+
+// Trilha (BreadcrumbList) para dados estruturados. itens: [[nome, caminho], ...], sem o Início.
+export function breadcrumb(site, itens) {
+  return {
+    '@type': 'BreadcrumbList',
+    itemListElement: [['Início', '/'], ...itens].map(([name, path], i) => ({
+      '@type': 'ListItem', position: i + 1, name, item: new URL(path, site.url).href,
+    })),
+  };
+}

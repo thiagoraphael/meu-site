@@ -1,12 +1,12 @@
 // Projeto (Projeto.dc.html): topo roxo com retângulos, ficha técnica, capa, blocos, galeria e próximo projeto.
 import { html, attrs } from '../lib/html.mjs';
-import { Shell } from '../lib/page.mjs';
+import { Shell, breadcrumb } from '../lib/page.mjs';
 import { Retangulos } from '../components/RotatedRect.mjs';
 import { SectionTitle } from '../components/SectionTitle.mjs';
 import { Picture } from '../components/Picture.mjs';
 
 export default function projeto(ctx) {
-  const { paginas, scenes, projetos } = ctx;
+  const { site, paginas, scenes, projetos } = ctx;
   const c = paginas.projeto;
 
   return projetos.map((p, i) => {
@@ -55,7 +55,24 @@ ${p.galeria?.length ? html`<section class="container project-gallery" aria-label
       html: Shell(ctx, {
         current: 'projetos',
         headerTone: 'purple',
-        meta: { title: `${p.nome} · Projetos · Thiago Raphael`, description: p.resumo, path: `/projetos/${p.slug}/`, og: `/og/projetos/${p.slug}.png`, type: 'article' },
+        meta: { title: `${p.nome} · Projetos · Thiago Raphael`, description: p.resumo, path: `/projetos/${p.slug}/`, og: `/og/projetos/${p.slug}.png`, type: 'article',
+          jsonLd: [
+            {
+              '@type': 'CreativeWork',
+              name: p.nome,
+              headline: p.ogTitulo || p.nome,
+              description: p.resumo,
+              url: new URL(`/projetos/${p.slug}/`, site.url).href,
+              image: new URL(`/og/projetos/${p.slug}.png`, site.url).href,
+              dateCreated: p.ano,
+              genre: p.categoria,
+              keywords: (p.tags || []).join(', '),
+              inLanguage: 'pt-BR',
+              creator: { '@type': 'Person', '@id': `${site.url}/#thiago`, name: site.nome, url: `${site.url}/sobre/` },
+            },
+            breadcrumb(site, [['Projetos', '/projetos/'], [p.nome, `/projetos/${p.slug}/`]]),
+          ],
+        },
         main,
       }),
     };
