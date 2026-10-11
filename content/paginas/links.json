@@ -1,0 +1,13 @@
+{
+  "titulo": "Links · Thiago Raphael",
+  "descricao": "Orçamento, portfólio, podcast, vlog e redes do Thiago Raphael em um lugar só.",
+  "assinatura": "dev + design",
+  "itens": [
+    { "titulo": "Pedir orçamento", "sub": "Me conte o projeto por e-mail", "href": "@orcamento", "cor": "lima" },
+    { "titulo": "Portfólio", "sub": "thiagoraphael.com.br", "href": "/", "cor": "roxo" },
+    { "titulo": "@podcast", "sub": "@podcast", "href": "@podcast", "cor": "rosa" },
+    { "titulo": "@vlog", "sub": "@vlog", "href": "@vlog", "cor": "azul" },
+    { "titulo": "Blog", "sub": "Tech, design e dados", "href": "/blog/", "cor": "superficie" },
+    { "titulo": "Behance", "sub": "Cases completos", "href": "https://www.behance.net/thiago_raphael", "cor": "superficie" }
+  ]
+}
