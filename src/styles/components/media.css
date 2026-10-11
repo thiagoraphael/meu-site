@@ -1,0 +1,25 @@
+/* Quadro de imagem: fundo #2A2A2A, skeleton por baixo (barra lima 1,1 s), imagem por cima.
+   Sem imagem: bloco roxo com o Th lima e "Imagem em breve". */
+.media { position: relative; overflow: hidden; background: var(--surface-raised); }
+.media picture, .media img { position: absolute; inset: 0; width: 100%; height: 100%; }
+.media img { object-fit: cover; transition: transform var(--dur-slow) var(--ease-out); }
+.media__skeleton {
+  position: absolute; inset: auto var(--space-6) var(--space-6);
+  display: flex; flex-direction: column; gap: var(--space-3);
+}
+.media__loading { font: var(--weight-mono) var(--type-label) / 1 var(--font-mono); color: var(--text-muted); }
+.skeleton__bar-track { display: block; height: 6px; background: var(--action-disabled-bg); overflow: hidden; }
+.skeleton__bar { display: block; width: 40%; height: 100%; background: var(--tr-lima); animation: skeleton-run var(--dur-skeleton) var(--ease-linear) infinite; }
+/* Some depois que a imagem carrega (classe posta pelo site.js). */
+.media.is-loaded .media__skeleton { display: none; }
+@keyframes skeleton-run { from { transform: translateX(-100%); } to { transform: translateX(250%); } }
+
+.media--empty {
+  background: var(--surface-menu);
+  display: flex; flex-direction: column; justify-content: space-between; align-items: flex-start;
+  padding: var(--space-6);
+}
+.media--empty .media__mark { position: static; width: auto; height: 48px; }
+.media__note { font: var(--weight-mono) var(--type-label) / 1 var(--font-mono); color: var(--tr-lima); }
+/* Reforça a regra de tokens.css: barra do skeleton parada com movimento reduzido. */
+@media (prefers-reduced-motion: reduce) { .skeleton__bar { animation: none; } }
