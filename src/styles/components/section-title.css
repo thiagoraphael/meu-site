@@ -1,0 +1,15 @@
+/* Título de seção: número lima 15 + nome Space Mono 700 itálico 28, pela linha de base, gap 16. */
+.section-title {
+  display: flex;
+  align-items: baseline;
+  gap: var(--space-4);
+  font-family: var(--font-mono);
+  font-weight: var(--weight-mono);
+}
+.section-title__n { color: var(--text-accent); font-size: var(--type-label); }
+.section-title__h {
+  font-style: italic;
+  font-size: var(--type-section);
+  line-height: var(--leading-tight);
+  color: var(--text-on-dark);
+}
