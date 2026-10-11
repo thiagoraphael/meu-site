@@ -1,0 +1,47 @@
+/* Footer: marquee lima, linha divisória com recorte circular para o selo duo (150 px, 120 no mobile),
+   três colunas Space Mono 700 com rótulos rosa caixa-alta, logo horizontal lima em largura total, linha legal. */
+.site-footer { margin-top: var(--section-gap); }
+.site-footer__inner { position: relative; padding-top: var(--space-24); padding-bottom: var(--space-10); }
+.site-footer__inner::before {
+  content: ""; position: absolute; left: var(--grid-margin); right: var(--grid-margin); top: var(--space-16);
+  border-top: var(--border-width) solid var(--line-subtle);
+}
+.site-footer__notch {
+  position: absolute; top: var(--space-4); left: var(--grid-margin);
+  width: 136px; height: 136px; padding: var(--space-2);
+  border-radius: var(--radius-circle);
+  background: var(--bg-page);
+}
+.site-footer__notch img { width: 100%; height: 100%; }
+@media (min-width: 768px) {
+  .site-footer__notch { width: 166px; height: 166px; top: 0; }
+  .site-footer__inner::before { top: 82px; }
+}
+
+.site-footer__grid { row-gap: var(--space-10); padding-top: var(--space-24); }
+@media (min-width: 768px) { .site-footer__grid { padding-top: var(--space-12); } }
+.site-footer__col { grid-column: span 2; display: flex; flex-direction: column; gap: var(--space-4); }
+.site-footer__col--contact { grid-column: 1 / -1; }
+@media (min-width: 768px) {
+  .site-footer__col--pages { grid-column: 4 / 7; }
+  .site-footer__col--social { grid-column: 7 / 10; }
+  .site-footer__col--contact { grid-column: 10 / 13; }
+}
+.site-footer__label {
+  font-family: var(--font-mono); font-weight: var(--weight-mono);
+  font-size: var(--type-caption); line-height: var(--leading-tight);
+  letter-spacing: var(--tracking-caps); text-transform: uppercase;
+  color: var(--text-highlight);
+}
+.site-footer__col ul { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: var(--space-1); }
+.site-footer__col a, .site-footer__col span {
+  display: inline-flex; align-items: center; gap: var(--space-2);
+  min-height: 44px;
+  font-family: var(--font-mono); font-weight: var(--weight-mono); font-size: var(--type-button); line-height: var(--leading-tight);
+  color: var(--text-on-dark); text-decoration: none;
+  overflow-wrap: anywhere;
+}
+.site-footer__col a:hover { color: var(--text-highlight); }
+.site-footer__col--contact a[href^="mailto:"] { word-break: break-all; }
+.site-footer__logo { width: 100%; height: auto; margin-top: var(--space-24); }
+.site-footer__legal { margin-top: var(--space-6); color: var(--text-on-dark); }
