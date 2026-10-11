@@ -1,0 +1,75 @@
+{
+  "ordem": 3,
+  "nome": "Quero um Pet",
+  "ano": "2025",
+  "categoria": "Apps",
+  "resumo": "App de adoção que conecta ONGs a quem quer adotar.",
+  "tags": [
+    "React Native",
+    "Expo"
+  ],
+  "thumb": "thumb-quero-um-pet",
+  "intro": "Um app pra ONGs de adoção cuidarem de pets, adoções e dinheiro num lugar só, sem planilha nem caderno.",
+  "ficha": [
+    {
+      "k": "Tipo",
+      "v": "App mobile"
+    },
+    {
+      "k": "Ano",
+      "v": "2025"
+    },
+    {
+      "k": "Meu papel",
+      "v": "UI design e desenvolvimento"
+    },
+    {
+      "k": "Stack",
+      "v": "React Native, Expo, Firebase"
+    },
+    {
+      "k": "Case",
+      "v": "Behance",
+      "href": "https://www.behance.net/gallery/239461357/Quero-Um-Pet-UIUX-Identidade-Visual"
+    }
+  ],
+  "capa": {
+    "img": "thumb-quero-um-pet",
+    "alt": "Telas do app Quero um Pet"
+  },
+  "blocos": [
+    {
+      "titulo": "Desafio",
+      "lead": "ONG pequena não tem tempo pra planilha.",
+      "texto": "Cadastro de animais, adoções e caixa costumam ficar espalhados entre caderno, planilha e WhatsApp. O app junta tudo, pensado pra quem cuida dos bichos no dia a dia."
+    },
+    {
+      "titulo": "Processo",
+      "lead": "Login, pets, adoções e caixa no mesmo app.",
+      "texto": "Construí com React Native e Expo: login com e-mail ou Google via Firebase, sessão salva no aparelho, cadastro dos animais com fotos e status, adoções ligadas ao perfil do pet e um módulo financeiro com entradas, saídas e saldo calculado."
+    },
+    {
+      "titulo": "Resultado",
+      "lead": "Um app que resolve a rotina de verdade.",
+      "texto": "O projeto foi apresentado na disciplina de Desenvolvimento para Dispositivos Móveis, no curso de Ciência da Computação da UNIPAC."
+    }
+  ],
+  "galeria": [
+    {
+      "img": null,
+      "alt": "Tela de login do app",
+      "ratio": "9/16"
+    },
+    {
+      "img": null,
+      "alt": "Lista de pets cadastrados",
+      "ratio": "9/16"
+    }
+  ],
+  "todo": [
+    "Thumbnail 16:10 real: a imagem atual (tools/source/thumb-quero-um-pet.png) é o placeholder do pacote de design, escrito \"thumbnail · placeholder\"",
+    "Capa 16:9: hoje reaproveita a thumbnail placeholder",
+    "Telas do app para a galeria (dá pra exportar do case no Behance)",
+    "O currículo chama o Quero um Pet de TCC; o post do blog diz que foi da disciplina de Dispositivos Móveis. Confirme qual vale"
+  ]
+}

@@ -1,0 +1,87 @@
+{
+  "ordem": 1,
+  "nome": "Circuito Geek",
+  "ogTitulo": "Circuito Geek: notícias geek que abrem rápido no celular",
+  "ano": "2026",
+  "categoria": "Sites",
+  "resumo": "Site de notícias geek com pauta diária, leitura rápida no celular e um painel pra publicar sem enrolação.",
+  "tags": [
+    "Site de notícias",
+    "UI",
+    "Front-end"
+  ],
+  "thumb": "thumb-circuito-geek",
+  "intro": "Um site de notícias geek que precisava abrir rápido no celular e deixar a redação publicar sem depender de ninguém.",
+  "ficha": [
+    {
+      "k": "Tipo",
+      "v": "Site de notícias"
+    },
+    {
+      "k": "Ano",
+      "v": "2026"
+    },
+    {
+      "k": "Meu papel",
+      "v": "UI design, front-end e deploy"
+    },
+    {
+      "k": "Stack",
+      "v": "Figma, HTML, CSS, JavaScript"
+    },
+    {
+      "k": "No ar",
+      "v": "circuitogeekmg.com.br",
+      "href": "https://www.circuitogeekmg.com.br/"
+    }
+  ],
+  "capa": {
+    "img": null,
+    "alt": "Print principal do Circuito Geek no desktop"
+  },
+  "blocos": [
+    {
+      "titulo": "Desafio",
+      "lead": "Notícia boa é notícia que abre rápido.",
+      "texto": "A maior parte da audiência chega pelo celular, vinda de rede social. O site precisava carregar em poucos segundos, ser fácil de ler e permitir que a redação publicasse sozinha."
+    },
+    {
+      "titulo": "Processo",
+      "lead": "Do rascunho no Figma ao site no ar.",
+      "texto": "Comecei pela página de notícia, que é onde as pessoas passam mais tempo. Depois vieram a home, as categorias e o painel. Cada tela foi desenhada e codada em sequência, sem retrabalho entre layout e código."
+    },
+    {
+      "titulo": "Resultado",
+      "lead": "Leitura limpa e publicação sem atrito.",
+      "texto": "Páginas leves, tipografia pensada para leitura longa e um fluxo de publicação curto."
+    }
+  ],
+  "galeria": [
+    {
+      "img": null,
+      "alt": "Tela da página de notícia",
+      "ratio": "4/3"
+    },
+    {
+      "img": null,
+      "alt": "Tela do painel de publicação",
+      "ratio": "4/3"
+    },
+    {
+      "img": null,
+      "alt": "Home no celular",
+      "ratio": "9/16"
+    },
+    {
+      "img": null,
+      "alt": "Leitura de notícia no celular",
+      "ratio": "9/16"
+    }
+  ],
+  "todo": [
+    "Thumbnail 16:10 real: a imagem atual (tools/source/thumb-circuito-geek.png) é o placeholder do pacote de design, escrito \"thumbnail · placeholder\"",
+    "Capa 16:9 (print do desktop) e as 4 telas da galeria",
+    "Números reais no bloco Resultado (tempo de carregamento, audiência, posts por semana etc.)",
+    "Confirmar a Stack: a referência diz Figma, HTML, CSS e JavaScript, mas o site no ar roda em Next.js com Sanity"
+  ]
+}
