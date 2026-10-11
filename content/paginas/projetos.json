@@ -1,0 +1,15 @@
+{
+  "titulo": "Projetos · Thiago Raphael",
+  "descricao": "Sites, apps e interfaces que desenhei e codei, do primeiro rascunho ao deploy.",
+  "rotulo": "01 · Trabalho",
+  "h1": "Projetos",
+  "lead": "Sites, apps e interfaces que desenhei e codei, do primeiro rascunho ao deploy.",
+  "filtros": ["Todos", "Sites", "Apps", "Em andamento"],
+  "vazio": {
+    "contador": "0 projetos",
+    "titulo": "Nada por aqui [[ainda.]]",
+    "texto": "Esse filtro ainda não tem trabalho publicado. Veja todos os projetos ou me conte o seu.",
+    "verTodos": "Ver todos"
+  },
+  "cta": { "titulo": "O próximo pode ser o [[seu.]]" }
+}
