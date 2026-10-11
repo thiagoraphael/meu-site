@@ -1,0 +1,150 @@
+/* Valores de layout que aparecem nas referências e não existem em tokens.css.
+   Ficam isolados aqui para não se misturarem com os tokens oficiais. */
+:root {
+  --layout-hero-min-h: 760px;            /* Site principal.dc.html, mobile */
+  --layout-page-hero-min-h: 760px;       /* Obrigado.dc.html */
+  --type-giant-404: clamp(160px, 30vw, 440px);   /* 404.dc.html */
+  --type-giant-hello: clamp(100px, 24vw, 360px); /* Sobre.dc.html, "OLAAA!" */
+  --header-h: 92px;                      /* 20 + botão Menu 52 + 20 */
+}
+@media (min-width: 768px) {
+  :root {
+    --header-h: 124px;                   /* 32 + pílula 60 + 32 (hint-size do Site Header) */
+    --layout-hero-min-h: clamp(820px, 68vw, 980px);
+    --layout-page-hero-min-h: clamp(760px, 62vw, 900px);
+  }
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; text-size-adjust: 100%; }
+html, body { margin: 0; background: var(--bg-page); }
+body {
+  color: var(--text-on-dark);
+  font-family: var(--font-body);
+  font-weight: var(--weight-body);
+  font-size: var(--type-body);
+  line-height: var(--leading-body);
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+body.is-locked { overflow: hidden; }
+img, svg, picture { display: block; max-width: 100%; }
+img { height: auto; }
+h1, h2, h3, h4, p, ul, ol, figure, blockquote, dl, dd { margin: 0; }
+ul[role="list"], ol[role="list"] { list-style: none; padding: 0; }
+button, input, select, textarea { font: inherit; color: inherit; }
+button { cursor: pointer; }
+
+a { color: var(--action-text-fg); text-underline-offset: 6px; text-decoration-thickness: var(--border-width); }
+a:hover { color: var(--action-text-hover-fg); }
+
+/* Focus: outline lima 3px com offset 3px. Sobre lima e rosa, o anel vira escuro. */
+:focus-visible {
+  outline: var(--focus-width) solid var(--focus-ring);
+  outline-offset: var(--focus-offset);
+}
+.on-light :focus-visible,
+.on-light:focus-visible { outline-color: var(--focus-ring-on-light); }
+
+::selection { background: var(--tr-lima); color: var(--tr-escuro); }
+
+.skip-link {
+  position: absolute; left: var(--space-4); top: var(--space-4); z-index: var(--z-overlay);
+  padding: var(--space-3) var(--space-4);
+  background: var(--action-primary-bg); color: var(--action-primary-fg);
+  font: var(--weight-mono) var(--type-label) / 1 var(--font-mono);
+  transform: translateY(-200%);
+}
+.skip-link:focus-visible { transform: none; outline-color: var(--focus-ring-on-light); }
+
+.visually-hidden {
+  position: absolute !important; width: 1px; height: 1px; padding: 0; margin: -1px;
+  overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0;
+}
+
+/* Container e grid: 12 colunas, máx. 1392 (inclui margem), margem 60 e gutter 30.
+   No mobile 4 colunas, margem 20 e gutter 16 (vem dos tokens). */
+.container {
+  width: 100%;
+  max-width: var(--grid-max);
+  margin-inline: auto;
+  padding-inline: var(--grid-margin);
+}
+.grid {
+  display: grid;
+  grid-template-columns: repeat(var(--grid-columns), minmax(0, 1fr));
+  column-gap: var(--grid-gutter);
+}
+.span-all { grid-column: 1 / -1; }
+.section { padding-top: var(--section-gap); }
+.stack { display: flex; flex-direction: column; align-items: flex-start; }
+
+/* Mapa de colunas da home (Design System, seção Grid). */
+.col-label, .col-main, .col-hero-text { grid-column: 1 / -1; }
+@media (min-width: 768px) {
+  .col-label { grid-column: 1 / 4; }
+  .col-main { grid-column: 4 / 13; }
+  .col-hero-text { grid-column: 7 / 12; }
+}
+
+/* Tipografia */
+.display {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-weight: var(--weight-display);
+  letter-spacing: var(--tracking-display);
+  text-wrap: balance;
+}
+.t-hero { font-size: var(--type-hero); line-height: var(--leading-display); }
+.t-page { font-size: var(--type-page); line-height: var(--leading-display); }
+.t-cta { font-size: var(--type-cta); line-height: var(--leading-cta); }
+.t-lead { font-size: var(--type-lead); line-height: var(--leading-tight); }
+.t-title-l { font-size: var(--type-title-l); line-height: var(--leading-tight); letter-spacing: 0; }
+.t-title-m { font-size: var(--type-title-m); line-height: var(--leading-title); letter-spacing: 0; }
+.t-body-l { font-size: var(--type-body-l); line-height: var(--leading-body); text-wrap: pretty; }
+.t-body { font-size: var(--type-body); line-height: var(--leading-body); text-wrap: pretty; }
+.measure { max-width: 60ch; }
+
+.label {
+  font-family: var(--font-mono);
+  font-weight: var(--weight-mono);
+  font-size: var(--type-label);
+  line-height: var(--leading-tight);
+  letter-spacing: var(--tracking-mono);
+  color: var(--text-accent);
+}
+.label--caps { text-transform: uppercase; letter-spacing: var(--tracking-caps); }
+.label--pink { color: var(--text-highlight); }
+.label--hl {
+  display: inline-block;
+  background: var(--action-primary-bg);
+  color: var(--text-on-lime);
+  padding: var(--space-3) var(--space-5);
+  font-style: italic;
+  font-size: var(--type-button);
+}
+.caption { font-family: var(--font-mono); font-size: var(--type-caption); line-height: var(--leading-caption); }
+
+/* Destaque cursivo: uma palavra por bloco, sempre normal/400. */
+.accent {
+  font-family: var(--font-accent);
+  font-style: normal;
+  font-weight: 400;
+  letter-spacing: 0;
+  line-height: var(--leading-accent);
+}
+.accent--rosa { color: var(--text-highlight); }
+.accent--lima { color: var(--text-accent); }
+
+/* Placa escura: títulos e textos que passam por cima dos retângulos. */
+.plate { background: var(--tr-escuro); }
+.plate-lines { display: flex; flex-direction: column; align-items: flex-start; }
+.plate-lines > span { background: var(--tr-escuro); padding: 0 .14em .06em .06em; }
+.plate-box { background: var(--tr-escuro); padding: var(--space-5); }
+@media (min-width: 768px) { .plate-box { padding: var(--space-8); } }
+
+/* Conteúdo acima das formas */
+.layer { position: relative; z-index: var(--z-content); }
+
+/* Topo de página: o header global fica por cima (absoluto), então o primeiro bloco reserva a altura dele. */
+.page-top { position: relative; overflow: hidden; padding-top: var(--header-h); }
