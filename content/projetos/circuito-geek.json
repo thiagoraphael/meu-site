@@ -36,8 +36,8 @@
     }
   ],
   "capa": {
-    "img": null,
-    "alt": "Print principal do Circuito Geek no desktop"
+    "img": "thumb-circuito-geek",
+    "alt": "Home do Circuito Geek com o banner do Radar Geek e a seção Bombando agora"
   },
   "blocos": [
     {
@@ -79,9 +79,9 @@
     }
   ],
   "todo": [
-    "Thumbnail 16:10 real: a imagem atual (tools/source/thumb-circuito-geek.png) é o placeholder do pacote de design, escrito \"thumbnail · placeholder\"",
-    "Capa 16:9 (print do desktop) e as 4 telas da galeria",
+    "As 4 telas da galeria (página de notícia, painel, home e leitura no celular)",
     "Números reais no bloco Resultado (tempo de carregamento, audiência, posts por semana etc.)",
-    "Confirmar a Stack: a referência diz Figma, HTML, CSS e JavaScript, mas o site no ar roda em Next.js com Sanity"
+    "Confirmar a Stack: a referência diz Figma, HTML, CSS e JavaScript, mas o site no ar roda em Next.js com Sanity",
+    "Print da home em resolução maior (o atual tem 1094 px de largura e fica um pouco mole na capa larga)"
   ]
 }

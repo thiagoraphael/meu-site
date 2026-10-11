@@ -6,8 +6,7 @@ tags: Mobile,ReactNative
 data: 2025-12-01
 categoria: Mobile
 capa: thumb-quero-um-pet
-capaAlt: Telas do app Quero um Pet
-todo: A capa reaproveita a thumbnail placeholder do projeto; troque por uma imagem do app
+capaAlt: Celular mostrando a tela inicial do app Quero um Pet
 ---
 
 Unindo tecnologia e uma causa nobre, desenvolvi o **Quero Um Pet**, um aplicativo mobile criado para otimizar a rotina de ONGs de adoção de animais.  

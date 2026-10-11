@@ -35,7 +35,7 @@
   ],
   "capa": {
     "img": "thumb-quero-um-pet",
-    "alt": "Telas do app Quero um Pet"
+    "alt": "Celular mostrando a tela inicial do Quero um Pet, com pets cadastrados, saldo da ONG e últimos adotados"
   },
   "blocos": [
     {
@@ -67,8 +67,6 @@
     }
   ],
   "todo": [
-    "Thumbnail 16:10 real: a imagem atual (tools/source/thumb-quero-um-pet.png) é o placeholder do pacote de design, escrito \"thumbnail · placeholder\"",
-    "Capa 16:9: hoje reaproveita a thumbnail placeholder",
     "Telas do app para a galeria (dá pra exportar do case no Behance)",
     "O currículo chama o Quero um Pet de TCC; o post do blog diz que foi da disciplina de Dispositivos Móveis. Confirme qual vale"
   ]

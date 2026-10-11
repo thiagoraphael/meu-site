@@ -6,19 +6,113 @@
   "framework": null,
   "trailingSlash": true,
   "redirects": [
-    { "source": "/index.html", "destination": "/", "permanent": true },
-    { "source": "/pags/links/links.html", "destination": "/links/", "permanent": true },
-    { "source": "/pags/contrucao/construcao.html", "destination": "/", "permanent": true },
-    { "source": "/pags/apps/apps.html", "destination": "/projetos/", "permanent": true },
-    { "source": "/post/:slug", "has": [{ "type": "host", "value": "blog.thiagoraphael.com.br" }], "destination": "https://thiagoraphael.com.br/blog/:slug/", "permanent": true },
-    { "source": "/:path*", "has": [{ "type": "host", "value": "blog.thiagoraphael.com.br" }], "destination": "https://thiagoraphael.com.br/blog/", "permanent": true }
+    {
+      "source": "/index.html",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/pags/links/links.html",
+      "destination": "/links/",
+      "permanent": true
+    },
+    {
+      "source": "/pags/contrucao/construcao.html",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/pags/apps/apps.html",
+      "destination": "/projetos/",
+      "permanent": true
+    },
+    {
+      "source": "/projetos/saas-veterinario/",
+      "destination": "/projetos/",
+      "permanent": true
+    },
+    {
+      "source": "/projetos/portfolio/",
+      "destination": "/projetos/",
+      "permanent": true
+    },
+    {
+      "source": "/post/:slug",
+      "has": [
+        {
+          "type": "host",
+          "value": "blog.thiagoraphael.com.br"
+        }
+      ],
+      "destination": "https://thiagoraphael.com.br/blog/:slug/",
+      "permanent": true
+    },
+    {
+      "source": "/:path*",
+      "has": [
+        {
+          "type": "host",
+          "value": "blog.thiagoraphael.com.br"
+        }
+      ],
+      "destination": "https://thiagoraphael.com.br/blog/",
+      "permanent": true
+    }
   ],
   "headers": [
-    { "source": "/assets/css/(.*)", "headers": [{ "key": "Cache-Control", "value": "public, max-age=31536000, immutable" }] },
-    { "source": "/assets/js/(.*)", "headers": [{ "key": "Cache-Control", "value": "public, max-age=31536000, immutable" }] },
-    { "source": "/assets/fonts/(.*)", "headers": [{ "key": "Cache-Control", "value": "public, max-age=31536000, immutable" }] },
-    { "source": "/assets/img/(.*)", "headers": [{ "key": "Cache-Control", "value": "public, max-age=2592000" }] },
-    { "source": "/assets/logos/(.*)", "headers": [{ "key": "Cache-Control", "value": "public, max-age=2592000" }] },
-    { "source": "/og/(.*)", "headers": [{ "key": "Cache-Control", "value": "public, max-age=86400" }] }
+    {
+      "source": "/assets/css/(.*)",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=31536000, immutable"
+        }
+      ]
+    },
+    {
+      "source": "/assets/js/(.*)",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=31536000, immutable"
+        }
+      ]
+    },
+    {
+      "source": "/assets/fonts/(.*)",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=31536000, immutable"
+        }
+      ]
+    },
+    {
+      "source": "/assets/img/(.*)",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=2592000"
+        }
+      ]
+    },
+    {
+      "source": "/assets/logos/(.*)",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=2592000"
+        }
+      ]
+    },
+    {
+      "source": "/og/(.*)",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=86400"
+        }
+      ]
+    }
   ]
 }

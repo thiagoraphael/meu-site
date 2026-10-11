@@ -148,3 +148,6 @@ a:hover { color: var(--action-text-hover-fg); }
 
 /* Topo de página: o header global fica por cima (absoluto), então o primeiro bloco reserva a altura dele. */
 .page-top { position: relative; overflow: hidden; padding-top: var(--header-h); }
+
+/* Retrato: o rosto fica no terço de cima da foto; recortes quadrados e largos centram nele. */
+.about-hello__photo img, .post__avatar img, .links-page__photo img { object-position: 50% 35%; }

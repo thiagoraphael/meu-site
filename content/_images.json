@@ -34,7 +34,7 @@
   },
   "thiago-portrait": {
     "width": 1080,
-    "height": 1080,
+    "height": 1440,
     "widths": [
       320,
       480,
@@ -44,34 +44,20 @@
     ]
   },
   "thumb-circuito-geek": {
-    "width": 1474,
-    "height": 814,
+    "width": 1094,
+    "height": 830,
     "widths": [
       320,
       480,
       640,
       800,
       1080,
-      1280,
-      1474
-    ]
-  },
-  "thumb-portfolio": {
-    "width": 1474,
-    "height": 814,
-    "widths": [
-      320,
-      480,
-      640,
-      800,
-      1080,
-      1280,
-      1474
+      1094
     ]
   },
   "thumb-quero-um-pet": {
-    "width": 1474,
-    "height": 814,
+    "width": 1440,
+    "height": 947,
     "widths": [
       320,
       480,
@@ -79,20 +65,7 @@
       800,
       1080,
       1280,
-      1474
-    ]
-  },
-  "thumb-saas-vet": {
-    "width": 1474,
-    "height": 814,
-    "widths": [
-      320,
-      480,
-      640,
-      800,
-      1080,
-      1280,
-      1474
+      1440
     ]
   }
 }

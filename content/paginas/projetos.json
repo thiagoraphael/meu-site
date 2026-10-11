@@ -4,12 +4,18 @@
   "rotulo": "01 · Trabalho",
   "h1": "Projetos",
   "lead": "Sites, apps e interfaces que desenhei e codei, do primeiro rascunho ao deploy.",
-  "filtros": ["Todos", "Sites", "Apps", "Em andamento"],
+  "filtros": [
+    "Todos",
+    "Sites",
+    "Apps"
+  ],
   "vazio": {
     "contador": "0 projetos",
     "titulo": "Nada por aqui [[ainda.]]",
     "texto": "Esse filtro ainda não tem trabalho publicado. Veja todos os projetos ou me conte o seu.",
     "verTodos": "Ver todos"
   },
-  "cta": { "titulo": "O próximo pode ser o [[seu.]]" }
+  "cta": {
+    "titulo": "O próximo pode ser o [[seu.]]"
+  }
 }
