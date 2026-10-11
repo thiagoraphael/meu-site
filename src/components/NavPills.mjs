@@ -1,9 +1,8 @@
-// Navegação em pílulas: círculo do início (Th) + pílulas roxas. Página atual em lima.
+// Navegação em pílulas roxas. Página atual em lima. O logo do header já leva ao início.
 import { html, attrs } from '../lib/html.mjs';
 
-export function NavPills(items, current, { homeLabel = 'Início' } = {}) {
+export function NavPills(items, current) {
   return html`<ul class="nav-pills" role="list">
-    <li><a class="nav-pills__home"${attrs({ href: '/', 'aria-current': current === 'home' && 'page' })}><img src="/assets/logos/${current === 'home' ? 'th-escuro' : 'th-lima'}.svg" alt="" width="30" height="29"><span class="visually-hidden">${homeLabel}</span></a></li>
     ${items.map((it) => html`<li><a class="nav-pill${current === it.id ? ' is-current' : ''}"${attrs({ href: it.href, 'aria-current': current === it.id && 'page' })}>${it.label}</a></li>`)}
   </ul>`;
 }

@@ -10,8 +10,14 @@ function check(rect, where) {
   if (!CORES[rect.cor]) throw new Error(`[${where}] cor fora da marca: ${rect.cor}`);
 }
 
+// w/h: número = px, texto = qualquer unidade ("45vw"). Posição por canto (x/y) ou por centro (cx/cy).
+const len = (v) => (typeof v === 'number' ? `${v}px` : v);
+const pos = (rect) =>
+  rect.cx !== undefined
+    ? `--x:calc(${rect.cx} - ${len(rect.w)} / 2);--y:calc(${rect.cy} - ${len(rect.h)} / 2)`
+    : `--x:${rect.x};--y:${rect.y}`;
 const vars = (rect) =>
-  `--x:${rect.x};--y:${rect.y};--w:${rect.w}px;--h:${rect.h}px;--r:var(--rect-rot-${ROTACOES[String(rect.r)]});--c:var(${CORES[rect.cor]})`;
+  `${pos(rect)};--w:${len(rect.w)};--h:${len(rect.h)};--r:var(--rect-rot-${ROTACOES[String(rect.r)]});--c:var(${CORES[rect.cor]})`;
 
 export function RotatedRect(rect, where = 'rect') {
   check(rect, where);
