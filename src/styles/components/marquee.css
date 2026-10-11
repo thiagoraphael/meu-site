@@ -1,0 +1,21 @@
+/* Marquee: Space Mono 700 caixa-alta, separador " · ", trilho anda -50% em 40 s, pausa no hover. */
+.marquee {
+  overflow: hidden;
+  white-space: nowrap;
+  font-family: var(--font-mono);
+  font-weight: var(--weight-mono);
+  font-size: var(--type-button);
+  line-height: var(--leading-tight);
+  letter-spacing: var(--tracking-marquee);
+  text-transform: uppercase;
+}
+.marquee__track { display: flex; width: max-content; animation: marquee-loop var(--dur-marquee) var(--ease-linear) infinite; }
+.marquee:hover .marquee__track { animation-play-state: paused; }
+.marquee__group { display: flex; flex: none; }
+.marquee__item, .marquee__sep { padding-inline: var(--space-3); }
+.marquee--band-lime { background: var(--tr-lima); color: var(--tr-escuro); padding-block: var(--space-4); }
+.marquee--band-pink { background: var(--tr-rosa); color: var(--tr-escuro); padding-block: var(--space-4); }
+.marquee--transparent { color: var(--tr-lima); padding-block: var(--space-4); }
+@keyframes marquee-loop { to { transform: translateX(-50%); } }
+/* Reforça a regra de tokens.css: este arquivo vem depois no bundle e redefiniria a animação. */
+@media (prefers-reduced-motion: reduce) { .marquee__track { animation: none; } }
