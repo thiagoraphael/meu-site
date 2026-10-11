@@ -1,0 +1,11 @@
+{
+  "name": "thiagoraphael.com.br",
+  "private": true,
+  "type": "module",
+  "description": "Portfólio de Thiago Raphael. HTML, CSS e JS puros gerados por um build sem dependências.",
+  "engines": { "node": ">=18" },
+  "scripts": {
+    "build": "node build.mjs",
+    "dev": "node build.mjs && npx --yes serve@14 dist"
+  }
+}

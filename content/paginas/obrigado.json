@@ -1,0 +1,13 @@
+{
+  "titulo": "Recebi! · Thiago Raphael",
+  "descricao": "Recebi sua mensagem. Respondo em até 2 dias úteis.",
+  "rotulo": "BRIEFING ENVIADO",
+  "h1": ["Recebi!", "[[valeu]]"],
+  "texto": "Leio tudo com calma e respondo em até 2 dias úteis com perguntas ou já com o orçamento. Se o e-mail não abriu, mande direto para",
+  "enquantoIsso": "Enquanto isso",
+  "atalhos": [
+    { "n": "01", "titulo": "Veja os projetos", "href": "/projetos/", "cor": "roxo" },
+    { "n": "02", "titulo": "Ouça o Ctrl+Café", "href": "@podcast", "cor": "rosa" },
+    { "n": "03", "titulo": "Siga @thiagoraphael.dev", "href": "https://www.instagram.com/thiagoraphael.dev/", "cor": "lima" }
+  ]
+}

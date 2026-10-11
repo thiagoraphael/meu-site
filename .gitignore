@@ -1,0 +1,6 @@
+dist/
+node_modules/
+tools/node_modules
+tools/.og-tmp.html
+.vercel
+.DS_Store

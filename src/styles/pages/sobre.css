@@ -1,0 +1,49 @@
+/* Sobre */
+.about-hello { position: relative; padding-bottom: 0; }
+.about-hello__word {
+  font-size: var(--type-giant-hello);
+  line-height: .9;
+  letter-spacing: -.03em;
+  text-align: center;
+  white-space: nowrap;
+  padding-top: var(--space-6);
+}
+@media (min-width: 768px) { .about-hello__word { padding-top: var(--space-16); } }
+.about-hello__photo {
+  position: absolute;
+  left: 42%;
+  top: calc(var(--header-h) + 22%);
+  width: clamp(120px, 24%, 340px);
+  transform: rotate(-7.6deg);
+}
+
+.about-bio {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 460px), 1fr));
+  gap: var(--space-10) var(--space-16);
+  align-items: start;
+  padding-top: var(--space-16);
+}
+@media (min-width: 768px) { .about-bio { padding-top: var(--space-24); } }
+.about-bio__text { gap: var(--space-5); }
+.about-bio__text .btn-row { margin-top: var(--space-2); }
+
+.about-section { gap: var(--space-10); padding-top: var(--section-gap); align-items: stretch; }
+
+.about-steps { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 240px), 1fr)); gap: var(--space-6); margin: 0; padding: 0; list-style: none; }
+.about-step { display: flex; flex-direction: column; gap: var(--space-4); min-height: 260px; padding: var(--space-8); }
+.about-step__n { font-family: var(--font-mono); font-weight: var(--weight-mono); font-size: var(--type-button); }
+.about-step--lima { background: var(--tr-lima); color: var(--text-on-lime); }
+.about-step--roxo { background: var(--tr-roxo); color: var(--text-on-purple); }
+.about-step--azul { background: var(--tr-azul); color: var(--text-on-blue); }
+.about-step--rosa { background: var(--tr-rosa); color: var(--text-on-pink); }
+
+.about-skills { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr)); gap: var(--space-10) var(--grid-gutter); }
+.about-skills__group { gap: var(--space-4); padding-top: var(--space-5); border-top: var(--border-width) solid var(--tr-claro); }
+.about-skills__title { color: var(--text-accent); }
+
+.about-contact { position: relative; overflow: hidden; margin-top: var(--section-gap); background: var(--tr-rosa); color: var(--text-on-pink); }
+.about-contact__content { gap: var(--space-7); padding-top: var(--space-16); padding-bottom: var(--space-24); }
+@media (min-width: 768px) { .about-contact__content { padding-top: var(--space-24); padding-bottom: var(--space-32); } }
+.about-contact h2 { color: var(--tr-claro); max-width: 900px; }
+main:has(> .about-contact:last-child) + .site-footer { margin-top: 0; }

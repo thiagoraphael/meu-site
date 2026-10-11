@@ -1,0 +1,15 @@
+/* Topo das páginas internas (Projetos, Blog) e listas com filtro. */
+.page-head__content { gap: var(--space-6); padding-top: var(--space-12); padding-bottom: var(--space-16); }
+@media (min-width: 768px) { .page-head__content { padding-top: var(--space-24); padding-bottom: var(--space-24); } }
+
+.projects-list, .posts-list { gap: var(--space-12); align-items: stretch; }
+
+.empty-state { gap: var(--space-5); padding-top: var(--space-14); border-top: var(--border-width) solid var(--line-subtle); }
+.empty-state[hidden] { display: none; }
+
+.page-cta { gap: var(--space-8); padding-top: var(--section-gap); }
+.page-cta h2 { max-width: 1000px; }
+
+/* Blog: espaço entre o destaque e a lista */
+.blog-list { padding-top: var(--space-24); }
+@media (min-width: 768px) { .blog-list { padding-top: var(--space-32); } }

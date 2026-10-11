@@ -1,0 +1,54 @@
+/* Button: primary (lima), contact (rosa), secondary (roxo, raio 12), text (lima sublinhado).
+   Hover inclina -2° e troca a cor; :active desce 3px. */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  min-height: 49px;
+  padding: 0 23px;
+  border: 0;
+  border-radius: var(--radius-none);
+  font-family: var(--font-mono);
+  font-weight: var(--weight-mono);
+  font-size: var(--type-button);
+  line-height: var(--leading-tight);
+  white-space: nowrap;
+  text-decoration: none;
+  transition: background-color var(--dur-fast) var(--ease-out), color var(--dur-fast) var(--ease-out), transform var(--dur-fast) var(--ease-out), text-decoration-thickness var(--dur-fast) var(--ease-out);
+}
+.btn .icon { flex: none; }
+.btn--sm { min-height: 40px; }
+.btn:active { transform: translateY(var(--press-shift)); }
+
+.btn--primary { background: var(--action-primary-bg); color: var(--action-primary-fg); }
+.btn--primary:hover { background: var(--action-primary-hover-bg); color: var(--action-primary-fg); transform: rotate(var(--hover-tilt)); }
+
+.btn--contact { background: var(--action-contact-bg); color: var(--action-contact-fg); }
+.btn--contact:hover { background: var(--action-contact-hover-bg); color: var(--action-contact-fg); transform: rotate(var(--hover-tilt)); }
+
+.btn--secondary { background: var(--action-secondary-bg); color: var(--action-secondary-fg); border-radius: var(--radius-button); }
+.btn--secondary:hover { background: var(--action-secondary-hover-bg); color: var(--action-secondary-fg); transform: rotate(var(--hover-tilt)); }
+
+.btn--text {
+  min-height: 44px;
+  padding: 0 2px;
+  background: transparent;
+  color: var(--action-text-fg);
+  text-decoration: underline;
+  text-decoration-thickness: var(--border-width);
+  text-underline-offset: 6px;
+}
+.btn--text:hover { color: var(--action-text-hover-fg); text-decoration-thickness: 4px; }
+.btn--text:active { color: var(--action-text-hover-fg); }
+
+.btn:hover:active { transform: translateY(var(--press-shift)); }
+
+.btn[disabled], .btn[aria-disabled="true"] {
+  background: var(--action-disabled-bg);
+  color: var(--action-disabled-fg);
+  transform: none;
+  cursor: not-allowed;
+}
+.btn--text[disabled] { background: transparent; text-decoration-style: dotted; }
+
+.btn-row { display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-4); }

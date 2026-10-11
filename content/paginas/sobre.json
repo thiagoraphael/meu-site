@@ -1,0 +1,24 @@
+{
+  "titulo": "Sobre · Thiago Raphael",
+  "descricao": "Sou desenvolvedor front-end e designer em Barbacena, MG. Desenho a interface no Figma e escrevo o código que vai pro ar.",
+  "ola": "OLAAA!",
+  "h1": "Eu sou o [[Thiago]]",
+  "bio": [
+    "Sou desenvolvedor front-end e designer em Barbacena, MG. Desenho a interface no Figma e escrevo o código que vai pro ar, então nada se perde entre o layout e o site.",
+    "Você tem um contato só, do primeiro rascunho ao deploy. Fora dos projetos, gravo o Ctrl+Café, um podcast curtinho sobre tech e design, e um vlog sobre o dia a dia de construir sites."
+  ],
+  "fotoAlt": "Thiago Raphael sorrindo",
+  "comoTrabalho": {
+    "n": "01",
+    "titulo": "Como eu trabalho",
+    "etapas": [
+      { "n": "01", "titulo": "Briefing", "texto": "Você me conta o que precisa. Eu pergunto o que falta.", "cor": "lima" },
+      { "n": "02", "titulo": "Design", "texto": "Telas no Figma, com uma ou duas rodadas de ajuste.", "cor": "roxo" },
+      { "n": "03", "titulo": "Código", "texto": "O mesmo layout vira site, rápido e responsivo.", "cor": "azul" },
+      { "n": "04", "titulo": "No ar", "texto": "Publico, testo e te mostro como usar.", "cor": "rosa" }
+    ]
+  },
+  "habilidades": { "n": "02", "titulo": "Habilidades" },
+  "contato": { "titulo": "Bora conversar?", "cta": "Enviar e-mail" },
+  "todo": ["Foto: o retrato atual (assets/thiago-portrait.jpg) veio do pacote de design; troque se tiver uma versão final"]
+}

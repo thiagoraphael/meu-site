@@ -1,0 +1,27 @@
+/* Obrigado */
+.thanks { min-height: var(--layout-page-hero-min-h); display: flex; flex-direction: column; }
+.thanks__content { flex: 1; justify-content: flex-end; gap: var(--space-5); padding-top: var(--space-10); padding-bottom: var(--space-16); }
+@media (min-width: 768px) { .thanks__content { padding-bottom: var(--space-24); } }
+.thanks__text { max-width: 560px; }
+
+.thanks-next { gap: var(--space-8); padding-top: var(--space-24); align-items: stretch; }
+@media (min-width: 768px) { .thanks-next { padding-top: var(--space-32); } }
+.thanks-next__grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr)); gap: var(--space-6); margin: 0; padding: 0; list-style: none; }
+.shortcut {
+  display: flex; flex-direction: column; gap: var(--space-3);
+  min-height: 220px; padding: var(--space-8);
+  text-decoration: none;
+  transition: transform var(--dur-fast) var(--ease-out), background-color var(--dur-fast) var(--ease-out);
+}
+.shortcut:hover { transform: rotate(var(--hover-tilt)); }
+.shortcut:active { transform: translateY(var(--press-shift)); }
+.shortcut .t-title-l { overflow-wrap: anywhere; }
+.shortcut__n { font-family: var(--font-mono); font-weight: var(--weight-mono); font-size: var(--type-label); }
+.shortcut__arrow { margin-top: auto; font-family: var(--font-mono); font-weight: var(--weight-mono); font-size: var(--type-button); }
+.shortcut--roxo { background: var(--tr-roxo); color: var(--text-on-purple); }
+.shortcut--roxo .shortcut__n { color: var(--tr-lima); }
+.shortcut--roxo:hover { background: var(--tr-azul); color: var(--text-on-blue); }
+.shortcut--rosa { background: var(--tr-rosa); color: var(--text-on-pink); }
+.shortcut--rosa:hover { background: var(--tr-lima); color: var(--text-on-lime); }
+.shortcut--lima { background: var(--tr-lima); color: var(--text-on-lime); }
+.shortcut--lima:hover { background: var(--tr-claro); color: var(--text-on-lime); }

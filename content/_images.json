@@ -1,0 +1,98 @@
+{
+  "post-da-estrutura-a-vida": {
+    "width": 1416,
+    "height": 612,
+    "widths": [
+      320,
+      480,
+      640,
+      800,
+      1080,
+      1280,
+      1416
+    ]
+  },
+  "post-do-moodboard-ao-esqueleto": {
+    "width": 800,
+    "height": 500,
+    "widths": [
+      320,
+      480,
+      640,
+      800
+    ]
+  },
+  "post-ia-na-detecao-de-fraturas": {
+    "width": 800,
+    "height": 384,
+    "widths": [
+      320,
+      480,
+      640,
+      800
+    ]
+  },
+  "thiago-portrait": {
+    "width": 1080,
+    "height": 1080,
+    "widths": [
+      320,
+      480,
+      640,
+      800,
+      1080
+    ]
+  },
+  "thumb-circuito-geek": {
+    "width": 1474,
+    "height": 814,
+    "widths": [
+      320,
+      480,
+      640,
+      800,
+      1080,
+      1280,
+      1474
+    ]
+  },
+  "thumb-portfolio": {
+    "width": 1474,
+    "height": 814,
+    "widths": [
+      320,
+      480,
+      640,
+      800,
+      1080,
+      1280,
+      1474
+    ]
+  },
+  "thumb-quero-um-pet": {
+    "width": 1474,
+    "height": 814,
+    "widths": [
+      320,
+      480,
+      640,
+      800,
+      1080,
+      1280,
+      1474
+    ]
+  },
+  "thumb-saas-vet": {
+    "width": 1474,
+    "height": 814,
+    "widths": [
+      320,
+      480,
+      640,
+      800,
+      1080,
+      1280,
+      1474
+    ]
+  }
+}

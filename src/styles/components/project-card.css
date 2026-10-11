@@ -1,0 +1,28 @@
+/* Card de projeto: imagem 16:10, número lima, título Kanit, descrição Hanken, tags.
+   O link do título cobre o card. Hover: título lima + imagem scale(1.04) rotate(-2deg) em 420 ms. */
+.project-card { position: relative; display: flex; flex-direction: column; gap: var(--space-5); }
+.project-card__meta { display: flex; justify-content: space-between; align-items: baseline; gap: var(--space-4); }
+.project-card__year { color: var(--text-on-dark); }
+.project-card__title { color: var(--text-on-dark); transition: color var(--dur-fast) var(--ease-out); }
+.project-card__link { color: inherit; text-decoration: none; }
+.project-card__link::after { content: ""; position: absolute; inset: 0; z-index: var(--z-content); }
+.project-card__link:focus-visible { outline: none; }
+.project-card:has(.project-card__link:focus-visible) { outline: var(--focus-width) solid var(--focus-ring); outline-offset: 4px; }
+.project-card:hover .project-card__title { color: var(--text-accent); }
+.project-card:hover .media img { transform: scale(1.04) rotate(var(--hover-tilt)); }
+.project-card:active { transform: translateY(var(--press-shift)); }
+.project-card .tag-list { position: relative; }
+
+/* Destaque (home): 9 colunas do conteúdo, imagem 1–5, texto 6–9. */
+.project-card--featured { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); column-gap: var(--grid-gutter); row-gap: var(--space-6); align-items: start; }
+.project-card--featured .project-card__media,
+.project-card--featured .project-card__body { grid-column: 1 / -1; }
+.project-card__body { display: flex; flex-direction: column; align-items: flex-start; gap: var(--space-4); }
+@media (min-width: 768px) {
+  .project-card--featured { grid-template-columns: repeat(9, minmax(0, 1fr)); }
+  .project-card--featured .project-card__media { grid-column: 1 / 6; }
+  .project-card--featured .project-card__body { grid-column: 6 / 10; }
+}
+
+.project-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 520px), 1fr)); gap: var(--space-18) var(--grid-gutter); }
+.project-grid > [hidden] { display: none; }

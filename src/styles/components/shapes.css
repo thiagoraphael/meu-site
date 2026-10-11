@@ -1,0 +1,29 @@
+/* Retângulos decorativos. Formas em z 0, conteúdo em z 1, header em z 3, menu em z 100.
+   O pai corta o que vaza (overflow hidden) e não recebe clique. */
+.shapes {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: var(--z-shapes);
+  --rect-scale: 1;
+}
+.rr {
+  position: absolute;
+  left: var(--x);
+  top: var(--y);
+  width: calc(var(--w) * var(--rect-scale));
+  height: calc(var(--h) * var(--rect-scale));
+  background: var(--c);
+  transform: rotate(var(--r));
+  transition:
+    left var(--dur-shape) var(--ease-snap),
+    top var(--dur-shape) var(--ease-snap),
+    width var(--dur-shape) var(--ease-snap),
+    height var(--dur-shape) var(--ease-snap),
+    transform var(--dur-shape) var(--ease-snap);
+}
+/* Cenas estáticas usam ~40% do tamanho no mobile; as cenas com estado têm valores próprios. */
+@media (max-width: 767px) {
+  .shapes--static { --rect-scale: .4; }
+}

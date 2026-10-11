@@ -1,0 +1,63 @@
+{
+  "_doc": "Cenas de retângulos decorativos. x/y = canto superior esquerdo em % do bloco pai; w/h em px no desktop. Rotações só da marca: -11.8, 17.8, -23.5, 56.7, 68.2. Cores: lima, roxo, rosa (azul só em mídia). Cenas sem 'mobile' encolhem para 40% abaixo de 768 px.",
+  "hero": {
+    "_doc": "Site principal.dc.html. Três estados que trocam com o scroll (inicial → meio → fim). Obrigado usa o estado fim parado.",
+    "estados": {
+      "inicial": {
+        "desktop": [
+          { "cor": "lima", "w": 520, "h": 120, "r": -11.8, "x": "-6%", "y": "74%" },
+          { "cor": "roxo", "w": 300, "h": 96, "r": 17.8, "x": "10%", "y": "64%" },
+          { "cor": "rosa", "w": 260, "h": 72, "r": -23.5, "x": "24%", "y": "86%" }
+        ],
+        "mobile": [
+          { "cor": "lima", "w": 220, "h": 60, "r": -11.8, "x": "58%", "y": "93%" },
+          { "cor": "roxo", "w": 150, "h": 48, "r": 17.8, "x": "-6%", "y": "91%" },
+          { "cor": "rosa", "w": 130, "h": 40, "r": -23.5, "x": "30%", "y": "96%" }
+        ]
+      },
+      "meio": {
+        "desktop": [
+          { "cor": "lima", "w": 460, "h": 110, "r": -23.5, "x": "-4%", "y": "84%" },
+          { "cor": "roxo", "w": 340, "h": 90, "r": -11.8, "x": "16%", "y": "72%" },
+          { "cor": "rosa", "w": 240, "h": 80, "r": 17.8, "x": "2%", "y": "64%" }
+        ],
+        "mobile": [
+          { "cor": "lima", "w": 200, "h": 56, "r": -23.5, "x": "-8%", "y": "96%" },
+          { "cor": "roxo", "w": 170, "h": 44, "r": -11.8, "x": "64%", "y": "92%" },
+          { "cor": "rosa", "w": 140, "h": 44, "r": 17.8, "x": "34%", "y": "90%" }
+        ]
+      },
+      "fim": {
+        "desktop": [
+          { "cor": "lima", "w": 540, "h": 100, "r": 17.8, "x": "-8%", "y": "62%" },
+          { "cor": "roxo", "w": 280, "h": 100, "r": -23.5, "x": "22%", "y": "86%" },
+          { "cor": "rosa", "w": 300, "h": 70, "r": -11.8, "x": "-2%", "y": "88%" }
+        ],
+        "mobile": [
+          { "cor": "lima", "w": 230, "h": 54, "r": 17.8, "x": "40%", "y": "90%" },
+          { "cor": "roxo", "w": 140, "h": 50, "r": -23.5, "x": "4%", "y": "96%" },
+          { "cor": "rosa", "w": 150, "h": 38, "r": -11.8, "x": "76%", "y": "95%" }
+        ]
+      }
+    }
+  },
+  "projetos": [
+    { "cor": "lima", "w": 520, "h": 120, "r": -11.8, "x": "72%", "y": "70%" },
+    { "cor": "roxo", "w": 300, "h": 90, "r": 17.8, "x": "88%", "y": "40%" }
+  ],
+  "projeto": [
+    { "cor": "lima", "w": 560, "h": 140, "r": -11.8, "x": "70%", "y": "76%" },
+    { "cor": "rosa", "w": 320, "h": 100, "r": 17.8, "x": "86%", "y": "10%" }
+  ],
+  "blog": [
+    { "cor": "rosa", "w": 480, "h": 120, "r": -23.5, "x": "78%", "y": "66%" }
+  ],
+  "sobre-contato": [
+    { "cor": "roxo", "w": 520, "h": 200, "r": -11.8, "x": "82%", "y": "70%" }
+  ],
+  "404": [
+    { "cor": "lima", "w": 620, "h": 150, "r": -11.8, "x": "-8%", "y": "84%" },
+    { "cor": "roxo", "w": 420, "h": 130, "r": 17.8, "x": "84%", "y": "16%" },
+    { "cor": "rosa", "w": 300, "h": 90, "r": 56.7, "x": "92%", "y": "80%" }
+  ]
+}

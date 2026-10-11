@@ -1,0 +1,36 @@
+{
+  "titulo": "Thiago Raphael · Dev + design",
+  "descricao": "Desenho e desenvolvo sites e interfaces, do Figma ao deploy. Você fala com uma pessoa só e recebe o projeto no ar.",
+  "hero": {
+    "rotulo": "Dev + design",
+    "nome": ["Thiago", "Raphael"],
+    "texto": "Desenho e desenvolvo sites e interfaces, do Figma ao deploy. Você fala com uma pessoa só e recebe o projeto no ar.",
+    "ctaSecundario": { "label": "Ver projetos", "href": "/projetos/" }
+  },
+  "projetos": { "n": "01", "titulo": "Projetos", "cta": "Veja mais projetos" },
+  "servicos": {
+    "n": "02",
+    "titulo": "Serviços",
+    "lead": "Da marca ao site no ar, [[com uma pessoa só.]]",
+    "texto": "Contrate uma etapa ou o projeto inteiro. Quem desenha é quem coda, então o que você aprova no Figma é o que vai pro ar.",
+    "itens": [
+      { "n": "A", "titulo": "Identidade visual", "texto": "Logo, cores, tipografia e as peças que a marca precisa para começar: redes, cartão e papelaria." },
+      { "n": "B", "titulo": "Sites e landing pages", "texto": "Rápidos no celular, fáceis de achar no Google e simples de atualizar." },
+      { "n": "C", "titulo": "Interfaces e apps", "texto": "Telas de produto, painéis e apps em React e React Native, do fluxo ao código." }
+    ]
+  },
+  "sobre": {
+    "n": "03",
+    "titulo": "Sobre",
+    "lead": "Eu sou o [[Thiago]]",
+    "texto": "Sou desenvolvedor front-end e designer em Barbacena, MG. Desenho a interface no Figma e escrevo o código que vai pro ar, então nada se perde entre o layout e o site. Você tem um contato só, do primeiro rascunho ao deploy.",
+    "cta": { "label": "Leia mais sobre mim", "href": "/sobre/" }
+  },
+  "blog": { "n": "04", "titulo": "Blog", "cta": "Leia mais" },
+  "contato": { "titulo": "Tem um site ou tela pra [[construir?]]", "cta": "Enviar e-mail" },
+  "habilidades": [
+    { "grupo": "Front-end", "itens": ["HTML e CSS", "JavaScript", "React", "React Native + Expo"] },
+    { "grupo": "Design", "itens": ["Figma", "UI/UX", "Design system", "Identidade visual"] },
+    { "grupo": "Dados", "itens": ["Python", "SQL", "Dashboards"] }
+  ]
+}

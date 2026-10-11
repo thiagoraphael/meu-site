@@ -1,0 +1,52 @@
+/* Detalhe de projeto */
+.project-head { background: var(--tr-roxo); color: var(--text-on-purple); }
+.project-head__content { gap: var(--space-6); padding-top: var(--space-10); padding-bottom: var(--space-16); }
+@media (min-width: 768px) { .project-head__content { padding-top: var(--space-24); padding-bottom: var(--space-24); } }
+.project-head__back { text-decoration: none; min-height: 44px; display: inline-flex; align-items: center; }
+.project-head__back:hover { color: var(--tr-claro); }
+/* O retângulo lima/rosa passa por baixo do texto de abertura: ele ganha placa (a cor do topo é roxo). */
+.project-head__intro { background: var(--tr-roxo); }
+
+.project-facts {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 200px), 1fr));
+  gap: var(--space-6) var(--grid-gutter);
+  padding-block: var(--space-14) var(--space-10);
+  border-bottom: var(--border-width) solid var(--line-subtle);
+}
+.project-facts__item { display: flex; flex-direction: column; gap: var(--space-2); }
+.project-facts dt { font-size: var(--type-caption); }
+
+.project-cover { padding-top: var(--space-14); }
+
+.project-block {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 420px), 1fr));
+  gap: var(--space-8) var(--space-16);
+  padding-top: var(--space-24);
+}
+@media (min-width: 768px) { .project-block { padding-top: var(--space-32); } }
+.project-block__text { gap: var(--space-5); }
+
+.project-gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 420px), 1fr));
+  gap: var(--grid-gutter);
+  padding-top: var(--space-24);
+  align-items: start;
+}
+@media (min-width: 768px) { .project-gallery { padding-top: var(--space-32); } }
+.project-gallery__tall { max-height: 720px; }
+
+.project-next { padding-top: var(--section-gap); }
+.project-next__link {
+  display: flex; flex-direction: column; gap: var(--space-3);
+  padding: var(--space-8);
+  background: var(--tr-lima); color: var(--tr-escuro);
+  text-decoration: none;
+  transition: background-color var(--dur-fast) var(--ease-out), transform var(--dur-fast) var(--ease-out);
+}
+@media (min-width: 768px) { .project-next__link { padding: var(--space-14); } }
+.project-next__link:hover { background: var(--tr-claro); color: var(--tr-escuro); transform: rotate(var(--hover-tilt)); }
+.project-next__link:active { transform: translateY(var(--press-shift)); }
+.project-next__label { color: var(--tr-escuro); }
