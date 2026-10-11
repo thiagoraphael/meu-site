@@ -1,9 +1,13 @@
 ---
-id: quero-um-pet-app
-title: Desenvolvendo Soluções com Propósito - App Quero Um Pet para ONGs
-description: Como o aplicativo mobile Quero Um Pet foi criado para otimizar a gestão de ONGs de adoção de animais, unindo tecnologia e impacto social.
-tags: Mobile, ReactNative
-date: 2025-12-01
+slug: quero-um-pet-app
+titulo: Desenvolvendo Soluções com Propósito - App Quero Um Pet para ONGs
+resumo: Como o aplicativo mobile Quero Um Pet foi criado para otimizar a gestão de ONGs de adoção de animais, unindo tecnologia e impacto social.
+tags: Mobile,ReactNative
+data: 2025-12-01
+categoria: Mobile
+capa: thumb-quero-um-pet
+capaAlt: Telas do app Quero um Pet
+todo: A capa reaproveita a thumbnail placeholder do projeto; troque por uma imagem do app
 ---
 
 Unindo tecnologia e uma causa nobre, desenvolvi o **Quero Um Pet**, um aplicativo mobile criado para otimizar a rotina de ONGs de adoção de animais.  
@@ -39,4 +43,4 @@ Construído com **React Native + Expo**, o app oferece um sistema completo de ge
 Este aplicativo foi apresentado na disciplina de **Desenvolvimento para Dispositivos Móveis**, no curso de Ciência da Computação da UNIPAC.  
 O projeto permitiu aprofundar conhecimentos em desenvolvimento mobile — desde autenticação e persistência de dados até a criação de interfaces funcionais e agradáveis.
 
-Tecnologia com propósito sempre faz diferença. E esse projeto foi exatamente sobre isso. 🐾
+Tecnologia com propósito sempre faz diferença. E esse projeto foi exatamente sobre isso.

@@ -1,15 +1,16 @@
 ---
-id: do-moodboard-ao-esqueleto
-title: Do Moodboard ao Esqueleto - Transformando a Vibe em Funcionalidade
-description: Como o moodboard guiou a criação dos wireframes do novo portfólio, acelerando a estrutura e dando clareza à experiência.
+slug: do-moodboard-ao-esqueleto
+titulo: Do Moodboard ao Esqueleto - Transformando a Vibe em Funcionalidade
+resumo: Como o moodboard guiou a criação dos wireframes do novo portfólio, acelerando a estrutura e dando clareza à experiência.
 tags: UI/UX,Figma,Design
-date: 2025-12-01
+data: 2025-12-01
+categoria: Design
+capa: post-do-moodboard-ao-esqueleto
+capaAlt: Wireframes do portfólio no Figma, ao lado do moodboard
 ---
 
 Se o moodboard é a alma do projeto, os wireframes são o esqueleto que sustenta tudo.  
 Com a direção visual e o clima do meu novo portfólio já definidos, chegou a hora de transformar inspiração em estrutura.
-
-![imagen do figma](/posts/images/do-moodboard-ao-esqueleto.png)
 
 ## A fase de wireframing
 
@@ -27,6 +28,6 @@ Wireframes claros evitam retrabalho, fortalecem o storytelling visual e deixam a
 
 ## Agora vem a parte divertida
 
-Com o esqueleto pronto, chegou o momento de unir a alma (moodboard) e o corpo (wireframes) no Figma para dar vida ao layout final. ✨
+Com o esqueleto pronto, chegou o momento de unir a alma (moodboard) e o corpo (wireframes) no Figma para dar vida ao layout final.
 
 E você, também sente que o wireframe flui melhor quando a direção visual já está alinhada?

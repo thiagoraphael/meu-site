@@ -1,12 +1,13 @@
 ---
-id: da-estrutura-a-vida
-title: Da Estrutura à Vida: A Magia da Iteração em Cada Tela do Portfólio!
-description: "Com o moodboard e os wireframes definidos, a próxima fase foi uma das mais criativas e decisivas: dar vida ao projeto por completo explorando todas as telas do novo portfólio."
+slug: da-estrutura-a-vida
+titulo: "Da Estrutura à Vida: A Magia da Iteração em Cada Tela do Portfólio!"
+resumo: "Com o moodboard e os wireframes definidos, a próxima fase foi uma das mais criativas e decisivas: dar vida ao projeto por completo explorando todas as telas do novo portfólio."
 tags: UI/UX,Figma,Design
-date: 2025-01-15
+data: 2025-01-15
+categoria: Design
+capa: post-da-estrutura-a-vida
+capaAlt: Telas do portfólio lado a lado no Figma, em fase de iteração visual
 ---
-
-![imagen do figma](/posts/images/da-estrutura-a-vida.png)
 
 Cada seção — da Home ao “Sobre”, do “Contato” às páginas de detalhes dos projetos — virou um laboratório de experimentação. O objetivo era garantir uma experiência consistente, intuitiva e marcante do começo ao fim.
 

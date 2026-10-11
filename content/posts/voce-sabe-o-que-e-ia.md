@@ -1,9 +1,10 @@
 ---
-id: voce-sabe-o-que-e-ia
-title: Você sabe o que é IA?
-description: Você realmente sabe o que é Inteligência Artificial (IA)? Ela está em todos os lugares — mas o que significa, de fato?
+slug: voce-sabe-o-que-e-ia
+titulo: Você sabe o que é IA?
+resumo: Você realmente sabe o que é Inteligência Artificial (IA)? Ela está em todos os lugares — mas o que significa, de fato?
 tags: IA,TCC,Tech
-date: 2025-12-01
+data: 2025-12-01
+categoria: IA
 ---
 
 # A jornada da IA: de um teste em 1950 aos assistentes virtuais no seu bolso
