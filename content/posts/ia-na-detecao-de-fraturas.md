@@ -1,14 +1,16 @@
 ---
-id: ia-na-detecao-de-fraturas
-title: Como a Inteligência Artificial pode ajudar na detecção de fraturas?
-description: Um resumo do desenvolvimento do meu TCC, que utilizou IA para identificar fraturas em radiografias de membros superiores.
+slug: ia-na-detecao-de-fraturas
+titulo: Como a Inteligência Artificial pode ajudar na detecção de fraturas?
+resumo: Um resumo do desenvolvimento do meu TCC, que utilizou IA para identificar fraturas em radiografias de membros superiores.
 tags: IA,Python,TCC
-date: 2025-01-15
+data: 2025-01-15
+categoria: IA
+destaque: true
+capa: post-ia-na-detecao-de-fraturas
+capaAlt: Radiografia de membro superior analisada pelo modelo de IA
 ---
 
 No último post falei sobre a conclusão do meu TCC. Agora quero compartilhar como o projeto foi construído — da escolha das ferramentas até o treinamento do modelo.
-
-![imagen do projeto](/posts/images/ia-na-detecao-de-fraturas.png)
 
 Desenvolvi um sistema baseado em Inteligência Artificial capaz de analisar radiografias de membros superiores e identificar a presença de fraturas. A seguir, um resumo das principais etapas.
 

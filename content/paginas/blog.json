@@ -1,0 +1,16 @@
+{
+  "titulo": "Blog · Thiago Raphael",
+  "descricao": "Tech, design e dados, explicados sem jargão.",
+  "rotulo": "04 · Escrita",
+  "h1": "Blog",
+  "lead": "Tech, design e dados, explicados sem jargão.",
+  "filtros": ["Todos", "IA", "Design", "Mobile"],
+  "listaTitulo": "Todos os posts",
+  "vazio": {
+    "contador": "0 posts",
+    "titulo": "Estou [[escrevendo.]]",
+    "texto": "Ainda não tem post nesse tema. Enquanto isso, veja os outros posts.",
+    "podcast": "Ouça o Ctrl+Café",
+    "verTodos": "Ver todos"
+  }
+}
