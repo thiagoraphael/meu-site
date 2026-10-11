@@ -1,0 +1,14 @@
+{
+  "name": "meu-site-tools",
+  "private": true,
+  "type": "module",
+  "description": "Ferramentas de desenvolvimento (não rodam no deploy): otimização de imagens e geração das imagens Open Graph.",
+  "scripts": {
+    "images": "node images.mjs",
+    "og": "node og.mjs"
+  },
+  "devDependencies": {
+    "playwright": "1.48.2",
+    "sharp": "0.33.5"
+  }
+}
