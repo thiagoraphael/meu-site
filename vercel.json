@@ -12,6 +12,16 @@
       "permanent": true
     },
     {
+      "source": "/aula",
+      "destination": "https://thiagoraphael.github.io/redes-seguras/",
+      "permanent": false
+    },
+    {
+      "source": "/aula/",
+      "destination": "https://thiagoraphael.github.io/redes-seguras/",
+      "permanent": false
+    },
+    {
       "source": "/pags/links/links.html",
       "destination": "/links/",
       "permanent": true
