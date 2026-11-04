@@ -107,3 +107,10 @@
 .tool-nojs { padding: var(--space-6); border: var(--border-width) solid var(--tr-rosa); font-family: var(--font-mono); }
 html.js .tool-nojs { display: none; }
 html:not(.js) .tool { display: none; }
+
+/* Celular e tablet: a prévia vem antes dos controles (e menor), pra ver o resultado enquanto edita. */
+@media (max-width: 1023px) {
+  .tool__preview { order: -1; }
+  .tool__stage canvas { max-height: 52vh; }
+  .tool--paleta .tool__preview { order: 0; }
+}

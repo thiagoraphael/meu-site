@@ -9,7 +9,7 @@ export function Header(site, current, { tone } = {}) {
   <div class="container site-header__inner">
     <a class="site-header__logo" href="/" aria-label="${site.nome}, página inicial">
       <picture>
-        <source media="(max-width: 767px)" srcset="/assets/logos/th-claro.svg" width="41" height="40">
+        <source media="(max-width: 1023px)" srcset="/assets/logos/th-claro.svg" width="41" height="40">
         <img src="/assets/logos/horizontal-claro.svg" alt="" width="168" height="40">
       </picture>
     </a>
