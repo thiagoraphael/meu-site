@@ -118,10 +118,7 @@ if (form) {
     ctx.fillStyle = t.fg;
     const y = H - bottom + 10;
     if (at) ctx.fillText(at.startsWith('@') ? at : `@${at}`, P, y);
-    if (sig) {
-      const s = 'thiagoraphael.com.br/apps';
-      ctx.fillText(s, W - P - ctx.measureText(s).width, y);
-    }
+    if (sig) drawSignature(ctx, 'thiagoraphael.com.br/apps', W - P, y, 28, t.fg);
   }
 
   function placeholder(x, y, w, h, t, label) {
@@ -554,6 +551,7 @@ if (form) {
   form.addEventListener('input', (e) => { if (e.target.name === 'cor_fundo' || e.target.name === 'cor_destaque') setRadio('tema', 'minha', form); render(); });
   form.addEventListener('change', render);
   render();
+  logosReady.then(render);
   fontsReady([...['900 italic 40px Kanit', '700 40px "Space Mono"', '700 italic 40px "Space Mono"', '400 40px "Hanken Grotesk"'], '400 40px velzyland']).then(render);
   document.fonts?.addEventListener?.('loadingdone', render);
 }

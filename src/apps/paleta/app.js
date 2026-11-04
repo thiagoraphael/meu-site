@@ -204,10 +204,8 @@ if (form) {
       x.fillText(n, 1080 - P - 28 - x.measureText(n).width, y + rowH / 2);
     });
     x.textBaseline = 'alphabetic';
-    x.fillStyle = BRAND.claro;
-    x.font = `700 26px ${FONTS.mono}`;
-    const s = 'thiagoraphael.com.br/apps/paleta';
-    x.fillText(s, 1080 - P - x.measureText(s).width, 1350 - P + 6);
+    await logosReady;
+    drawSignature(x, 'thiagoraphael.com.br/apps/paleta', 1080 - P, 1350 - P + 6, 26, BRAND.claro);
     await downloadCanvas(card, 'paleta.png');
     say(status, 'Paleta baixada.');
   });

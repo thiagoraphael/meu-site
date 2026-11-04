@@ -72,7 +72,7 @@ export default function view() {
       <div class="field-row">
         ${Field({ label: 'Seu @ (opcional)', name: 'arroba', placeholder: '@voce', maxlength: 30 })}
       </div>
-      ${Check({ label: 'Mostrar o endereço do app no rodapé', name: 'assinatura', checked: true })}
+      ${Check({ label: 'Mostrar logo e endereço no rodapé', name: 'assinatura', checked: true })}
     </fieldset>
     ${Effects({
       bgLabel: 'Fundo',

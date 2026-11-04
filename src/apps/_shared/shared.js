@@ -308,3 +308,28 @@ function bindRangeLabels(root) {
     up();
   });
 }
+
+// ---------- Assinatura com o logo Th ----------
+// SVG com largura/altura explícitas (o Firefox não desenha SVG sem tamanho no canvas).
+const LOGOS = {};
+const logosReady = Promise.all(['claro', 'escuro'].map(async (k) => {
+  try {
+    const svg = (await (await fetch(`/assets/logos/th-${k}.svg`)).text()).replace('<svg ', '<svg width="125" height="122" ');
+    const img = new Image();
+    img.src = URL.createObjectURL(new Blob([svg], { type: 'image/svg+xml' }));
+    await img.decode();
+    LOGOS[k] = img;
+  } catch {}
+}));
+// Logo + endereço alinhados à direita em rightX, na linha de base y. Devolve a largura usada.
+function drawSignature(ctx, text, rightX, y, size, fg) {
+  ctx.font = `700 ${size}px ${FONTS.mono}`;
+  ctx.fillStyle = fg;
+  const tw = ctx.measureText(text).width;
+  ctx.fillText(text, rightX - tw, y);
+  const logo = LOGOS[contrast(fg, BRAND.claro) < 1.5 ? 'claro' : 'escuro'];
+  if (!logo) return tw;
+  const lh = size * 1.6, lw = lh * (125.38 / 122.44), gap = size * 0.5;
+  ctx.drawImage(logo, rightX - tw - gap - lw, y - size * 1.16, lw, lh);
+  return tw + gap + lw;
+}
