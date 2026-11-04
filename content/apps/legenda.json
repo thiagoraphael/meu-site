@@ -1,0 +1,34 @@
+{
+  "ordem": 6,
+  "slug": "legenda",
+  "nome": "Legenda",
+  "tipo": "Web",
+  "cor": "rosa",
+  "grupo": "Produtividade",
+  "rotulo": "Redes",
+  "h1": "Legenda",
+  "titulo": "Contador de caracteres pra legenda de Instagram, X, TikTok e LinkedIn · Thiago Raphael",
+  "ogTitulo": "Sua legenda cabe? Contador por rede social",
+  "resumo": "Mostra quanto a legenda ocupa em cada rede, onde ela é cortada com o \"mais\" e quantas hashtags tem.",
+  "lead": "Escreva a legenda e veja na hora se ela cabe no Instagram, X, TikTok, LinkedIn, Threads, Bluesky e YouTube, e o que aparece antes do \"mais\".",
+  "tags": [
+    "Instagram",
+    "Conteúdo",
+    "Redes sociais"
+  ],
+  "categoria": "UtilitiesApplication",
+  "como": [
+    {
+      "titulo": "Corte do \"mais\"",
+      "texto": "A prévia mostra só o trecho que aparece antes de a pessoa tocar pra ler o resto."
+    },
+    {
+      "titulo": "Contagem certa",
+      "texto": "Emoji, link e quebra de linha contam do jeito de cada rede, não só pelo número de letras."
+    },
+    {
+      "titulo": "Linhas em branco",
+      "texto": "Um botão troca as linhas vazias por um caractere invisível, pra o Instagram não juntar os parágrafos."
+    }
+  ]
+}

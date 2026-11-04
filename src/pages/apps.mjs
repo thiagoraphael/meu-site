@@ -32,7 +32,17 @@ export default async function apps(ctx) {
 
 <section class="container stack apps-list" aria-labelledby="apps-h1">
   <p class="label label--pink apps-list__note">${c.privacidade}</p>
-  <div class="app-grid">${lista.map((a, i) => AppCard(a, { n: num(i), headingLevel: 2 }))}</div>
+  <div class="filters" role="group" aria-label="Filtrar apps" data-filters="lista-apps" data-empty="apps-vazio" data-status="apps-status" data-one="app" data-many="apps">
+    ${c.filtros.map((f) => html`<button class="filter" type="button" data-filter="${f}" aria-pressed="${f === 'Todos'}">${f}</button>`)}
+  </div>
+  <p class="visually-hidden" id="apps-status" role="status" aria-live="polite"></p>
+  <div class="app-grid" id="lista-apps">${lista.map((a, i) => AppCard(a, { n: num(i), headingLevel: 2 }))}</div>
+  <div class="empty-state stack" id="apps-vazio" hidden>
+    <span class="label">${c.vazio.contador}</span>
+    <h2 class="display t-title-l">${rich(c.vazio.titulo)}</h2>
+    <p class="t-body measure">${c.vazio.texto}</p>
+    ${Button({ variant: 'text', label: c.vazio.verTodos, extra: { 'data-show-all': 'lista-apps' } })}
+  </div>
 </section>
 ${cta}`;
 
@@ -59,7 +69,8 @@ ${cta}`;
     if (!existsSync(viewFile)) { ctx.todo(`apps/${a.slug}`, 'Falta src/apps/<slug>/view.mjs (o app não tem página ainda)'); continue; }
     const view = (await import(pathToFileURL(viewFile.pathname).href)).default;
     const i = lista.indexOf(a);
-    const outros = lista.filter((x) => x !== a);
+    // Outros apps: primeiro os do mesmo grupo, até 6.
+    const outros = lista.filter((x) => x !== a).sort((x, y) => (y.grupo === a.grupo) - (x.grupo === a.grupo) || x.ordem - y.ordem).slice(0, 6);
     const path = `/apps/${a.slug}/`;
     const page = html`
 <header class="page-top page-head app-head" aria-labelledby="app-h1">

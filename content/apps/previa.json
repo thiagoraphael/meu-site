@@ -1,0 +1,34 @@
+{
+  "ordem": 10,
+  "slug": "previa",
+  "nome": "Prévia de link",
+  "tipo": "Web",
+  "cor": "lima",
+  "grupo": "Design e dev",
+  "rotulo": "SEO",
+  "h1": "Prévia de link",
+  "titulo": "Prévia de link: veja como seu site aparece no WhatsApp e no Google · Thiago Raphael",
+  "ogTitulo": "Como o seu link aparece no WhatsApp, LinkedIn e Google",
+  "resumo": "Mostra como o link aparece no WhatsApp, LinkedIn, X, Facebook e Google, e gera as meta tags Open Graph.",
+  "lead": "Preencha título, descrição e imagem, ou cole o HTML da página, e veja como o link vai aparecer quando alguém compartilhar. No fim, copie as meta tags prontas.",
+  "tags": [
+    "SEO",
+    "Open Graph",
+    "Front-end"
+  ],
+  "categoria": "DeveloperApplication",
+  "como": [
+    {
+      "titulo": "Colar o HTML",
+      "texto": "Cole o código-fonte da página (Ctrl+U no navegador) e o app lê as meta tags que já existem."
+    },
+    {
+      "titulo": "Avisos",
+      "texto": "Título longo demais, descrição que vai ser cortada, imagem fora da proporção 1,91:1: tudo aparece marcado."
+    },
+    {
+      "titulo": "Código pronto",
+      "texto": "Gera as tags de Open Graph, Twitter Card e SEO básico pra colar no <head>."
+    }
+  ]
+}

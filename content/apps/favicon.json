@@ -1,0 +1,34 @@
+{
+  "ordem": 9,
+  "slug": "favicon",
+  "nome": "Favicon",
+  "tipo": "Web",
+  "cor": "rosa",
+  "grupo": "Design e dev",
+  "rotulo": "Dev",
+  "h1": "Favicon",
+  "titulo": "Gerador de favicon: ICO, PNG, Apple Touch e manifest · Thiago Raphael",
+  "ogTitulo": "Todos os ícones do seu site num ZIP, com o código do head",
+  "resumo": "Gera favicon.ico, PNGs, ícone da Apple, ícones do Android e o manifest num ZIP, com o código pronto pro <head>.",
+  "lead": "Envie o logo e baixe todos os ícones que um site precisa, num ZIP só, com o trecho de HTML pra colar no <head>.",
+  "tags": [
+    "Favicon",
+    "PWA",
+    "Front-end"
+  ],
+  "categoria": "DeveloperApplication",
+  "como": [
+    {
+      "titulo": "Tudo junto",
+      "texto": "favicon.ico com 16, 32 e 48 px, PNGs, apple-touch-icon, ícones 192 e 512 e o maskable do Android."
+    },
+    {
+      "titulo": "Prévia real",
+      "texto": "Veja o ícone na aba do navegador, clara e escura, e na tela inicial do celular antes de baixar."
+    },
+    {
+      "titulo": "SVG",
+      "texto": "Se o logo for SVG, ele entra também como favicon.svg, que fica nítido em qualquer tela."
+    }
+  ]
+}

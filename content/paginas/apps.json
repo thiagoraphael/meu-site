@@ -1,6 +1,6 @@
 {
   "titulo": "Apps grátis pra criar stories, paletas e mockups · Thiago Raphael",
-  "descricao": "Ferramentas pequenas e gratuitas que rodam no navegador: stories do que você lê, paleta de cores, mockup de print, Pomodoro e uma extensão pro Chrome.",
+  "descricao": "Ferramentas grátis que rodam no navegador: stories, QR code, paleta, contraste, favicon, gráfico de CSV, mockup, Pomodoro e mais.",
   "rotulo": "05 · Ferramentas",
   "h1": "Apps",
   "lead": "Ferramentas pequenas que eu fiz pra resolver coisas do dia a dia. Todas são grátis, rodam no navegador e não pedem cadastro.",
@@ -11,5 +11,18 @@
   "cta": {
     "titulo": "Tem uma ideia de [[app?]]",
     "texto": "Se tem uma tarefa chata que você repete toda semana, me conta. Talvez vire o próximo."
+  },
+  "filtros": [
+    "Todos",
+    "Imagens",
+    "Design e dev",
+    "Dados",
+    "Produtividade"
+  ],
+  "vazio": {
+    "contador": "0 apps",
+    "titulo": "Nada nesse filtro [[ainda.]]",
+    "texto": "Ainda não tem app nessa categoria. Veja todos ou me mande uma ideia.",
+    "verTodos": "Ver todos"
   }
 }

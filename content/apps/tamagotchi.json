@@ -1,5 +1,5 @@
 {
-  "ordem": 5,
+  "ordem": 11,
   "slug": "tamagotchi",
   "nome": "Tamagotchi da Produtividade",
   "tipo": "Extensão",
@@ -10,5 +10,6 @@
     "Produtividade"
   ],
   "href": "https://chromewebstore.google.com/detail/tamagotchi-da-produtivida/njpmggaoedjeplgpjhkfnoaobhhlffad",
-  "cta": "Instalar no Chrome"
+  "cta": "Instalar no Chrome",
+  "grupo": "Produtividade"
 }

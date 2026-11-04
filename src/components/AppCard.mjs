@@ -14,7 +14,7 @@ const thumb = (slug) => {
 export function AppCard(a, { n, headingLevel = 2, compact = false } = {}) {
   const h = `h${headingLevel}`;
   const ext = !a.web;
-  return html`<article class="app-card app-card--${a.cor}${compact ? ' app-card--compact' : ''}">
+  return html`<article class="app-card app-card--${a.cor}${compact ? ' app-card--compact' : ''}" data-cat="${a.grupo || ''}">
     <div class="app-card__art">${raw(thumb(a.slug))}</div>
     <div class="app-card__meta label"><span>${n}</span><span class="app-card__type">${a.tipo}</span></div>
     ${raw(`<${h} class="app-card__title display ${compact ? 't-title-m' : 't-title-l'}">`)}<a class="app-card__link"${raw(ext ? ` href="${a.url}" target="_blank" rel="noopener"` : ` href="${a.url}"`)}>${a.nome}${ext ? html`<span class="visually-hidden"> (abre a Chrome Web Store)</span>${Icon('arrow-right', { size: 28 })}` : ''}</a>${raw(`</${h}>`)}

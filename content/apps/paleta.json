@@ -29,5 +29,6 @@
       "titulo": "Contraste",
       "texto": "Cada cor mostra a nota WCAG com texto branco e com texto preto, pra você saber onde dá pra escrever."
     }
-  ]
+  ],
+  "grupo": "Design e dev"
 }

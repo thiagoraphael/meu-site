@@ -19,3 +19,4 @@
 
 .app-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 520px), 1fr)); gap: var(--space-18) var(--grid-gutter); }
 .app-grid--compact { grid-template-columns: repeat(auto-fill, minmax(min(100%, 280px), 1fr)); gap: var(--space-12) var(--grid-gutter); }
+.app-grid > [hidden] { display: none; }

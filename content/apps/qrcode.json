@@ -1,0 +1,34 @@
+{
+  "ordem": 5,
+  "slug": "qrcode",
+  "nome": "QR Code",
+  "tipo": "Web",
+  "cor": "azul",
+  "grupo": "Imagens",
+  "rotulo": "QR",
+  "h1": "QR Code",
+  "titulo": "Gerador de QR Code grátis com logo, Pix e Wi‑Fi · Thiago Raphael",
+  "ogTitulo": "QR Code com logo, cores, Pix e Wi‑Fi, em PNG e SVG",
+  "resumo": "Cria QR code de link, WhatsApp, Wi‑Fi, Pix ou e-mail, com suas cores e logo no meio, em PNG ou SVG.",
+  "lead": "Escolha o tipo, preencha e baixe o QR code em PNG ou SVG. Dá pra trocar as cores, arredondar os pontos e colocar um logo no meio.",
+  "tags": [
+    "QR Code",
+    "Pix",
+    "Utilidade"
+  ],
+  "categoria": "UtilitiesApplication",
+  "como": [
+    {
+      "titulo": "Tipos",
+      "texto": "Link ou texto, WhatsApp com mensagem pronta, Wi‑Fi (aponta a câmera e conecta), Pix com valor e e-mail."
+    },
+    {
+      "titulo": "Logo no meio",
+      "texto": "Com logo, a correção de erro sobe pro nível máximo sozinha, pra o código continuar lendo."
+    },
+    {
+      "titulo": "Vetor",
+      "texto": "O SVG não perde qualidade em nenhum tamanho. Bom pra cartão, banner e embalagem."
+    }
+  ]
+}

@@ -1,0 +1,34 @@
+{
+  "ordem": 7,
+  "slug": "contraste",
+  "nome": "Contraste",
+  "tipo": "Web",
+  "cor": "lima",
+  "grupo": "Design e dev",
+  "rotulo": "Acessibilidade",
+  "h1": "Contraste",
+  "titulo": "Verificador de contraste de cores WCAG com sugestões · Thiago Raphael",
+  "ogTitulo": "O seu texto passa no contraste? WCAG com sugestões",
+  "resumo": "Calcula o contraste WCAG entre duas cores, diz se passa em AA e AAA e sugere o tom mais próximo que passa.",
+  "lead": "Escolha a cor do texto e a do fundo e veja se a combinação passa nas regras de acessibilidade. Se não passar, o app sugere o tom mais próximo que passa.",
+  "tags": [
+    "Acessibilidade",
+    "WCAG",
+    "Design"
+  ],
+  "categoria": "DesignApplication",
+  "como": [
+    {
+      "titulo": "Notas",
+      "texto": "AA e AAA pra texto normal e grande, e 3:1 pra ícones e bordas de botão."
+    },
+    {
+      "titulo": "Sugestões",
+      "texto": "Clareia ou escurece só a cor que você escolher, mantendo o tom, até passar."
+    },
+    {
+      "titulo": "Daltonismo",
+      "texto": "Simula como a combinação aparece pra quem tem protanopia, deuteranopia ou tritanopia."
+    }
+  ]
+}

@@ -123,7 +123,11 @@ const sharedCss = await readOpt('src/apps/_shared/shared.css');
 const sharedJs = await readOpt('src/apps/_shared/shared.js');
 for (const a of apps.filter((x) => x.web)) {
   const aCss = `${sharedCss}\n${await readOpt(`src/apps/${a.slug}/app.css`)}`;
-  const aJs = `(() => {\n'use strict';\n${sharedJs}\n${await readOpt(`src/apps/${a.slug}/app.js`)}\n})();\n`;
+  // Todo .js da pasta do app entra, em ordem alfabética, com o app.js por último.
+  const own = (await list(`src/apps/${a.slug}`)).filter((f) => f.endsWith('.js')).sort((x, y) => (x === 'app.js') - (y === 'app.js') || x.localeCompare(y));
+  let ownJs = '';
+  for (const f of own) ownJs += `\n// ${f}\n${await readFile(join(ROOT, `src/apps/${a.slug}/${f}`), 'utf8')}`;
+  const aJs = `(() => {\n'use strict';\n${sharedJs}\n${ownJs}\n})();\n`;
   a.assets = { css: `/assets/apps/${a.slug}.${hash(aCss)}.css`, js: `/assets/apps/${a.slug}.${hash(aJs)}.js` };
   await writeFile(join(OUT, a.assets.css), aCss);
   await writeFile(join(OUT, a.assets.js), aJs);
