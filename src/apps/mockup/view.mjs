@@ -1,12 +1,12 @@
 // Mockup: print dentro de celular, navegador ou os dois. Comportamento em app.js.
 import { html } from '../../lib/html.mjs';
-import { Seg, Field, Check, Drop, Preview, NoJs } from '../_shared/ui.mjs';
+import { Seg, Field, Check, Drop, Preview, NoJs, Effects } from '../_shared/ui.mjs';
 
 const FUNDOS = [
   { value: 'roxo', label: 'Roxo', swatch: '#7301FF' }, { value: 'rosa', label: 'Rosa', swatch: '#FF007F' },
   { value: 'lima', label: 'Lima', swatch: '#D8FB81' }, { value: 'azul', label: 'Azul', swatch: '#1B0AD4' },
   { value: 'escuro', label: 'Escuro', swatch: '#1A1A1A' }, { value: 'claro', label: 'Claro', swatch: '#F8F8F8' },
-  { value: 'transparente', label: 'Transparente' }, { value: 'custom', label: 'Outra cor' },
+  { value: 'print', label: 'Print desfocado' }, { value: 'transparente', label: 'Transparente' }, { value: 'custom', label: 'Outra cor' },
 ];
 
 export default function view() {
@@ -42,6 +42,7 @@ export default function view() {
       </div>
       ${Check({ label: 'Retângulos da marca no fundo', name: 'formas', checked: true })}
     </fieldset>
+    ${Effects({ tintHint: 'Camada escura por cima do print do fundo, pra moldura se destacar.', shadowLabel: 'Sombra na moldura', shadowChecked: true })}
   </div>
   ${Preview({ label: 'Prévia do mockup', checker: true })}
 </form>`;

@@ -1,6 +1,6 @@
 // Estante: stories de capa, estante (grade) e citação. Comportamento em app.js.
 import { html } from '../../lib/html.mjs';
-import { Seg, Field, Check, Drop, Preview, NoJs } from '../_shared/ui.mjs';
+import { Seg, Field, Check, Drop, Preview, NoJs, Effects } from '../_shared/ui.mjs';
 
 const TEMAS = [
   { value: 'escuro', label: 'Escuro', swatch: '#1A1A1A' },
@@ -68,6 +68,14 @@ export default function view() {
       </div>
       ${Check({ label: 'Mostrar o endereço do app no rodapé', name: 'assinatura', checked: true })}
     </fieldset>
+    ${Effects({
+      bgLabel: 'Fundo',
+      bgOptions: [{ value: 'cor', label: 'Cor do tema' }, { value: 'imagem', label: 'Capa no fundo' }],
+      tintHint: 'Camada da cor do tema por cima da capa, pra o texto continuar legível.',
+      shadowLabel: 'Sombra na capa',
+      extra: html`${Check({ label: 'Capa levemente inclinada', name: 'inclinar' })}
+      ${Check({ label: 'Retângulos da marca', name: 'formas', checked: true })}`,
+    })}
   </div>
   ${Preview({ label: 'Prévia do story' })}
 </form>`;

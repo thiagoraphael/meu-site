@@ -200,3 +200,111 @@ function extractPalette(img, k = 6, { max = 96, iterations = 12 } = {}) {
     .filter((c) => c.share > 0)
     .sort((a, b) => b.share - a.share);
 }
+
+// ---------- Efeitos de imagem: fundo desfocado, película, granulado e sombra ----------
+// Blur nativo do canvas quando existe (Chrome, Firefox); no resto, reduz e amplia a imagem.
+const CANVAS_FILTER = (() => { try { const c = document.createElement('canvas').getContext('2d'); c.filter = 'blur(2px)'; return c.filter === 'blur(2px)'; } catch { return false; } })();
+
+// Imagem cobrindo w×h, desfocada (blur em px do canvas) e com uma camada de cor por cima (dim 0..1).
+function drawBackdrop(ctx, img, w, h, { blur = 0, tint = BRAND.escuro, dim = 0, fx = 0.5, fy = 0.5 } = {}) {
+  const m = Math.round(blur * 2); // margem: sem ela a borda do desfoque fica clara
+  const bw = w + m * 2, bh = h + m * 2;
+  const src = coverRect(img, bw, bh, fx, fy);
+  if (blur > 0 && CANVAS_FILTER) {
+    ctx.save();
+    ctx.filter = `blur(${blur}px)`;
+    ctx.drawImage(img, ...src, -m, -m, bw, bh);
+    ctx.restore();
+  } else if (blur > 0) {
+    const k = Math.max(2, blur / 2.5);
+    const sc = document.createElement('canvas');
+    sc.width = Math.max(2, Math.round(bw / k)); sc.height = Math.max(2, Math.round(bh / k));
+    const sx = sc.getContext('2d');
+    sx.imageSmoothingQuality = 'high';
+    sx.drawImage(img, ...src, 0, 0, sc.width, sc.height);
+    ctx.save();
+    ctx.imageSmoothingEnabled = true;
+    ctx.imageSmoothingQuality = 'high';
+    ctx.drawImage(sc, -m, -m, bw, bh);
+    ctx.restore();
+  } else ctx.drawImage(img, ...src, 0, 0, w, h);
+  if (dim > 0) {
+    ctx.save();
+    ctx.globalAlpha = Math.min(1, dim);
+    ctx.fillStyle = tint;
+    ctx.fillRect(0, 0, w, h);
+    ctx.restore();
+  }
+}
+
+// Granulado de filme: ruído monocromático em grãos de 2 px, só onde já há pixel (respeita o transparente).
+// O padrão é fixo (hash da posição), então a prévia não "chuvisca" a cada mudança.
+function applyGrain(ctx, w, h, amount) {
+  if (!amount) return;
+  const strength = (amount / 100) * 70;
+  const data = ctx.getImageData(0, 0, w, h);
+  const d = data.data;
+  const g = w >= 1600 ? 2 : 1; // grão maior em imagem grande, pra continuar visível depois do Instagram comprimir
+  for (let y = 0; y < h; y++) {
+    const cy = Math.floor(y / (g + 1));
+    for (let x = 0; x < w; x++) {
+      const i = (y * w + x) * 4;
+      if (d[i + 3] === 0) continue;
+      let n = (Math.floor(x / (g + 1)) * 374761393 + cy * 668265263) | 0;
+      n = Math.imul(n ^ (n >>> 13), 1274126177);
+      const v = (((n ^ (n >>> 16)) & 255) / 255 - 0.5) * strength;
+      d[i] += v; d[i + 1] += v; d[i + 2] += v;
+    }
+  }
+  ctx.putImageData(data, 0, 0);
+}
+
+// Sombra suave em volta do que fn() desenhar (opcional).
+function withShadow(ctx, on, fn, scale = 1) {
+  if (!on) return fn();
+  ctx.save();
+  ctx.shadowColor = 'rgba(0, 0, 0, 0.5)';
+  ctx.shadowBlur = 64 * scale;
+  ctx.shadowOffsetY = 26 * scale;
+  fn();
+  ctx.restore();
+}
+
+// Copiar a imagem pra área de transferência (cola direto no WhatsApp Web, Figma, Slack...).
+const canCopyImage = () => !!(navigator.clipboard && navigator.clipboard.write && window.ClipboardItem);
+async function copyCanvas(canvas) {
+  await navigator.clipboard.write([new ClipboardItem({ 'image/png': canvasBlob(canvas) })]);
+}
+
+// Botões da prévia: baixar, copiar e compartilhar. name() e text() são chamados na hora.
+function bindExport(canvas, { name, text, status, before }) {
+  const ready = async () => { if (before) await before(); };
+  $('[data-download]')?.addEventListener('click', async () => { await ready(); await downloadCanvas(canvas, name()); say(status, 'Imagem baixada.'); });
+  const copyBtn = $('[data-copy-img]');
+  if (copyBtn && canCopyImage()) {
+    copyBtn.hidden = false;
+    copyBtn.addEventListener('click', async () => {
+      await ready();
+      try { await copyCanvas(canvas); say(status, 'Imagem copiada. É só colar.'); } catch { say(status, 'O navegador não deixou copiar. Use Baixar PNG.', 4000); }
+    });
+  }
+  const shareBtn = $('[data-share]');
+  if (shareBtn && canShareFiles()) {
+    shareBtn.hidden = false;
+    shareBtn.addEventListener('click', async () => {
+      await ready();
+      try { if (!(await shareCanvas(canvas, name(), text()))) await downloadCanvas(canvas, name()); }
+      catch { say(status, 'Não deu pra compartilhar. Baixe a imagem e poste pelo app.', 5000); }
+    });
+  }
+}
+
+// Rótulos de range que mostram o valor: <input data-label="Desfoque: {v}"> atualiza o <span> do label.
+function bindRangeLabels(root) {
+  $$('input[data-label]', root).forEach((el) => {
+    const span = el.closest('label').querySelector('span');
+    const up = () => { span.textContent = el.dataset.label.replace('{v}', el.value); };
+    el.addEventListener('input', up);
+    up();
+  });
+}

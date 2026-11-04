@@ -27,7 +27,7 @@
     },
     {
       "titulo": "Tamanhos",
-      "texto": "Quadrado, feed, story, slide 16:9 ou do tamanho do print, com fundo de cor ou transparente."
+      "texto": "Quadrado, feed, story, slide 16:9 ou do tamanho do print. O fundo pode ser cor, transparente ou o próprio print desfocado, com granulado."
     }
   ]
 }

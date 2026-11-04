@@ -12,12 +12,15 @@ if (form) {
 
   const saved = store.get('mockup:prefs', {});
   ['moldura', 'cor_moldura', 'tamanho', 'fundo'].forEach((n) => saved[n] && setRadio(n, saved[n], form));
-  ['url', 'fundo_custom', 'respiro'].forEach((n) => saved[n] != null && (form.elements[n].value = saved[n]));
+  ['url', 'fundo_custom', 'respiro', 'desfoque', 'pelicula', 'grao'].forEach((n) => saved[n] != null && (form.elements[n].value = saved[n]));
   if (saved.formas === false) form.elements.formas.checked = false;
+  if (typeof saved.sombra === 'boolean') form.elements.sombra.checked = saved.sombra;
   const savePrefs = () => store.set('mockup:prefs', {
     moldura: radioValue('moldura', form), cor_moldura: radioValue('cor_moldura', form), tamanho: radioValue('tamanho', form), fundo: radioValue('fundo', form),
     url: form.elements.url.value, fundo_custom: form.elements.fundo_custom.value, respiro: form.elements.respiro.value, formas: form.elements.formas.checked,
+    desfoque: form.elements.desfoque.value, pelicula: form.elements.pelicula.value, grao: form.elements.grao.value, sombra: form.elements.sombra.checked,
   });
+  const shadow = (fn, w) => withShadow(ctx, form.elements.sombra.checked, fn, w / 900);
 
   function rr(x, y, w, h, r) {
     ctx.beginPath();
@@ -47,7 +50,7 @@ if (form) {
     const w = h * PHONE;
     const b = w * 0.035, r = w * 0.15;
     ctx.fillStyle = dark ? '#111111' : '#E6E6E6';
-    rr(x, y, w, h, r); ctx.fill();
+    shadow(() => { rr(x, y, w, h, r); ctx.fill(); }, w * 2);
     ctx.lineWidth = Math.max(2, w * 0.006);
     ctx.strokeStyle = dark ? '#3A3A3A' : '#BDBDBD';
     rr(x + ctx.lineWidth / 2, y + ctx.lineWidth / 2, w - ctx.lineWidth, h - ctx.lineWidth, r); ctx.stroke();
@@ -65,7 +68,7 @@ if (form) {
     const [, h, bar] = browserSize(w);
     const r = w * 0.012;
     ctx.fillStyle = dark ? BRAND.escuro : '#E9E9E9';
-    rr(x, y, w, h, r); ctx.fill();
+    shadow(() => { rr(x, y, w, h, r); ctx.fill(); }, w);
     const d = bar * 0.22;
     [BRAND.rosa, BRAND.lima, dark ? BRAND.claro : '#9A9A9A'].forEach((c, i) => { ctx.fillStyle = c; ctx.beginPath(); ctx.arc(x + bar * 0.55 + i * d * 2.8, y + bar / 2, d, 0, Math.PI * 2); ctx.fill(); });
     const ux = x + bar * 0.55 + d * 8.6, uw = w - (ux - x) - bar * 0.9, uh = bar * 0.56;
@@ -105,7 +108,12 @@ if (form) {
     else [W, H] = SIZES[size];
     if (canvas.width !== W || canvas.height !== H) { canvas.width = W; canvas.height = H; }
     ctx.clearRect(0, 0, W, H);
-    if (fundo !== 'transparente') { ctx.fillStyle = fundo === 'custom' ? form.elements.fundo_custom.value : BG[fundo]; ctx.fillRect(0, 0, W, H); }
+    $$('[data-bg-image-only]', form).forEach((el) => { el.hidden = fundo !== 'print'; });
+    const bgShot = imgs.desktop || imgs.mobile;
+    if (fundo === 'print') {
+      ctx.fillStyle = BRAND.escuro; ctx.fillRect(0, 0, W, H);
+      if (bgShot) drawBackdrop(ctx, bgShot, W, H, { blur: Number(form.elements.desfoque.value) * (W / 1080) * 0.9, tint: BRAND.escuro, dim: Number(form.elements.pelicula.value) / 100, fy: fy() });
+    } else if (fundo !== 'transparente') { ctx.fillStyle = fundo === 'custom' ? form.elements.fundo_custom.value : BG[fundo]; ctx.fillRect(0, 0, W, H); }
 
     const p = Math.round(Math.min(W, H) * pad);
     const boxW = W - p * 2, boxH = H - p * 2;
@@ -115,6 +123,7 @@ if (form) {
 
     if (form.elements.formas.checked) {
       const bgc = fundo === 'custom' ? form.elements.fundo_custom.value : BG[fundo] || BRAND.escuro;
+      // (no print desfocado a referência é o escuro da película)
       const pool = [BRAND.lima, BRAND.rosa, BRAND.roxo, BRAND.azul].filter((c) => c !== bgc && contrast(c, bgc) > 1.3);
       drawRect(ctx, pool[0], cx + cw * 0.92, cy + ch * 0.86, Math.max(W, H) * 0.42, Math.min(W, H) * 0.12, -11.8);
       drawRect(ctx, pool[1] || pool[0], cx + cw * 0.06, cy + ch * 0.12, Math.max(W, H) * 0.24, Math.min(W, H) * 0.07, 17.8);
@@ -129,6 +138,7 @@ if (form) {
       const ph = bh * comboPhoneH;
       phone(cx + cw - ph * PHONE, cy + ch - ph, ph, dark);
     }
+    applyGrain(ctx, W, H, Number(form.elements.grao.value));
     canvas.setAttribute('aria-label', `Prévia do mockup: ${mold === 'combo' ? 'navegador e celular' : mold}, ${W} por ${H} pixels`);
     savePrefs();
   });
@@ -158,15 +168,8 @@ if (form) {
   respLabel.textContent = `Respiro: ${form.elements.respiro.value}%`;
 
   const fileName = () => `mockup-${radioValue('moldura', form)}-${canvas.width}x${canvas.height}.png`;
-  $('[data-download]').addEventListener('click', async () => { await downloadCanvas(canvas, fileName()); say(status, 'Mockup baixado.'); });
-  const shareBtn = $('[data-share]');
-  if (canShareFiles()) {
-    shareBtn.hidden = false;
-    shareBtn.addEventListener('click', async () => {
-      try { if (!(await shareCanvas(canvas, fileName(), 'Feito em thiagoraphael.com.br/apps/mockup'))) await downloadCanvas(canvas, fileName()); }
-      catch { say(status, 'Não deu pra compartilhar. Baixe a imagem.', 4000); }
-    });
-  }
+  bindExport(canvas, { name: fileName, text: () => 'Feito em thiagoraphael.com.br/apps/mockup', status });
+  bindRangeLabels(form);
   render();
   fontsReady(['400 40px "Space Mono"', '700 40px "Space Mono"']).then(render);
 }

@@ -79,7 +79,7 @@ ${view(ctx, a)}
 <section class="container grid app-how" aria-labelledby="app-como">
   <h2 class="section-title__h col-label" id="app-como">${c.como}</h2>
   <ul class="col-main app-how__list" role="list">
-    ${a.como.map((it) => html`<li class="stack app-how__item"><h3 class="display t-title-m">${it.titulo}</h3><p class="t-body">${rich(it.texto)}</p></li>`)}
+    ${a.como.map((it) => html`<li class="stack app-how__item"><h3 class="display t-title-m">${it.titulo}</h3><p class="t-body">${it.texto}</p></li>`)}
   </ul>
   <p class="col-main label label--pink">${c.privacidade}</p>
 </section>

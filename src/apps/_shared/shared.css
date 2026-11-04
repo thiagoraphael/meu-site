@@ -95,7 +95,7 @@
 .thumbs__bar button:focus-visible { outline: var(--focus-width) solid var(--focus-ring); outline-offset: 0; }
 
 /* Painéis que trocam com as abas */
-[data-panel][hidden] { display: none; }
+[data-panel][hidden], [data-bg-image-only][hidden], .field[hidden] { display: none; }
 
 /* Botões pequenos de ícone/texto dentro das ferramentas */
 .mini-btn { display: inline-flex; align-items: center; justify-content: center; min-height: 40px; padding: 0 14px; border: var(--border-width) solid var(--tr-claro); background: transparent; color: var(--tr-claro); font: var(--weight-mono) var(--type-caption)/1 var(--font-mono); border-radius: var(--radius-none); }

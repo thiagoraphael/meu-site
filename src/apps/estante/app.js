@@ -36,26 +36,39 @@ if (form) {
 
   // Rascunho (só os textos; as imagens não são guardadas).
   const DRAFT = 'estante:draft';
-  const TEXTS = ['status', 'rotulo', 'titulo', 'autor', 'atual', 'total', 'unidade', 'nota', 'comentario', 'e_titulo', 'e_sub', 'q_texto', 'q_autor', 'q_obra', 'arroba'];
-  const RADIOS = ['modo', 'formato', 'tema', 'e_recorte'];
+  const TEXTS = ['desfoque', 'pelicula', 'grao', 'status', 'rotulo', 'titulo', 'autor', 'atual', 'total', 'unidade', 'nota', 'comentario', 'e_titulo', 'e_sub', 'q_texto', 'q_autor', 'q_obra', 'arroba'];
+  const RADIOS = ['modo', 'formato', 'tema', 'e_recorte', 'fundo_tipo'];
+  const CHECKS = { e_rank: false, assinatura: true, sombra: false, inclinar: false, formas: true };
   function loadDraft() {
     const d = store.get(DRAFT, null);
     if (!d) return;
     TEXTS.forEach((n) => { if (d[n] != null && form.elements[n]) form.elements[n].value = d[n]; });
     RADIOS.forEach((n) => d[n] && setRadio(n, d[n], form));
-    if (form.elements.e_rank) form.elements.e_rank.checked = !!d.e_rank;
-    if (form.elements.assinatura && d.assinatura === false) form.elements.assinatura.checked = false;
+    Object.keys(CHECKS).forEach((n) => { if (typeof d[n] === 'boolean' && form.elements[n]) form.elements[n].checked = d[n]; });
   }
   function saveDraft() {
     const d = {};
     TEXTS.forEach((n) => { d[n] = form.elements[n]?.value ?? ''; });
     RADIOS.forEach((n) => { d[n] = radioValue(n, form); });
-    d.e_rank = checked('e_rank');
-    d.assinatura = checked('assinatura');
+    Object.keys(CHECKS).forEach((n) => { d[n] = checked(n); });
     store.set(DRAFT, d);
   }
 
   // ---------- Desenho ----------
+  const deco = (colors, ...args) => { if (checked('formas')) drawRect(ctx, colors, ...args); };
+  // Capa com sombra e inclinação opcionais (gira em volta do centro).
+  function cover(img, ...args) {
+    const [dx, dy, dw, dh] = args.length === 4 ? args : args.slice(4);
+    withShadow(ctx, checked('sombra'), () => {
+      if (!checked('inclinar')) { ctx.drawImage(img, ...args); return; }
+      ctx.save();
+      ctx.translate(dx + dw / 2, dy + dh / 2);
+      ctx.rotate((-2.5 * Math.PI) / 180);
+      ctx.translate(-(dx + dw / 2), -(dy + dh / 2));
+      ctx.drawImage(img, ...args);
+      ctx.restore();
+    }, dw / 700);
+  }
   const font = (kind, size) => ({ display: `italic 900 ${size}px ${FONTS.display}`, mono: `700 ${size}px ${FONTS.mono}`, monoReg: `400 ${size}px ${FONTS.mono}`, monoIt: `italic 700 ${size}px ${FONTS.mono}`, body: `400 ${size}px ${FONTS.body}`, bodyStrong: `600 ${size}px ${FONTS.body}`, accent: `400 ${size}px ${FONTS.accent}` }[kind]);
 
   function chip(text, x, y, size, t) {
@@ -161,9 +174,9 @@ if (form) {
     const img = state.capa;
     const [cw, ch] = img ? containSize(img, coverW, areaH) : [coverW, Math.min(areaH, coverW * 1.5)];
     const cy = top + (areaH - ch) / 2;
-    drawRect(ctx, t.rects[0], P + cw * 0.6, cy + ch * 0.95, cw * 0.85, ch * 0.16, -11.8);
-    drawRect(ctx, t.rects[1], P + cw * 0.1, cy + ch * 0.05, cw * 0.5, ch * 0.09, 17.8);
-    if (img) ctx.drawImage(img, P + (coverW - cw) / 2, cy, cw, ch);
+    deco(t.rects[0], P + cw * 0.6, cy + ch * 0.95, cw * 0.85, ch * 0.16, -11.8);
+    deco(t.rects[1], P + cw * 0.1, cy + ch * 0.05, cw * 0.5, ch * 0.09, 17.8);
+    if (img) cover(img, P + (coverW - cw) / 2, cy, cw, ch);
     else placeholder(P, cy, cw, ch, t, 'Envie a capa');
 
     // Coluna de texto centralizada na altura da capa.
@@ -236,9 +249,9 @@ if (form) {
     const img = state.capa;
     const [cw, ch] = img ? containSize(img, maxW, coverBox) : [Math.min(maxW, coverBox * 2 / 3), coverBox];
     const cx = (W - cw) / 2;
-    drawRect(ctx, t.rects[0], cx + cw * 0.92, y + ch * 0.86, cw * 0.95, ch * 0.24, -11.8);
-    drawRect(ctx, t.rects[1], cx + cw * 0.04, y + ch * 0.1, cw * 0.5, ch * 0.12, 17.8);
-    if (img) ctx.drawImage(img, cx, y, cw, ch);
+    deco(t.rects[0], cx + cw * 0.92, y + ch * 0.86, cw * 0.95, ch * 0.24, -11.8);
+    deco(t.rects[1], cx + cw * 0.04, y + ch * 0.1, cw * 0.5, ch * 0.12, 17.8);
+    if (img) cover(img, cx, y, cw, ch);
     else placeholder(cx, y, cw, ch, t, 'Envie a capa');
     y += ch + (feed ? 34 : 50);
 
@@ -315,8 +328,8 @@ if (form) {
     const cellH = cellW * 1.5;
     const gridW = cols * cellW + (cols - 1) * gap, gridH = rows * cellH + (rows - 1) * gap;
     const gx = (W - gridW) / 2, gy = y + (areaH - gridH) / 2;
-    drawRect(ctx, t.rects[0], gx + gridW * 0.85, gy + gridH * 0.95, gridW * 0.7, cellH * 0.35, -11.8);
-    drawRect(ctx, t.rects[1], gx + gridW * 0.1, gy + gridH * 0.02, gridW * 0.4, cellH * 0.18, 17.8);
+    deco(t.rects[0], gx + gridW * 0.85, gy + gridH * 0.95, gridW * 0.7, cellH * 0.35, -11.8);
+    deco(t.rects[1], gx + gridW * 0.1, gy + gridH * 0.02, gridW * 0.4, cellH * 0.18, 17.8);
     const inteira = radioValue('e_recorte', form) === 'inteira';
     const rank = checked('e_rank');
     for (let i = 0; i < n; i++) {
@@ -327,8 +340,8 @@ if (form) {
       if (!it) { placeholder(x, yy, cellW, cellH, t, 'Adicione capas'); continue; }
       if (inteira) {
         const [w, h] = containSize(it.img, cellW, cellH);
-        ctx.drawImage(it.img, x + (cellW - w) / 2, yy + (cellH - h), w, h);
-      } else ctx.drawImage(it.img, ...coverRect(it.img, cellW, cellH), x, yy, cellW, cellH);
+        withShadow(ctx, checked('sombra'), () => ctx.drawImage(it.img, x + (cellW - w) / 2, yy + (cellH - h), w, h), cellW / 700);
+      } else withShadow(ctx, checked('sombra'), () => ctx.drawImage(it.img, ...coverRect(it.img, cellW, cellH), x, yy, cellW, cellH), cellW / 700);
       if (rank) {
         const s = Math.max(26, cellW * 0.14);
         ctx.font = font('display', s);
@@ -386,7 +399,7 @@ if (form) {
     let size = feed ? 104 : 120, lay;
     for (; size >= 40; size -= 4) { lay = quoteLayout(text, size, maxW); if (lay.lines.length * lay.lh <= availH) break; }
 
-    drawRect(ctx, t.rects[0], W - P * 0.6, top + markSize * 0.25, 420, 120, 17.8);
+    deco(t.rects[0], W - P * 0.6, top + markSize * 0.25, 420, 120, 17.8);
     ctx.fillStyle = t.accent;
     ctx.font = font('display', markSize);
     ctx.fillText('“', P - markSize * 0.06, top + markSize * 0.72);
@@ -409,8 +422,8 @@ if (form) {
       let x = P;
       if (qc) {
         const [w, h] = containSize(qc.img, metaH * 0.75, metaH);
-        drawRect(ctx, t.rects[1], P + w * 0.8, y + h * 0.85, w * 1.1, h * 0.2, -23.5);
-        ctx.drawImage(qc.img, P, y, w, h);
+        deco(t.rects[1], P + w * 0.8, y + h * 0.85, w * 1.1, h * 0.2, -23.5);
+        cover(qc.img, P, y, w, h);
         x = P + w + 36;
       }
       const ty = qc ? y + metaH / 2 - 10 : y + 40;
@@ -426,10 +439,16 @@ if (form) {
     const f = frame();
     if (canvas.width !== W || canvas.height !== f.H) { canvas.width = W; canvas.height = f.H; }
     const t = theme();
+    const mode = radioValue('modo', form);
     ctx.fillStyle = t.bg;
     ctx.fillRect(0, 0, W, f.H);
-    const mode = radioValue('modo', form);
+    // Capa no fundo: a do modo aberto (na estante, a primeira).
+    const bgImg = mode === 'capa' ? state.capa : mode === 'citacao' ? state.qCapa?.img : state.capas[0]?.img;
+    const useImg = radioValue('fundo_tipo', form) === 'imagem';
+    $$('[data-bg-image-only]', form).forEach((el) => { el.hidden = !useImg; });
+    if (useImg && bgImg) drawBackdrop(ctx, bgImg, W, f.H, { blur: Number(val('desfoque')) * 0.9, tint: t.bg, dim: Number(val('pelicula')) / 100 });
     const desc = mode === 'estante' ? drawEstante(f, t) : mode === 'citacao' ? drawCitacao(f, t) : drawCapa(f, t);
+    applyGrain(ctx, W, f.H, Number(val('grao')));
     canvas.setAttribute('aria-label', `Prévia do ${f.H > 1500 ? 'story' : 'post'}. ${desc}`);
     saveDraft();
   });
@@ -504,17 +523,10 @@ if (form) {
 
   // ---------- Exportar ----------
   const fileName = () => `estante-${radioValue('modo', form)}-${radioValue('formato', form)}.png`;
-  $('[data-download]').addEventListener('click', async () => { await downloadCanvas(canvas, fileName()); say(status, 'Imagem baixada.'); });
-  const shareBtn = $('[data-share]');
-  if (canShareFiles()) {
-    shareBtn.hidden = false;
-    shareBtn.addEventListener('click', async () => {
-      try { if (!(await shareCanvas(canvas, fileName(), 'Feito em thiagoraphael.com.br/apps/estante'))) await downloadCanvas(canvas, fileName()); }
-      catch { say(status, 'Não deu pra compartilhar. Baixe a imagem e poste pelo app.', 5000); }
-    });
-  }
+  bindExport(canvas, { name: fileName, text: () => 'Feito em thiagoraphael.com.br/apps/estante', status });
 
   loadDraft();
+  bindRangeLabels(form);
   bindTabs('modo', form, render);
   form.addEventListener('input', render);
   form.addEventListener('change', render);
