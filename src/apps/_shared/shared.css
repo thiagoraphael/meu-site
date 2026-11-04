@@ -50,7 +50,7 @@
 .range:focus-visible { outline: var(--focus-width) solid var(--focus-ring); outline-offset: 2px; }
 
 /* Segmentado: rádios com cara de pílula de filtro */
-.seg { display: flex; flex-wrap: wrap; gap: var(--space-2); margin: 0; padding: 0; border: 0; min-width: 0; }
+.seg { position: relative; display: flex; flex-wrap: wrap; gap: var(--space-2); margin: 0; padding: 0; border: 0; min-width: 0; }
 .seg > legend { width: 100%; }
 .seg__opt { position: relative; display: inline-flex; }
 .seg__opt input { position: absolute; inset: 0; opacity: 0; margin: 0; cursor: pointer; }
