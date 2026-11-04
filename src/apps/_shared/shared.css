@@ -115,3 +115,4 @@ html:not(.js) .tool { display: none; }
   .tool__stage canvas { max-height: 52vh; }
   .tool--paleta .tool__preview, .tool--input-first .tool__preview { order: 0; }
 }
+.tool__preview > .mini-btn, .tool__controls > .mini-btn { align-self: flex-start; }
