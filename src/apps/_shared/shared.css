@@ -113,5 +113,5 @@ html:not(.js) .tool { display: none; }
 @media (max-width: 1023px) {
   .tool__preview { order: -1; }
   .tool__stage canvas { max-height: 52vh; }
-  .tool--paleta .tool__preview { order: 0; }
+  .tool--paleta .tool__preview, .tool--input-first .tool__preview { order: 0; }
 }
