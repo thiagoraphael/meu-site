@@ -1,0 +1,14 @@
+/* Gráfico */
+.drop--sm { min-height: 64px; padding: var(--space-4); }
+.gr-series { display: flex; flex-wrap: wrap; gap: var(--space-2) var(--space-5); }
+.gr-series .check i { width: 14px; height: 14px; display: inline-block; flex: none; }
+.gr-tip { position: fixed; z-index: var(--z-overlay); pointer-events: none; padding: var(--space-3) var(--space-4); background: var(--tr-claro); color: var(--tr-escuro); font: 400 14px/1.45 var(--font-mono); max-width: 280px; }
+.gr-tip b { font-weight: var(--weight-mono); display: block; margin-bottom: 4px; }
+.gr-tip i { display: inline-block; width: 10px; height: 10px; margin-right: 6px; vertical-align: 0; }
+.gr-table { margin-top: var(--space-10); }
+.gr-table summary { cursor: pointer; min-height: 44px; display: flex; align-items: center; }
+.gr-table__wrap { overflow-x: auto; }
+.gr-table table { border-collapse: collapse; font: 400 var(--type-caption)/1.4 var(--font-mono); min-width: 100%; }
+.gr-table th, .gr-table td { padding: 8px 12px; border-bottom: 1px solid var(--line-subtle); text-align: right; white-space: nowrap; }
+.gr-table th:first-child, .gr-table td:first-child { text-align: left; }
+.gr-table th { color: var(--tr-lima); }
