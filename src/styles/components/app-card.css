@@ -1,0 +1,21 @@
+/* Card de app: arte 16:10 chapada, número + tipo, título Kanit, resumo e tags.
+   Mesma mecânica do card de projeto: link cobre o card, hover inclina a arte e pinta o título de lima. */
+.app-card { position: relative; display: flex; flex-direction: column; gap: var(--space-5); }
+.app-card__art { aspect-ratio: 16 / 10; overflow: hidden; background: var(--surface-raised); }
+.app-card__art svg { width: 100%; height: 100%; transition: transform var(--dur-slow) var(--ease-out); }
+.app-card__meta { display: flex; justify-content: space-between; align-items: baseline; gap: var(--space-4); }
+.app-card__type { color: var(--text-on-dark); }
+.app-card__title { color: var(--text-on-dark); transition: color var(--dur-fast) var(--ease-out); }
+.app-card__link { color: inherit; text-decoration: none; }
+.app-card__link .icon { display: inline-block; vertical-align: middle; margin-left: var(--space-2); transform: rotate(-45deg); }
+.app-card__link::after { content: ""; position: absolute; inset: 0; z-index: var(--z-content); }
+.app-card__link:focus-visible { outline: none; }
+.app-card:has(.app-card__link:focus-visible) { outline: var(--focus-width) solid var(--focus-ring); outline-offset: 4px; }
+.app-card:hover .app-card__title { color: var(--text-accent); }
+.app-card:hover .app-card__art svg { transform: scale(1.04) rotate(var(--hover-tilt)); }
+.app-card:active { transform: translateY(var(--press-shift)); }
+.app-card .tag-list { position: relative; }
+.app-card--compact { gap: var(--space-4); }
+
+.app-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 520px), 1fr)); gap: var(--space-18) var(--grid-gutter); }
+.app-grid--compact { grid-template-columns: repeat(auto-fill, minmax(min(100%, 280px), 1fr)); gap: var(--space-12) var(--grid-gutter); }

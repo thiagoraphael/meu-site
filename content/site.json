@@ -28,6 +28,7 @@
   },
   "nav": [
     { "id": "projetos", "label": "Projetos", "href": "/projetos/" },
+    { "id": "apps", "label": "Apps", "href": "/apps/" },
     { "id": "sobre", "label": "Sobre", "href": "/sobre/" },
     { "id": "blog", "label": "Blog", "href": "/blog/" },
     { "id": "contato", "label": "Contato", "href": "/#contato" }

@@ -1,0 +1,33 @@
+{
+  "ordem": 3,
+  "slug": "mockup",
+  "nome": "Mockup",
+  "tipo": "Web",
+  "cor": "roxo",
+  "rotulo": "Portfólio",
+  "h1": "Mockup",
+  "titulo": "Mockup: coloque seu print num celular ou navegador · Thiago Raphael",
+  "ogTitulo": "Seu print dentro de um celular ou navegador, em segundos",
+  "resumo": "Coloca um print dentro de um celular ou de uma janela de navegador, pronto pra portfólio, post ou apresentação.",
+  "lead": "Envie o print de um site ou app e baixe ele dentro de um celular ou de uma janela de navegador, no tamanho do post ou da apresentação.",
+  "tags": [
+    "Portfólio",
+    "UI",
+    "Mockup"
+  ],
+  "categoria": "DesignApplication",
+  "como": [
+    {
+      "titulo": "Molduras",
+      "texto": "Celular, navegador ou os dois juntos, com moldura clara ou escura."
+    },
+    {
+      "titulo": "Print comprido",
+      "texto": "Página que não cabe na tela? Ajuste qual parte do print aparece."
+    },
+    {
+      "titulo": "Tamanhos",
+      "texto": "Quadrado, feed, story, slide 16:9 ou do tamanho do print, com fundo de cor ou transparente."
+    }
+  ]
+}

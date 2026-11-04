@@ -4,7 +4,7 @@ import { html, raw, plain } from '../lib/html.mjs';
 /**
  * @param {object} ctx  contexto do build (site, assets)
  * @param {{ title:string, description:string, path:string, og?:string, ogAlt?:string, type?:string,
- *           noindex?:boolean, jsonLd?:object|object[], bodyClass?:string, preloadImage?:string,
+ *           noindex?:boolean, jsonLd?:object|object[], bodyClass?:string, preloadImage?:string, css?:string[], js?:string[],
  *           article?:{ published:string, section?:string, tags?:string[] } }} meta
  * @param {*} body
  */
@@ -54,14 +54,16 @@ ${meta.article ? html`<meta property="article:published_time" content="${meta.ar
 <link rel="alternate" type="application/rss+xml" title="Blog · ${site.nome}" href="${new URL('/blog/feed.xml', site.url).href}">
 <link rel="preload" href="/assets/fonts/kanit-latin-900-italic.woff2" as="font" type="font/woff2" crossorigin>
 ${meta.preloadImage ? raw(meta.preloadImage) : ''}
-<link rel="stylesheet" href="${assets.css}">
+<link rel="stylesheet" href="${assets.css}">${(meta.css || []).map((h) => html`
+<link rel="stylesheet" href="${h}">`)}
 <link rel="preconnect" href="https://use.typekit.net" crossorigin>
 <link rel="preconnect" href="https://p.typekit.net" crossorigin>
 <link rel="stylesheet" href="https://use.typekit.net/qdp6how.css" media="print" onload="this.media='all'">
 <noscript><link rel="stylesheet" href="https://use.typekit.net/qdp6how.css"></noscript>
 ${ld ? raw(`<script type="application/ld+json">${JSON.stringify(ld).replace(/</g, '\\u003c')}</script>`) : ''}
 <script>document.documentElement.classList.add('js')</script>
-<script src="${assets.js}" defer></script>
+<script src="${assets.js}" defer></script>${(meta.js || []).map((s) => html`
+<script src="${s}" defer></script>`)}
 ${an ? html`<script>window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };
 window.si = window.si || function () { (window.siq = window.siq || []).push(arguments); };</script>
 <script defer src="${an.webAnalytics}"></script>

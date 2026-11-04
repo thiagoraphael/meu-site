@@ -1,0 +1,14 @@
+{
+  "ordem": 5,
+  "slug": "tamagotchi",
+  "nome": "Tamagotchi da Produtividade",
+  "tipo": "Extensão",
+  "cor": "azul",
+  "resumo": "Um bichinho virtual no Chrome que reage aos seus hábitos de navegação. Fica feliz longe das distrações e triste quando elas passam da conta.",
+  "tags": [
+    "Extensão Chrome",
+    "Produtividade"
+  ],
+  "href": "https://chromewebstore.google.com/detail/tamagotchi-da-produtivida/njpmggaoedjeplgpjhkfnoaobhhlffad",
+  "cta": "Instalar no Chrome"
+}

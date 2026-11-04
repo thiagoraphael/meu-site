@@ -42,6 +42,18 @@ for (const f of await list('content/projetos')) {
 }
 projetos.sort((a, b) => a.ordem - b.ordem);
 
+// Apps: "Web" tem página própria em /apps/<slug>/ (src/apps/<slug>/), "Extensão" só aponta pra loja.
+const apps = [];
+for (const f of await list('content/apps')) {
+  if (!f.endsWith('.json')) continue;
+  const a = await readJson(`content/apps/${f}`);
+  a.slug ??= f.replace('.json', '');
+  a.web = a.tipo === 'Web';
+  a.url = a.web ? `/apps/${a.slug}/` : a.href;
+  apps.push(a);
+}
+apps.sort((a, b) => a.ordem - b.ordem);
+
 const posts = [];
 for (const f of await list('content/posts')) {
   if (!f.endsWith('.md')) continue;
@@ -104,11 +116,24 @@ await mkdir(join(OUT, 'assets/js'), { recursive: true });
 await writeFile(join(OUT, assets.css), css);
 await writeFile(join(OUT, assets.js), js);
 
+// CSS e JS de cada app web: base comum (src/apps/_shared) + o código do app, só na página dele.
+await mkdir(join(OUT, 'assets/apps'), { recursive: true });
+const readOpt = async (p) => (existsSync(join(ROOT, p)) ? readFile(join(ROOT, p), 'utf8') : '');
+const sharedCss = await readOpt('src/apps/_shared/shared.css');
+const sharedJs = await readOpt('src/apps/_shared/shared.js');
+for (const a of apps.filter((x) => x.web)) {
+  const aCss = `${sharedCss}\n${await readOpt(`src/apps/${a.slug}/app.css`)}`;
+  const aJs = `(() => {\n'use strict';\n${sharedJs}\n${await readOpt(`src/apps/${a.slug}/app.js`)}\n})();\n`;
+  a.assets = { css: `/assets/apps/${a.slug}.${hash(aCss)}.css`, js: `/assets/apps/${a.slug}.${hash(aJs)}.js` };
+  await writeFile(join(OUT, a.assets.css), aCss);
+  await writeFile(join(OUT, a.assets.js), aJs);
+}
+
 // ---------- Páginas ----------
 // Analytics da Vercel só no deploy (ou com FORCE_ANALYTICS=1), pra não sujar os números com testes locais.
 const analytics = process.env.VERCEL === '1' || process.env.FORCE_ANALYTICS ? site.analytics : null;
 const buildDate = new Date().toISOString().slice(0, 10);
-const ctx = { site, paginas, projetos, posts, scenes, assets, todo, markdownToHtml, analytics, buildDate };
+const ctx = { site, paginas, projetos, apps, posts, scenes, assets, todo, markdownToHtml, analytics, buildDate };
 const pageFiles = (await list('src/pages')).filter((f) => f.endsWith('.mjs') && !f.startsWith('_')).sort();
 const rotas = [];
 for (const f of pageFiles) {

@@ -1,0 +1,33 @@
+{
+  "ordem": 1,
+  "slug": "estante",
+  "nome": "Estante",
+  "tipo": "Web",
+  "cor": "rosa",
+  "rotulo": "Stories",
+  "h1": "Estante",
+  "titulo": "Estante: crie stories do que você lê, joga e assiste · Thiago Raphael",
+  "ogTitulo": "Stories do que você lê, joga e assiste",
+  "resumo": "Envie a capa e saia com um story pronto: o que você está lendo, a estante do mês ou uma citação favorita.",
+  "lead": "Envie a capa de um livro, HQ, jogo ou série e baixe um story pronto pra postar. A imagem é montada no seu aparelho e não vai pra nenhum servidor.",
+  "tags": [
+    "Stories",
+    "Instagram",
+    "Livros e jogos"
+  ],
+  "categoria": "DesignApplication",
+  "como": [
+    {
+      "titulo": "Capa",
+      "texto": "Uma capa, o título, o progresso e a sua nota. Serve pra livro, HQ, jogo, série, filme ou álbum."
+    },
+    {
+      "titulo": "Estante",
+      "texto": "Até 9 capas numa grade só. Bom pra fechar o mês ou montar um top 3."
+    },
+    {
+      "titulo": "Citação",
+      "texto": "A frase que ficou na cabeça, com autor e obra. Coloque uma palavra entre [[colchetes duplos]] pra destacar."
+    }
+  ]
+}

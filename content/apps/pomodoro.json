@@ -1,0 +1,33 @@
+{
+  "ordem": 4,
+  "slug": "pomodoro",
+  "nome": "Pomodoro",
+  "tipo": "Web",
+  "cor": "lima",
+  "rotulo": "Foco",
+  "h1": "Pomodoro",
+  "titulo": "Pomodoro online com tarefas, estatísticas e som ambiente · Thiago Raphael",
+  "ogTitulo": "Pomodoro com tarefas, estatísticas e som ambiente",
+  "resumo": "Timer de foco com lista de tarefas, histórico da semana, ruído pra concentrar e tela cheia. Funciona com a aba em segundo plano.",
+  "lead": "25 minutos de foco, 5 de pausa, e a cada quatro rodadas uma pausa maior. Ligue uma tarefa ao timer e acompanhe quanto você focou na semana.",
+  "tags": [
+    "Produtividade",
+    "Foco",
+    "Timer"
+  ],
+  "categoria": "ProductivityApplication",
+  "como": [
+    {
+      "titulo": "Tarefas",
+      "texto": "Cada tarefa conta quantos pomodoros levou. Marque a atual e o tempo vai pra ela."
+    },
+    {
+      "titulo": "Som ambiente",
+      "texto": "Ruído branco, rosa ou marrom gerado na hora, sem baixar nada."
+    },
+    {
+      "titulo": "Atalhos",
+      "texto": "Espaço inicia e pausa, R reinicia, S pula a etapa, F abre a tela cheia."
+    }
+  ]
+}

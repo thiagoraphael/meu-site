@@ -1,0 +1,33 @@
+{
+  "ordem": 2,
+  "slug": "paleta",
+  "nome": "Paleta",
+  "tipo": "Web",
+  "cor": "lima",
+  "rotulo": "Cores",
+  "h1": "Paleta",
+  "titulo": "Paleta: extraia as cores de uma imagem em CSS e Tailwind · Thiago Raphael",
+  "ogTitulo": "Tire as cores de qualquer imagem, já em CSS e Tailwind",
+  "resumo": "Tira as cores principais de uma imagem e entrega em CSS, Tailwind, SCSS ou JSON, com o contraste de cada uma.",
+  "lead": "Envie uma capa, um print ou uma foto e leve as cores principais em variáveis CSS, Tailwind, SCSS ou JSON. Clique na imagem pra pegar uma cor específica.",
+  "tags": [
+    "Design",
+    "CSS",
+    "Tailwind"
+  ],
+  "categoria": "DesignApplication",
+  "como": [
+    {
+      "titulo": "Extração",
+      "texto": "As cores são agrupadas por semelhança e ordenadas por quanto aparecem na imagem."
+    },
+    {
+      "titulo": "Conta-gotas",
+      "texto": "Clique em qualquer ponto da imagem pra adicionar aquela cor exata à paleta."
+    },
+    {
+      "titulo": "Contraste",
+      "texto": "Cada cor mostra a nota WCAG com texto branco e com texto preto, pra você saber onde dá pra escrever."
+    }
+  ]
+}
