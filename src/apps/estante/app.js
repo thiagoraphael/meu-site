@@ -36,7 +36,7 @@ if (form) {
 
   // Rascunho (só os textos; as imagens não são guardadas).
   const DRAFT = 'estante:draft';
-  const TEXTS = ['desfoque', 'pelicula', 'grao', 'status', 'rotulo', 'titulo', 'autor', 'atual', 'total', 'unidade', 'nota', 'comentario', 'e_titulo', 'e_sub', 'q_texto', 'q_autor', 'q_obra', 'arroba'];
+  const TEXTS = ['desfoque', 'pelicula', 'grao', 'tam_capa', 'cor_fundo', 'cor_destaque', 'status', 'rotulo', 'titulo', 'autor', 'atual', 'total', 'unidade', 'nota', 'comentario', 'e_titulo', 'e_sub', 'q_texto', 'q_autor', 'q_obra', 'arroba'];
   const RADIOS = ['modo', 'formato', 'tema', 'e_recorte', 'fundo_tipo'];
   const CHECKS = { e_rank: false, assinatura: true, sombra: false, inclinar: false, formas: true };
   function loadDraft() {
@@ -60,7 +60,7 @@ if (form) {
   function cover(img, ...args) {
     const [dx, dy, dw, dh] = args.length === 4 ? args : args.slice(4);
     withShadow(ctx, checked('sombra'), () => {
-      if (!checked('inclinar')) { ctx.drawImage(img, ...args); return; }
+      if (!checked('inclinar') || radioValue('modo', form) === 'estante') { ctx.drawImage(img, ...args); return; }
       ctx.save();
       ctx.translate(dx + dw / 2, dy + dh / 2);
       ctx.rotate((-2.5 * Math.PI) / 180);
@@ -127,7 +127,7 @@ if (form) {
   function placeholder(x, y, w, h, t, label) {
     ctx.fillStyle = t.empty;
     ctx.fillRect(x, y, w, h);
-    ctx.fillStyle = t.empty === BRAND.escuro || t.empty === BRAND.raised ? BRAND.muted : BRAND.escuro;
+    ctx.fillStyle = mix(t.empty, readableOn(t.empty), 0.5);
     ctx.font = font('mono', Math.max(22, Math.min(36, w / 9)));
     const lines = wrapLines(ctx, label, w - 40);
     lines.forEach((l, i) => { const lw = ctx.measureText(l).width; ctx.fillText(l, x + (w - lw) / 2, y + h / 2 + (i - (lines.length - 1) / 2) * 44); });
@@ -136,8 +136,24 @@ if (form) {
   // Margens: o story deixa espaço pra barra de perfil e pra caixa de resposta do Instagram.
   const frame = () => (radioValue('formato', form) === 'feed' ? { H: 1350, P: 80, top: 96, bottom: 96 } : { H: 1920, P: 88, top: 230, bottom: 250 });
 
+  // Mistura duas cores hex (k = quanto de b).
+  const mix = (a, b, k) => { const x = hexToRgb(a), y = hexToRgb(b); return rgbToHex(...x.map((v, i) => v + (y[i] - v) * k)); };
+  // Tema "minha cor": fundo e destaque escolhidos; texto, trilho e retângulos calculados pelo contraste.
+  function customTheme() {
+    const bg = val('cor_fundo') || BRAND.azul;
+    let accent = val('cor_destaque') || BRAND.lima;
+    const fg = readableOn(bg);
+    if (contrast(accent, bg) < 1.4) accent = fg;
+    const second = [BRAND.rosa, BRAND.roxo, BRAND.lima, BRAND.azul, BRAND.claro].filter((c) => c.toUpperCase() !== accent.toUpperCase()).sort((a, b) => contrast(b, bg) - contrast(a, bg))[0];
+    return { bg, fg, chipBg: accent, chipFg: readableOn(accent), accent, track: mix(bg, fg, 0.22), hl: accent, rects: [accent, second], empty: mix(bg, fg, 0.14) };
+  }
+
   function theme() {
     const v = radioValue('tema', form);
+    $('[data-custom-only]', form).hidden = v !== 'minha';
+    const sw = $('input[name="tema"][value="minha"] + span .seg__swatch', form);
+    if (sw) sw.style.background = val('cor_fundo') || BRAND.azul;
+    if (v === 'minha') return customTheme();
     if (v !== 'capa') return THEMES[v] || THEMES.escuro;
     const mode = radioValue('modo', form);
     const pal = mode === 'capa' ? state.capaPal : mode === 'citacao' ? state.qCapa?.pal : state.capas[0]?.pal;
@@ -172,12 +188,15 @@ if (form) {
     const textX = P + coverW + colGap, textW = W - P - textX;
     const areaH = H - top - bottom - footerH;
     const img = state.capa;
-    const [cw, ch] = img ? containSize(img, coverW, areaH) : [coverW, Math.min(areaH, coverW * 1.5)];
+    const k = Number(val('tam_capa') || 100) / 100;
+    const [cw0, ch0] = img ? containSize(img, coverW, areaH) : [coverW, Math.min(areaH, coverW * 1.5)];
+    const cw = cw0 * k, ch = ch0 * k;
     const cy = top + (areaH - ch) / 2;
-    deco(t.rects[0], P + cw * 0.6, cy + ch * 0.95, cw * 0.85, ch * 0.16, -11.8);
-    deco(t.rects[1], P + cw * 0.1, cy + ch * 0.05, cw * 0.5, ch * 0.09, 17.8);
+    const ox = P + (coverW - cw) / 2;
+    deco(t.rects[0], ox + cw * 0.6, cy + ch * 0.95, cw * 0.85, ch * 0.16, -11.8);
+    deco(t.rects[1], ox + cw * 0.1, cy + ch * 0.05, cw * 0.5, ch * 0.09, 17.8);
     if (img) cover(img, P + (coverW - cw) / 2, cy, cw, ch);
-    else placeholder(P, cy, cw, ch, t, 'Envie a capa');
+    else placeholder(P + (coverW - cw) / 2, cy, cw, ch, t, 'Envie a capa');
 
     // Coluna de texto centralizada na altura da capa.
     const blocks = [];
@@ -247,13 +266,16 @@ if (form) {
 
     // Capa (ou espaço reservado) centralizada, com dois retângulos da marca atrás.
     const img = state.capa;
-    const [cw, ch] = img ? containSize(img, maxW, coverBox) : [Math.min(maxW, coverBox * 2 / 3), coverBox];
-    const cx = (W - cw) / 2;
-    deco(t.rects[0], cx + cw * 0.92, y + ch * 0.86, cw * 0.95, ch * 0.24, -11.8);
-    deco(t.rects[1], cx + cw * 0.04, y + ch * 0.1, cw * 0.5, ch * 0.12, 17.8);
-    if (img) cover(img, cx, y, cw, ch);
-    else placeholder(cx, y, cw, ch, t, 'Envie a capa');
-    y += ch + (feed ? 34 : 50);
+    // Tamanho da capa: encolhe dentro do espaço dela, sem mexer na posição do texto.
+    const k = Number(val('tam_capa') || 100) / 100;
+    const [cw0, ch0] = img ? containSize(img, maxW, coverBox) : [Math.min(maxW, coverBox * 2 / 3), coverBox];
+    const cw = cw0 * k, ch = ch0 * k;
+    const cx = (W - cw) / 2, cyy = y + (ch0 - ch) / 2;
+    deco(t.rects[0], cx + cw * 0.92, cyy + ch * 0.86, cw * 0.95, ch * 0.24, -11.8);
+    deco(t.rects[1], cx + cw * 0.04, cyy + ch * 0.1, cw * 0.5, ch * 0.12, 17.8);
+    if (img) cover(img, cx, cyy, cw, ch);
+    else placeholder(cx, cyy, cw, ch, t, 'Envie a capa');
+    y += ch0 + (feed ? 34 : 50);
 
     ctx.fillStyle = t.fg;
     if (titleLines.length) {
@@ -329,7 +351,7 @@ if (form) {
     const gridW = cols * cellW + (cols - 1) * gap, gridH = rows * cellH + (rows - 1) * gap;
     const gx = (W - gridW) / 2, gy = y + (areaH - gridH) / 2;
     deco(t.rects[0], gx + gridW * 0.85, gy + gridH * 0.95, gridW * 0.7, cellH * 0.35, -11.8);
-    deco(t.rects[1], gx + gridW * 0.1, gy + gridH * 0.02, gridW * 0.4, cellH * 0.18, 17.8);
+    deco(t.rects[1], gx + cellW * 0.05, gy + gridH * 0.4, cellW * 0.9, cellH * 0.16, 17.8);
     const inteira = radioValue('e_recorte', form) === 'inteira';
     const rank = checked('e_rank');
     for (let i = 0; i < n; i++) {
@@ -446,6 +468,7 @@ if (form) {
     const bgImg = mode === 'capa' ? state.capa : mode === 'citacao' ? state.qCapa?.img : state.capas[0]?.img;
     const useImg = radioValue('fundo_tipo', form) === 'imagem';
     $$('[data-bg-image-only]', form).forEach((el) => { el.hidden = !useImg; });
+    $$('[data-hide-in]', form).forEach((el) => { el.hidden = el.dataset.hideIn === mode; });
     if (useImg && bgImg) drawBackdrop(ctx, bgImg, W, f.H, { blur: Number(val('desfoque')) * 0.9, tint: t.bg, dim: Number(val('pelicula')) / 100 });
     const desc = mode === 'estante' ? drawEstante(f, t) : mode === 'citacao' ? drawCitacao(f, t) : drawCapa(f, t);
     applyGrain(ctx, W, f.H, Number(val('grao')));
@@ -528,7 +551,7 @@ if (form) {
   loadDraft();
   bindRangeLabels(form);
   bindTabs('modo', form, render);
-  form.addEventListener('input', render);
+  form.addEventListener('input', (e) => { if (e.target.name === 'cor_fundo' || e.target.name === 'cor_destaque') setRadio('tema', 'minha', form); render(); });
   form.addEventListener('change', render);
   render();
   fontsReady([...['900 italic 40px Kanit', '700 40px "Space Mono"', '700 italic 40px "Space Mono"', '400 40px "Hanken Grotesk"'], '400 40px velzyland']).then(render);
