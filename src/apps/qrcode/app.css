@@ -1,0 +1,4 @@
+/* QR Code */
+.tool--qr .tool__stage canvas { image-rendering: pixelated; }
+[data-logo-only][hidden], [data-pix-code][hidden] { display: none; }
+.qr-info { font-family: var(--font-mono); font-size: var(--type-caption); color: var(--text-muted); }
