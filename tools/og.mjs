@@ -63,6 +63,13 @@ for (const f of await readdir(join(root, 'content/projetos'))) {
   const slug = p.slug || f.replace('.json', '');
   jobs.push([`og/projetos/${slug}.png`, modelo({ kicker: 'PROJETO', title: p.ogTitulo || p.nome, meta: 'thiagoraphael.com.br/projetos', c1: 'roxo', c2: 'lima' })]);
 }
+pg.apps = await json('content/paginas/apps.json');
+jobs.push(['og/apps.png', modelo({ kicker: 'APPS', title: 'Ferramentas grátis que rodam no navegador', meta: 'thiagoraphael.com.br/apps', c1: 'lima', c2: 'rosa' })]);
+for (const f of await readdir(join(root, 'content/apps'))) {
+  const a = await json(`content/apps/${f}`);
+  if (a.tipo !== 'Web') continue;
+  jobs.push([`og/apps/${a.slug}.png`, modelo({ kicker: `APP · ${a.nome.toUpperCase()}`, title: a.ogTitulo || a.nome, meta: `thiagoraphael.com.br/apps/${a.slug}`, c1: a.cor === 'lima' ? 'rosa' : a.cor, c2: 'lima' })]);
+}
 for (const f of await readdir(join(root, 'content/posts'))) {
   const { data, body } = parseFrontMatter(await readFile(join(root, 'content/posts', f), 'utf8'));
   jobs.push([`og/blog/${data.slug}.png`, modelo({ kicker: `BLOG · ${readingMinutes(body)} MIN`, title: data.titulo, meta: 'thiagoraphael.com.br/blog', c1: 'rosa', c2: 'lima' })]);
