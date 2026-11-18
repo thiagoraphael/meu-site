@@ -1,0 +1,89 @@
+{
+  "ordem": 2,
+  "nome": "Na Minha Tela",
+  "ogTitulo": "Na Minha Tela: a capa do que você lê, joga ou assiste vira story",
+  "ano": "2026",
+  "categoria": "Apps",
+  "resumo": "Site que transforma a capa do livro, jogo, série ou HQ em story pronto para postar. Tudo roda no navegador, sem servidor.",
+  "tags": [
+    "Produto",
+    "Marca",
+    "Front-end",
+    "Canvas"
+  ],
+  "thumb": "nmt-capa",
+  "intro": "Site que transforma a capa do livro, jogo, série ou HQ em story pronto para postar.",
+  "ficha": [
+    {
+      "k": "Tipo",
+      "v": "Ferramenta web"
+    },
+    {
+      "k": "Ano",
+      "v": "2026"
+    },
+    {
+      "k": "Meu papel",
+      "v": "Produto, identidade visual, UI e front-end"
+    },
+    {
+      "k": "Stack",
+      "v": "HTML, CSS, JavaScript, Canvas 2D, Node, Vercel"
+    },
+    {
+      "k": "No ar",
+      "v": "naminhatela.com.br",
+      "href": "https://www.naminhatela.com.br/"
+    }
+  ],
+  "capa": {
+    "img": "nmt-capa",
+    "alt": "Página inicial do Na Minha Tela no navegador, ao lado de dois stories gerados: um de capa com progresso e nota, outro de citação em fundo rosa"
+  },
+  "blocos": [
+    {
+      "titulo": "O problema",
+      "lead": "Postar a capa dava mais trabalho do que devia.",
+      "texto": "Postar o que eu tava lendo ou jogando sempre dava mais trabalho do que devia. Era print da capa, recorte, texto por cima, e o resultado nunca ficava do jeito que eu queria. Então fiz uma ferramenta pra isso."
+    },
+    {
+      "titulo": "O produto",
+      "lead": "Três formatos e a prévia mudando na hora.",
+      "texto": "O Na Minha Tela monta stories e posts a partir da capa. Você envia a imagem, escolhe entre três formatos (Capa, Estante com até 9 capas, ou Citação) e ajusta status, progresso, nota, cores, alinhamento e efeitos como desfoque, película e granulado. A prévia muda na hora, e no fim dá pra baixar, copiar ou compartilhar direto do celular, em story 9:16 ou feed 4:5."
+    },
+    {
+      "titulo": "Identidade",
+      "lead": "De app no meu site a produto com marca própria.",
+      "texto": "Comecei como um app dentro do meu site e depois separei num produto com nome, domínio e identidade próprios. Desenhei a marca do zero: o logo numa moldura com um ponto amarelo, uma paleta escura com amarelo, coral e azul, e a dupla Bricolage Grotesque com IBM Plex Mono."
+    },
+    {
+      "titulo": "Por baixo",
+      "lead": "Canvas no navegador, nenhum servidor.",
+      "texto": "A imagem é montada com Canvas 2D direto no navegador. Nada é enviado pra servidor e não tem cadastro. O site é HTML, CSS e JavaScript sem nenhuma dependência, com um build estático em Node e deploy na Vercel. O projeto se mantém com um Pix opcional, sem anúncio."
+    }
+  ],
+  "galeria": [
+    {
+      "img": "nmt-inicio",
+      "alt": "Início do site: logo na minha tela, botão Pagar um café, título Mostra o que tá na sua tela e as abas Capa, Estante e Citação",
+      "ratio": "1600/860"
+    },
+    {
+      "img": "nmt-ferramenta",
+      "alt": "Ferramenta com os campos de status, título e autor à esquerda e a prévia do story à direita, com os botões Baixar PNG, Copiar imagem e Compartilhar",
+      "ratio": "1600/860"
+    },
+    {
+      "img": "nmt-resultados",
+      "alt": "Dois stories gerados: O Longo Inverno com capa desfocada no fundo, progresso e nota 4,5, e uma citação em fundo rosa com a palavra desacelera em destaque",
+      "ratio": "16/10",
+      "largo": true
+    },
+    {
+      "img": "nmt-identidade",
+      "alt": "Identidade visual: logo na minha tela com ponto amarelo, paleta Noite, Tela, Papel, Sinal, Coral e Azul, e as fontes Bricolage Grotesque e IBM Plex Mono",
+      "ratio": "16/10",
+      "largo": true
+    }
+  ]
+}
