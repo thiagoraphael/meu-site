@@ -40,7 +40,7 @@ ${p.blocos.map((b, j) => html`<section class="container project-block" aria-labe
 </section>`)}
 
 ${p.galeria?.length ? html`<section class="container project-gallery" aria-label="Galeria de telas">
-  ${p.galeria.map((g) => Picture({ name: g.img, alt: g.alt, ratio: g.ratio, sizes: '(min-width: 768px) 50vw, 100vw', className: g.ratio === '9/16' ? 'project-gallery__tall' : '' }))}
+  ${p.galeria.map((g) => Picture({ name: g.img, alt: g.alt, ratio: g.ratio, className: g.largo ? 'project-gallery__wide' : g.ratio === '9/16' ? 'project-gallery__tall' : '', sizes: g.largo ? '(min-width: 1392px) 1272px, 100vw' : '(min-width: 768px) 50vw, 100vw' }))}
 </section>` : ''}
 
 <section class="container project-next" aria-label="Próximo projeto">

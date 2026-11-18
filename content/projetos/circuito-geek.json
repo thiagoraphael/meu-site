@@ -1,21 +1,22 @@
 {
   "ordem": 1,
   "nome": "Circuito Geek",
-  "ogTitulo": "Circuito Geek: notícias geek que abrem rápido no celular",
+  "ogTitulo": "Circuito Geek: portal e evento geek de Minas Gerais, do código à pauta",
   "ano": "2026",
   "categoria": "Sites",
-  "resumo": "Site de notícias geek com pauta diária, leitura rápida no celular e um painel pra publicar sem enrolação.",
+  "resumo": "Portal de notícias, reviews e agenda geek de Minas Gerais, com CMS próprio. Cuido do front-end, dos dados e do conteúdo.",
   "tags": [
-    "Site de notícias",
-    "UI",
-    "Front-end"
+    "Portal de notícias",
+    "CMS",
+    "Front-end",
+    "Conteúdo"
   ],
-  "thumb": "thumb-circuito-geek",
-  "intro": "Um site de notícias geek que precisava abrir rápido no celular e deixar a redação publicar sem depender de ninguém.",
+  "thumb": "cg-capa",
+  "intro": "Portal e evento geek de Minas Gerais, do código à pauta.",
   "ficha": [
     {
       "k": "Tipo",
-      "v": "Site de notícias"
+      "v": "Portal de notícias e evento"
     },
     {
       "k": "Ano",
@@ -23,11 +24,11 @@
     },
     {
       "k": "Meu papel",
-      "v": "UI design, front-end e deploy"
+      "v": "Front-end do site e do CMS, modelagem dos dados e produção de conteúdo"
     },
     {
       "k": "Stack",
-      "v": "Figma, HTML, CSS, JavaScript"
+      "v": "Next.js, React, TypeScript, Tailwind, Supabase, Tiptap, Vercel"
     },
     {
       "k": "No ar",
@@ -36,52 +37,61 @@
     }
   ],
   "capa": {
-    "img": "thumb-circuito-geek",
-    "alt": "Home do Circuito Geek com o banner do Radar Geek e a seção Bombando agora"
+    "img": "cg-capa",
+    "alt": "Capa do case Circuito Geek: home do portal no desktop e no celular, com a stack Next.js, Supabase e Tiptap"
   },
   "blocos": [
     {
-      "titulo": "Desafio",
-      "lead": "Notícia boa é notícia que abre rápido.",
-      "texto": "A maior parte da audiência chega pelo celular, vinda de rede social. O site precisava carregar em poucos segundos, ser fácil de ler e permitir que a redação publicasse sozinha."
+      "titulo": "O projeto",
+      "lead": "De site de evento a portal geek.",
+      "texto": "O Circuito Geek começou como site de um evento geek em Barbacena e virou um portal de notícias, reviews e agenda de games, animes, cinema, séries, tech e HQs. Eu cuido de três frentes: o front-end do site e do CMS, a modelagem dos dados e a produção de conteúdo, entre matérias, reels e posts."
     },
     {
-      "titulo": "Processo",
-      "lead": "Do rascunho no Figma ao site no ar.",
-      "texto": "Comecei pela página de notícia, que é onde as pessoas passam mais tempo. Depois vieram a home, as categorias e o painel. Cada tela foi desenhada e codada em sequência, sem retrabalho entre layout e código."
+      "titulo": "Stack",
+      "lead": "Next.js, Supabase e um CMS próprio.",
+      "texto": "O site é feito em Next.js 16, React 19, TypeScript e Tailwind v4, com Supabase como banco, autenticação e storage, e deploy na Vercel. As matérias são escritas num CMS próprio, em /studio, com editor Tiptap, embeds de X e Instagram e blocos de review com nota, veredito, prós, contras e ficha técnica."
     },
     {
-      "titulo": "Resultado",
-      "lead": "Leitura limpa e publicação sem atrito.",
-      "texto": "Páginas leves, tipografia pensada para leitura longa e um fluxo de publicação curto."
+      "titulo": "Quem publica",
+      "lead": "Quatro papéis, com a regra no banco.",
+      "texto": "Dois problemas definiram boa parte do trabalho. O primeiro foi o controle de quem publica: criei quatro papéis, com regras no próprio banco (RLS), de modo que colaborador e redator só enviam para revisão e apenas editor-chefe e admin publicam."
+    },
+    {
+      "titulo": "Imagens",
+      "lead": "De capas de 9 MB a três tamanhos certos.",
+      "texto": "O segundo foi o peso das imagens, com capas de cerca de 9 MB estourando a cota do Supabase. Hoje o CMS comprime no envio e gera três tamanhos (1920, 960 e 480 px), e o site usa o menor possível em cada lugar."
+    },
+    {
+      "titulo": "Próximo passo",
+      "lead": "Radar Geek pras notícias, Circuito Geek pro evento.",
+      "texto": "O próximo passo é separar as notícias num site próprio, o Radar Geek, com o mesmo banco e o mesmo CMS, deixando o Circuito Geek só para o evento. A 2ª edição acontece em 17 de abril de 2027, no Mercado Central de Barbacena."
     }
   ],
   "galeria": [
     {
-      "img": null,
-      "alt": "Tela da página de notícia",
+      "img": "cg-cms",
+      "alt": "Editor de artigos do CMS em /studio: título, barra do Tiptap com embeds de X e Instagram, status de publicação, categorias, autor e capa",
+      "ratio": "16/9",
+      "largo": true
+    },
+    {
+      "img": "cg-noticias",
+      "alt": "Página de notícias com filtros por editoria e grade de cards com capa, categoria, título e resumo",
       "ratio": "4/3"
     },
     {
-      "img": null,
-      "alt": "Tela do painel de publicação",
+      "img": "cg-materia",
+      "alt": "Matéria sobre Robert Pattinson como novo James Bond, com categoria, linha fina, autor e foto de capa",
       "ratio": "4/3"
     },
     {
-      "img": null,
-      "alt": "Home no celular",
-      "ratio": "9/16"
-    },
-    {
-      "img": null,
-      "alt": "Leitura de notícia no celular",
-      "ratio": "9/16"
+      "img": "cg-agenda",
+      "alt": "Agenda Rolê geek em Minas, com a 2ª edição do Circuito Geek em 17 de abril em destaque e as edições anteriores",
+      "ratio": "16/9",
+      "largo": true
     }
   ],
   "todo": [
-    "As 4 telas da galeria (página de notícia, painel, home e leitura no celular)",
-    "Números reais no bloco Resultado (tempo de carregamento, audiência, posts por semana etc.)",
-    "Confirmar a Stack: a referência diz Figma, HTML, CSS e JavaScript, mas o site no ar roda em Next.js com Sanity",
-    "Print da home em resolução maior (o atual tem 1094 px de largura e fica um pouco mole na capa larga)"
+    "Números reais de audiência ou desempenho, se quiser mostrar resultado (visitas, tempo de carregamento, matérias por semana)"
   ]
 }
