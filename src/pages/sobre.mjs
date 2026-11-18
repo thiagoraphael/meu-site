@@ -5,7 +5,7 @@ import { Retangulos } from '../components/RotatedRect.mjs';
 import { Button } from '../components/Button.mjs';
 import { SectionTitle } from '../components/SectionTitle.mjs';
 import { TagList } from '../components/Tag.mjs';
-import { Picture } from '../components/Picture.mjs';
+import { Picture, imageUrl } from '../components/Picture.mjs';
 
 export default function sobre(ctx) {
   const { site, paginas, scenes } = ctx;
@@ -59,7 +59,7 @@ export default function sobre(ctx) {
           '@type': 'ProfilePage',
           url: `${ctx.site.url}/sobre/`,
           inLanguage: 'pt-BR',
-          mainEntity: { '@type': 'Person', '@id': `${ctx.site.url}/#thiago`, name: ctx.site.nome, url: `${ctx.site.url}/`, image: `${ctx.site.url}/assets/img/${ctx.site.autor.foto}-800.webp`, sameAs: ctx.site.social.map((s) => s.href) },
+          mainEntity: { '@type': 'Person', '@id': `${ctx.site.url}/#thiago`, name: ctx.site.nome, url: `${ctx.site.url}/`, image: `${ctx.site.url}${imageUrl(ctx.site.autor.foto)}`, sameAs: ctx.site.social.map((s) => s.href) },
         },
         breadcrumb(ctx.site, [['Sobre', '/sobre/']]),
       ] }, main }),

@@ -1,5 +1,6 @@
 {
   "cg-agenda": {
+    "v": "b27e6bc3",
     "width": 1920,
     "height": 1080,
     "widths": [
@@ -14,6 +15,7 @@
     ]
   },
   "cg-capa": {
+    "v": "609ab687",
     "width": 1920,
     "height": 1200,
     "widths": [
@@ -28,6 +30,7 @@
     ]
   },
   "cg-cms": {
+    "v": "3c845bfa",
     "width": 1920,
     "height": 1080,
     "widths": [
@@ -42,6 +45,7 @@
     ]
   },
   "cg-materia": {
+    "v": "94c05568",
     "width": 1320,
     "height": 990,
     "widths": [
@@ -55,6 +59,7 @@
     ]
   },
   "cg-noticias": {
+    "v": "5f341bfb",
     "width": 1213,
     "height": 910,
     "widths": [
@@ -67,6 +72,7 @@
     ]
   },
   "nmt-capa": {
+    "v": "d081817c",
     "width": 1600,
     "height": 1000,
     "widths": [
@@ -80,6 +86,7 @@
     ]
   },
   "nmt-ferramenta": {
+    "v": "12446152",
     "width": 1600,
     "height": 860,
     "widths": [
@@ -93,6 +100,7 @@
     ]
   },
   "nmt-identidade": {
+    "v": "6143334b",
     "width": 1600,
     "height": 1000,
     "widths": [
@@ -106,6 +114,7 @@
     ]
   },
   "nmt-inicio": {
+    "v": "90e35a4d",
     "width": 1600,
     "height": 860,
     "widths": [
@@ -119,6 +128,7 @@
     ]
   },
   "nmt-resultados": {
+    "v": "55ed9c2c",
     "width": 1600,
     "height": 1000,
     "widths": [
@@ -132,6 +142,7 @@
     ]
   },
   "post-da-estrutura-a-vida": {
+    "v": "24478156",
     "width": 1416,
     "height": 612,
     "widths": [
@@ -145,6 +156,7 @@
     ]
   },
   "post-do-moodboard-ao-esqueleto": {
+    "v": "51b3b291",
     "width": 800,
     "height": 500,
     "widths": [
@@ -155,6 +167,7 @@
     ]
   },
   "post-ia-na-detecao-de-fraturas": {
+    "v": "37e3261a",
     "width": 800,
     "height": 384,
     "widths": [
@@ -165,6 +178,7 @@
     ]
   },
   "thiago-portrait": {
+    "v": "5af5acaa",
     "width": 1080,
     "height": 1440,
     "widths": [
@@ -176,6 +190,7 @@
     ]
   },
   "thumb-circuito-geek": {
+    "v": "c3b042fa",
     "width": 1094,
     "height": 830,
     "widths": [
@@ -188,6 +203,7 @@
     ]
   },
   "thumb-quero-um-pet": {
+    "v": "affd8d31",
     "width": 1440,
     "height": 947,
     "widths": [

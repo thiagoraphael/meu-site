@@ -6,7 +6,7 @@ import { Button } from '../components/Button.mjs';
 import { SectionTitle } from '../components/SectionTitle.mjs';
 import { ProjectCard } from '../components/ProjectCard.mjs';
 import { BlogPostCard } from '../components/BlogPostCard.mjs';
-import { Picture } from '../components/Picture.mjs';
+import { Picture, imageUrl } from '../components/Picture.mjs';
 
 export default function home(ctx) {
   const { site, paginas, projetos, posts, scenes } = ctx;
@@ -102,7 +102,7 @@ export default function home(ctx) {
             '@id': `${site.url}/#thiago`,
             name: site.nome,
             url: `${site.url}/`,
-            image: `${site.url}/assets/img/${site.autor.foto}-800.webp`,
+            image: `${site.url}${imageUrl(site.autor.foto)}`,
             email: `mailto:${site.email}`,
             jobTitle: 'Desenvolvedor front-end e designer UI/UX',
             knowsAbout: ['Desenvolvimento front-end', 'UI/UX', 'Figma', 'React', 'React Native', 'Análise de dados'],
