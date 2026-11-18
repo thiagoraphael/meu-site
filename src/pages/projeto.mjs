@@ -28,7 +28,7 @@ export default function projeto(ctx) {
 </section>
 
 <div class="container project-cover">
-  ${Picture({ name: p.capa?.img, alt: p.capa?.alt || `Capa do projeto ${p.nome}`, ratio: '16/9', sizes: '(min-width: 1392px) 1272px, 100vw', eager: true })}
+  ${Picture({ name: p.capa?.img, alt: p.capa?.alt || `Capa do projeto ${p.nome}`, ratio: 'auto', sizes: '(min-width: 1392px) 1272px, 100vw', eager: true })}
 </div>
 
 ${p.blocos.map((b, j) => html`<section class="container project-block" aria-labelledby="bloco-${j + 1}">
